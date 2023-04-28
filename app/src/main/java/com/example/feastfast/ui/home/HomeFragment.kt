@@ -28,5 +28,9 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        binding!!.button.setOnClickListener {
+            val loginActivity= Intent(requireActivity() ,LoginActivity::class.java)
+            requireActivity().startActivity(loginActivity)
+        }
     }
 }
