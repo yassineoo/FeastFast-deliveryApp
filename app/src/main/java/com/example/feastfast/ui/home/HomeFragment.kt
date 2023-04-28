@@ -8,42 +8,25 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import com.example.feastfast.databinding.FragmentExploreBinding
 import com.example.feastfast.databinding.FragmentHomeBinding
 import com.example.feastfast.ui.login.LoginActivity
 
 
 class HomeFragment : Fragment() {
 
-    private var _binding: FragmentHomeBinding? = null
-
-    // This property is only valid between onCreateView and
-    // onDestroyView.
-    private val binding get() = _binding!!
-
+    var binding : FragmentHomeBinding? = null
     override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
+        inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View {
-        val homeViewModel =
-            ViewModelProvider(this).get(HomeViewModel::class.java)
-
-        _binding = FragmentHomeBinding.inflate(inflater, container, false)
-        val root: View = binding.root
-
-        binding.button.setOnClickListener {
-            val secondActivityIntent = Intent(
-                requireActivity(),
-                LoginActivity::class.java
-            )
-            startActivity(secondActivityIntent)
-        }
-
-        return root
+    ): View? {
+        binding = FragmentHomeBinding.inflate(inflater,container,false)
+        val view = binding!!.root
+        // Inflate the layout for this fragment
+        return view
     }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
     }
 }
