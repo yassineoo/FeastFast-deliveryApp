@@ -1,14 +1,17 @@
 package com.example.feastfast.ui.home
 
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.feastfast.databinding.FragmentExploreBinding
 import com.example.feastfast.databinding.FragmentHomeBinding
+import com.example.feastfast.ui.login.LoginActivity
+
 
 class HomeFragment : Fragment() {
 
@@ -19,8 +22,6 @@ class HomeFragment : Fragment() {
     ): View? {
         binding = FragmentHomeBinding.inflate(inflater,container,false)
         val view = binding!!.root
-
-
         // Inflate the layout for this fragment
         return view
     }

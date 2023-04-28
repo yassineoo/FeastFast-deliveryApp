@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.login.signupFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+
+        <TextView
+            android:id="@+id/becomeMember"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="132dp"
+            android:text="Become a Member !"
+            android:textColor="#FF9800"
+            android:textSize="28sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/nameBorder"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/input_border"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/nsmeInput" />
+
+        <ImageView
+            android:id="@+id/passwordBorder"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/input_border"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/passwordInput" />
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/passwordInput"
+            android:layout_width="371dp"
+            android:layout_height="54dp"
+            android:hint="Enter your password"
+            android:inputType="textPassword"
+            android:paddingLeft="12sp"
+            android:textColorHint="#444444"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.4"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/passwordLabel" />
+
+        <TextView
+            android:id="@+id/emailLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Emali"
+            android:textColor="#000000"
+            android:textColorHint="#000000"
+            app:layout_constraintStart_toStartOf="@+id/fullName"
+            app:layout_constraintTop_toBottomOf="@+id/nsmeInput" />
+
+        <TextView
+            android:id="@+id/passwordLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:text="password"
+            android:textColor="#000000"
+            app:layout_constraintStart_toStartOf="@+id/emailLabel"
+            app:layout_constraintTop_toBottomOf="@+id/emailInput" />
+
+        <TextView
+            android:id="@+id/signupLink"
+            android:layout_width="271dp"
+            android:layout_height="54dp"
+            android:layout_marginTop="56dp"
+            android:fontFamily="monospace"
+            android:text="you Already  have an account ? Log in now"
+            android:textColor="#444444"
+            android:textSize="19sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/loginAction" />
+
+        <Button
+            android:id="@+id/loginAction"
+            android:layout_width="308dp"
+            android:layout_height="52dp"
+            android:layout_marginTop="50dp"
+            android:background="@drawable/selceted_rounded_button"
+            android:text="Sign Up"
+            app:backgroundTint="@null"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.495"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/passwordInput" />
+
+        <ImageView
+            android:id="@+id/emailBorder"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/input_border"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/emailLabel" />
+
+        <EditText
+            android:id="@+id/emailInput"
+            android:layout_width="370dp"
+            android:layout_height="52dp"
+            android:ems="10"
+            android:hint="Enter your email"
+            android:inputType="textEmailAddress"
+            android:paddingLeft="12sp"
+            android:textColorHint="#444444"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.444"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/emailLabel" />
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/nsmeInput"
+            android:layout_width="371dp"
+            android:layout_height="54dp"
+            android:layout_marginTop="3dp"
+            android:hint="Enter your email"
+            android:paddingLeft="12sp"
+            android:textColorHint="#444444"
+            app:layout_constraintEnd_toEndOf="@+id/nameBorder"
+            app:layout_constraintHorizontal_bias="0.4"
+            app:layout_constraintStart_toStartOf="@+id/nameBorder"
+            app:layout_constraintTop_toBottomOf="@+id/fullName" />
+
+        <TextView
+            android:id="@+id/fullName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="32dp"
+            android:text="Full Name"
+            android:textColor="#000000"
+            android:textColorHint="#000000"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/becomeMember" />
+
+        <ImageView
+            android:id="@+id/fbIcon"
+            android:layout_width="50dp"
+            android:layout_height="42dp"
+            android:layout_marginStart="92dp"
+            android:layout_marginTop="60dp"
+            android:src="@drawable/facebook_icon"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/or" />
+
+        <View
+            android:id="@+id/my_left_line"
+            android:layout_width="180dp"
+            android:layout_height="12dp"
+            android:layout_marginStart="4dp"
+            android:background="@drawable/my_line_drawable"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/my_right_line" />
+
+        <View
+            android:id="@+id/my_right_line"
+            android:layout_width="180dp"
+            android:layout_height="12dp"
+            android:layout_marginStart="232dp"
+            android:layout_marginTop="48dp"
+            android:background="@drawable/my_line_drawable"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/signupLink" />
+
+        <ImageView
+            android:id="@+id/googleIcon"
+            android:layout_width="48dp"
+            android:layout_height="44dp"
+            android:src="@drawable/google_icon"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.515"
+            app:layout_constraintStart_toEndOf="@+id/fbIcon"
+            app:layout_constraintTop_toTopOf="@+id/fbIcon" />
+
+        <TextView
+            android:id="@+id/or"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="11dp"
+            android:layout_marginEnd="13dp"
+            android:text="OR"
+            android:textColor="#150000"
+            android:textSize="18sp"
+            app:layout_constraintBaseline_toBaselineOf="@+id/my_right_line"
+            app:layout_constraintEnd_toStartOf="@+id/my_right_line"
+            app:layout_constraintStart_toEndOf="@+id/my_left_line" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</FrameLayout>
