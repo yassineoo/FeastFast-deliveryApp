@@ -12,4 +12,9 @@
     <color name="place_holder">#B5B0B0</color>
     <color name="input_base_line">#A6A6A6</color>
     <color name="WelcomTitle">#000000</color>
+    <color name="DeliveryFee">#4C2F1B</color>
+    <color name="DeliveryFeeText">#9C9C9C</color>
+    <color name="DeliveryBlue">#5DA3C0</color>
+    <color name="resInfoText">#B5B0B0</color>
+
 </resources>
