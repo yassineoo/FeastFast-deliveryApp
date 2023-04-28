@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.findNavController
+import androidx.viewpager2.widget.ViewPager2
 import com.example.feastfast.R
 import com.example.feastfast.databinding.FragmentLoginBinding
 import com.example.feastfast.databinding.FragmentWelcomBinding
@@ -39,11 +40,11 @@ class loginFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding?.signupLink?.setOnClickListener{
-            it.findNavController().navigate(R.id.action_loginFragment_to_signupFragment)
-        }
+
 
 
 
     }
+
+
 }

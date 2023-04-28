@@ -5,9 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.navigation.findNavController
-import com.example.feastfast.R
-import com.example.feastfast.databinding.FragmentLoginBinding
+
 import com.example.feastfast.databinding.FragmentSignupBinding
 
 // TODO: Rename parameter arguments, choose names that match
@@ -37,9 +35,7 @@ class signupFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding?.signupLink?.setOnClickListener{
-            it.findNavController().navigate(R.id.action_signupFragment_to_loginFragment)
-        }
+
 
 
 

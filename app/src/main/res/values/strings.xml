@@ -22,4 +22,14 @@
 
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="fullNamePlaceHolder">Full Name</string>
+    <string name="phoneNumberPlaceHolder">Phone Number</string>
+    <string name="emailPlaceHolder">Email Adress</string>
+    <string name="passwordPlaceHolder">Password</string>
+    <string name="forgotPassword">Forgot Password ?</string>
+    <string name="rememberMe">Remember Me</string>
+    <string name="terms">By using Feast Fast you agree on our terms and privacy policy</string>
+
+
+
 </resources>
