@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.feastfast.databinding.FragmentHomeBinding
+import com.example.feastfast.ui.login.LoginActivity
 import com.example.feastfast.ui.restaurant.RestaurantActivity
 
 
@@ -27,6 +28,11 @@ class HomeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         binding!!.button.setOnClickListener {
             val intent = Intent(requireActivity(),RestaurantActivity::class.java)
+            intent.putExtra("Username", "John Doe")
+            requireActivity().startActivity(intent)
+        }
+        binding!!.loginbtn.setOnClickListener {
+            val intent = Intent(requireActivity(),LoginActivity::class.java)
             intent.putExtra("Username", "John Doe")
             requireActivity().startActivity(intent)
         }

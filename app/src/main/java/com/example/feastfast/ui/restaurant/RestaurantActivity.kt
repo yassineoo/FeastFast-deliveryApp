@@ -48,17 +48,24 @@ class RestaurantActivity : AppCompatActivity() {
             }
         })
 
-        binding.resLogo.setOnClickListener {
+        binding!!.resLogo.setOnClickListener {
             val intent = Intent(this,CartActivity::class.java)
             this.startActivity(intent)
+            print("print('somthing')")
+
         }
-        binding.floatingCartButton.setOnClickListener {
+        binding!!.floatingCartButton.setOnClickListener {
             val intent = Intent(this,CartActivity::class.java)
             this.startActivity(intent)
+            print("print('somthing')")
+
         }
+
+
+
         binding!!.gps.setOnClickListener {
             val intent = Intent(this,RestaurantActivity::class.java)
-            intent.putExtra("Username", "John Doe")
+            print("print('somthing')")
             this.startActivity(intent)
         }
 
