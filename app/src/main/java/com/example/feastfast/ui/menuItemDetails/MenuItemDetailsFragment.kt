@@ -27,7 +27,7 @@ class MenuItemDetailsFragment : BottomSheetDialogFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.buttonLeave.setOnClickListener {
-            NavHostFragment.findNavController(this).navigate(R.id.action_menuItemDetailsFragment_to_navigation_explore)
+            NavHostFragment.findNavController(this).navigate(R.id.action_menuItemDetailsFragment_to_restaurantFragment)
         }
     }
 

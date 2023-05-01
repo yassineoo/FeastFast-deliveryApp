@@ -10,18 +10,20 @@
     <color name="place_holder">#B5B0B0</color>
     <color name="input_base_line">#A6A6A6</color>
     <color name="WelcomTitle">#000000</color>
-<<<<<<< HEAD
+
     <color name="DeliveryFee">#4C2F1B</color>
     <color name="DeliveryFeeText">#9C9C9C</color>
     <color name="DeliveryBlue">#5DA3C0</color>
     <color name="resInfoText">#B5B0B0</color>
 
-=======
+
     <color name="primary_color">#FFC600</color>
     <color name="primary_color_50_opactity">#80FFC600</color>
     <color name="pinkish">#FFC2B1</color>
     <color name="brownish">#CDA291</color>
     <color name="blackish">#402E32</color>
     <color name="greyish">#9C9C9C</color>
->>>>>>> 143c5110f45e7cb68b7c44c16598ca00256eae1c
+    <color name= "tabBackground">#f5f5f5</color>
+    <color name= "tabNotSlectedtext">#9C9C9C</color>
+
 </resources>

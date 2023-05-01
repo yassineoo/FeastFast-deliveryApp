@@ -32,7 +32,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-<<<<<<< HEAD
+
     <Button
         android:id="@+id/loginbtn"
         android:layout_width="wrap_content"
@@ -41,7 +41,7 @@
         android:text="Button"
         app:layout_constraintStart_toStartOf="@+id/button"
         app:layout_constraintTop_toTopOf="@+id/button" />
-=======
+
     <ImageView
         android:id="@+id/icon_my_location"
         android:layout_width="wrap_content"
@@ -107,5 +107,5 @@
         android:elevation="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textDeliveryAddress" />
->>>>>>> 143c5110f45e7cb68b7c44c16598ca00256eae1c
+
 </androidx.constraintlayout.widget.ConstraintLayout>

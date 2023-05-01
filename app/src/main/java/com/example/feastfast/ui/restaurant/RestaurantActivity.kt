@@ -18,65 +18,12 @@ class RestaurantActivity : AppCompatActivity() {
     private var viewPager2: ViewPager2? = null
     private var adapter: RestaurantMenuAdapter? = null
     lateinit var binding: ActivityRestaurantBinding
+    var data = arrayOf("A","B","C")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding= ActivityRestaurantBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
-        setContentView(R.layout.activity_restaurant)
-        val profileName = intent.getStringExtra("Username")
-        tabLayout = findViewById<TabLayout>(R.id.tabLayout)
-        viewPager2 = findViewById<ViewPager2>(R.id.viewPager)
-        val cats = getCategories(1)
-        for (x in cats) {
-            tabLayout?.addTab(tabLayout?.newTab()!!.setText(x))
-        }
-        val fragmentManager: FragmentManager = supportFragmentManager
-        adapter = RestaurantMenuAdapter(this)
-        viewPager2!!.setAdapter(adapter)
-        tabLayout!!.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
-            override fun onTabSelected(tab: TabLayout.Tab) {
-                viewPager2!!.setCurrentItem(tab.position)
-            }
-
-            override fun onTabUnselected(tab: TabLayout.Tab) {}
-            override fun onTabReselected(tab: TabLayout.Tab) {}
-        })
-        viewPager2!!.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
-            override fun onPageSelected(position: Int) {
-                tabLayout!!.selectTab(tabLayout!!.getTabAt(position))
-            }
-        })
-
-        binding!!.resLogo.setOnClickListener {
-            val intent = Intent(this,CartActivity::class.java)
-            this.startActivity(intent)
-            print("print('somthing')")
-
-        }
-        binding!!.floatingCartButton.setOnClickListener {
-            val intent = Intent(this,CartActivity::class.java)
-            this.startActivity(intent)
-            print("print('somthing')")
-
-        }
-
-
-
-        binding!!.gps.setOnClickListener {
-            val intent = Intent(this,RestaurantActivity::class.java)
-            print("print('somthing')")
-            this.startActivity(intent)
-        }
-
-    }
-
-
-    fun getCategories(id: Int) : List<String>{
-        val data = mutableListOf<String>()
-        data.add("pizza")
-        data.add("tacos")
-        return data
     }
 
 }

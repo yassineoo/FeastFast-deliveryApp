@@ -105,7 +105,7 @@
         android:id="@+id/resName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="16dp"
         android:text="HotSpot DZ"
         android:textColor="@color/black"
         android:textSize="24sp"
@@ -115,16 +115,24 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/resLogo" />
 
+    <View
+        android:id="@+id/cuisineView"
+        android:layout_width="140dp"
+        android:layout_height="32dp"
+        android:layout_marginTop="3dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/resName" />
+
     <TextView
         android:id="@+id/resCuisine"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="15dp"
         android:text="Mexicaine"
         android:textColor="@color/resInfoText"
         app:layout_constraintBottom_toBottomOf="@+id/cuisneIcon"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.564"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintEnd_toEndOf="@+id/cuisineView" />
 
     <ImageView
         android:id="@+id/cuisneIcon"
@@ -133,6 +141,7 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
         app:layout_constraintEnd_toStartOf="@+id/resCuisine"
+        app:layout_constraintStart_toStartOf="@+id/cuisineView"
         app:layout_constraintTop_toBottomOf="@+id/resName"
         app:srcCompat="@drawable/icon_res_cuisine" />
 
@@ -191,15 +200,6 @@
         app:layout_constraintStart_toStartOf="@+id/openTime" />
 
     <ImageView
-        android:id="@+id/cuisineArrow"
-        android:layout_width="18dp"
-        android:layout_height="18dp"
-        android:layout_marginStart="12dp"
-        app:layout_constraintBottom_toBottomOf="@+id/resCuisine"
-        app:layout_constraintStart_toEndOf="@+id/resCuisine"
-        app:srcCompat="@drawable/icon_res_arrow" />
-
-    <ImageView
         android:id="@+id/gpsArrow"
         android:layout_width="18dp"
         android:layout_height="18dp"
@@ -223,10 +223,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="7dp"
         android:text="Free"
         android:textColor="@color/DeliveryFee"
-        android:textSize="14sp"
+        android:textSize="12sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/resDeliverySperator"
         app:layout_constraintStart_toStartOf="@+id/deliveryBorder"
@@ -239,7 +239,7 @@
         android:layout_marginEnd="24dp"
         android:text="20 - 25 min"
         android:textColor="@color/DeliveryFee"
-        android:textSize="14sp"
+        android:textSize="12sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@+id/deliveryBorder"
         app:layout_constraintStart_toEndOf="@+id/resDeliverySperator"
@@ -250,10 +250,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="-12dp"
-        android:layout_marginTop="1dp"
         android:text="Delivery Fee"
         android:textColor="@color/DeliveryFeeText"
-        android:textSize="12sp"
+        android:textSize="10sp"
         app:layout_constraintStart_toStartOf="@+id/deliveryFee"
         app:layout_constraintTop_toBottomOf="@+id/deliveryFee" />
 
@@ -264,7 +263,7 @@
         android:layout_marginStart="4dp"
         android:text="Delivery Time"
         android:textColor="@color/DeliveryFeeText"
-        android:textSize="12sp"
+        android:textSize="10sp"
         app:layout_constraintStart_toStartOf="@+id/deliveryTime"
         app:layout_constraintTop_toTopOf="@+id/deliveryFeeText" />
 

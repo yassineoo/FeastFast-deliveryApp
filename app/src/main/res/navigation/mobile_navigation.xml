@@ -17,8 +17,8 @@
         android:label="Explore"
         tools:layout="@layout/fragment_explore" >
         <action
-            android:id="@+id/action_navigation_explore_to_menuItemDetailsFragment"
-            app:destination="@id/menuItemDetailsFragment" />
+            android:id="@+id/action_navigation_explore_to_restaurantFragment"
+            app:destination="@id/restaurantFragment" />
     </fragment>
 
     <fragment
@@ -37,7 +37,16 @@
         android:label="fragment_menu_item_details"
         tools:layout="@layout/fragment_menu_item_details" >
         <action
-            android:id="@+id/action_menuItemDetailsFragment_to_navigation_explore"
-            app:destination="@id/navigation_explore" />
+            android:id="@+id/action_menuItemDetailsFragment_to_restaurantFragment"
+            app:destination="@id/restaurantFragment" />
     </dialog>
+    <fragment
+        android:id="@+id/restaurantFragment"
+        android:name="com.example.feastfast.ui.restaurant.RestaurantFragment"
+        android:label="fragment_restaurant"
+        tools:layout="@layout/fragment_restaurant" >
+        <action
+            android:id="@+id/action_restaurantFragment_to_menuItemDetailsFragment"
+            app:destination="@id/menuItemDetailsFragment" />
+    </fragment>
 </navigation>

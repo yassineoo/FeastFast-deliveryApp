@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.feastfast.databinding.ResMenuItemBinding
 
 
-class RestaurantMenuAdapterData(val data: List<String>, val context: Context) :
+class RestaurantMenuAdapterData(val data: List<String>, val context: Context,val name :String?="kook") :
     RecyclerView.Adapter<RestaurantMenuAdapterData.MenuItemViewHolder>() {
 
     class MenuItemViewHolder(val binding: ResMenuItemBinding) : RecyclerView.ViewHolder(binding.root)
@@ -28,7 +28,7 @@ class RestaurantMenuAdapterData(val data: List<String>, val context: Context) :
 
     override fun onBindViewHolder(holder: MenuItemViewHolder, position: Int) {
         holder.binding.apply {
-
+        menuItemPrice.text = name
         }
     }
 }

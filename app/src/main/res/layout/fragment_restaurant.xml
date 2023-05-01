@@ -1,0 +1,329 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.restaurant.RestaurantFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        tools:context=".ui.restaurant.RestaurantActivity">
+
+        <ImageView
+            android:id="@+id/openTimeArrow2"
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:layout_marginStart="12dp"
+            app:layout_constraintBottom_toBottomOf="@+id/openTime"
+            app:layout_constraintStart_toEndOf="@+id/openTime"
+            app:srcCompat="@drawable/icon_res_arrow" />
+
+
+
+        <ImageButton
+            android:id="@+id/gpsArrow3"
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:layout_marginStart="12dp"
+            app:layout_constraintBottom_toBottomOf="@+id/rating"
+            app:layout_constraintStart_toEndOf="@+id/rating"
+            app:srcCompat="@drawable/icon_res_arrow" />
+
+        <ImageView
+            android:id="@+id/resImage"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/hotspot_image" />
+
+        <ImageView
+            android:id="@+id/resBackIcon"
+            android:layout_width="34dp"
+            android:layout_height="34dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/resImage"
+            app:srcCompat="@drawable/icon_back" />
+
+        <ImageView
+            android:id="@+id/resFavIcon"
+            android:layout_width="34dp"
+            android:layout_height="34dp"
+            android:layout_marginEnd="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/resBackIcon"
+            app:srcCompat="@drawable/icon_fav" />
+
+        <ImageView
+            android:id="@+id/resLogo"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginTop="-40dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/resImage"
+            app:layout_constraintTop_toBottomOf="@+id/resImage"
+            app:srcCompat="@drawable/hotspot_logo" />
+
+        <ImageView
+            android:id="@+id/resFaceook"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="-18dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/resImage"
+            app:srcCompat="@drawable/icon_res_fb" />
+
+        <ImageView
+            android:id="@+id/resInstagrame"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_marginStart="10dp"
+            app:layout_constraintStart_toEndOf="@+id/resFaceook"
+            app:layout_constraintTop_toTopOf="@+id/resFaceook"
+            app:srcCompat="@drawable/icon_res_instagrame" />
+
+        <ImageView
+            android:id="@+id/resPhone"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_marginEnd="16dp"
+            app:layout_constraintEnd_toStartOf="@+id/resInfo"
+            app:layout_constraintTop_toTopOf="@+id/resInstagrame"
+            app:srcCompat="@drawable/icon_res_phone" />
+
+        <ImageView
+            android:id="@+id/resInfo"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_marginEnd="12dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/resPhone"
+            app:srcCompat="@drawable/icon_res_info" />
+
+        <TextView
+            android:id="@+id/resName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="HotSpot DZ"
+            android:textColor="@color/black"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/resLogo" />
+
+        <View
+            android:id="@+id/cuisineView"
+            android:layout_width="140dp"
+            android:layout_height="32dp"
+            android:layout_marginTop="3dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/resName" />
+
+        <TextView
+            android:id="@+id/resCuisine"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="15dp"
+            android:text="Mexicaine"
+            android:textColor="@color/resInfoText"
+            app:layout_constraintBottom_toBottomOf="@+id/cuisneIcon"
+            app:layout_constraintEnd_toEndOf="@+id/cuisineView" />
+
+        <ImageView
+            android:id="@+id/cuisneIcon"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            app:layout_constraintEnd_toStartOf="@+id/resCuisine"
+            app:layout_constraintStart_toStartOf="@+id/cuisineView"
+            app:layout_constraintTop_toBottomOf="@+id/resName"
+            app:srcCompat="@drawable/icon_res_cuisine" />
+
+        <ImageButton
+            android:id="@+id/gpsIcon"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintStart_toStartOf="@+id/cuisneIcon"
+            app:layout_constraintTop_toBottomOf="@+id/cuisneIcon"
+            app:srcCompat="@drawable/icon_res_gps" />
+
+        <TextView
+            android:id="@+id/gps"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            android:textColor="@color/resInfoText"
+            app:layout_constraintBottom_toBottomOf="@+id/gpsIcon"
+            app:layout_constraintStart_toStartOf="@+id/resCuisine" />
+
+        <ImageButton
+            android:id="@+id/starIcon"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintStart_toStartOf="@+id/cuisneIcon"
+            app:layout_constraintTop_toBottomOf="@+id/resClockIcon"
+            app:srcCompat="@drawable/icon_res_star" />
+
+        <ImageButton
+            android:id="@+id/resClockIcon"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintStart_toStartOf="@+id/cuisneIcon"
+            app:layout_constraintTop_toBottomOf="@+id/gpsIcon"
+            app:srcCompat="@drawable/icon_res_clock" />
+
+        <TextView
+            android:id="@+id/openTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="12:00-00:00 Open Now"
+            android:textColor="@color/resInfoText"
+            app:layout_constraintBottom_toBottomOf="@+id/resClockIcon"
+            app:layout_constraintStart_toStartOf="@+id/gps" />
+
+        <TextView
+            android:id="@+id/rating"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="4.1 (25 Rating)"
+            android:textColor="@color/resInfoText"
+            app:layout_constraintBottom_toBottomOf="@+id/starIcon"
+            app:layout_constraintStart_toStartOf="@+id/openTime" />
+
+        <ImageButton
+            android:id="@+id/gpsArrow"
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:layout_marginStart="12dp"
+            app:layout_constraintBottom_toBottomOf="@+id/gps"
+            app:layout_constraintStart_toEndOf="@+id/gps"
+            app:srcCompat="@drawable/icon_res_arrow" />
+
+        <ImageView
+            android:id="@+id/deliveryBorder"
+            android:layout_width="305dp"
+            android:layout_height="54dp"
+            android:layout_marginTop="12dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/starIcon"
+            app:srcCompat="@drawable/res_deleivery_border" />
+
+        <TextView
+            android:id="@+id/deliveryFee"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="7dp"
+            android:text="Free"
+            android:textColor="@color/DeliveryFee"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@+id/resDeliverySperator"
+            app:layout_constraintStart_toStartOf="@+id/deliveryBorder"
+            app:layout_constraintTop_toTopOf="@+id/deliveryBorder" />
+
+        <TextView
+            android:id="@+id/deliveryTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="24dp"
+            android:text="20 - 25 min"
+            android:textColor="@color/DeliveryFee"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@+id/deliveryBorder"
+            app:layout_constraintStart_toEndOf="@+id/resDeliverySperator"
+            app:layout_constraintTop_toTopOf="@+id/deliveryFee" />
+
+        <TextView
+            android:id="@+id/deliveryFeeText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="-12dp"
+            android:text="Delivery Fee"
+            android:textColor="@color/DeliveryFeeText"
+            android:textSize="10sp"
+            app:layout_constraintStart_toStartOf="@+id/deliveryFee"
+            app:layout_constraintTop_toBottomOf="@+id/deliveryFee" />
+
+        <TextView
+            android:id="@+id/deliveryTimeText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:text="Delivery Time"
+            android:textColor="@color/DeliveryFeeText"
+            android:textSize="10sp"
+            app:layout_constraintStart_toStartOf="@+id/deliveryTime"
+            app:layout_constraintTop_toTopOf="@+id/deliveryFeeText" />
+
+        <View
+            android:id="@+id/resDeliverySperator"
+            android:layout_width="4dp"
+            android:layout_height="30dp"
+            android:background="@color/DeliveryBlue"
+            app:layout_constraintBottom_toBottomOf="@+id/deliveryBorder"
+            app:layout_constraintEnd_toEndOf="@+id/deliveryBorder"
+            app:layout_constraintHorizontal_bias="0.495"
+            app:layout_constraintStart_toStartOf="@+id/deliveryBorder"
+            app:layout_constraintTop_toTopOf="@+id/deliveryBorder" />
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tabLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="4dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/deliveryBorder"
+            app:tabBackground="@color/tabBackground"
+            app:tabGravity="fill"
+            app:tabIconTint="@color/black"
+            app:tabIndicator="@drawable/tabs_base_line"
+            app:tabIndicatorAnimationMode="elastic"
+            app:tabIndicatorColor="@android:color/transparent"
+            app:tabIndicatorGravity="stretch"
+            app:tabMode="scrollable"
+            app:tabSelectedTextColor="@color/primary_color"
+            app:tabTextColor="@color/tabNotSlectedtext">
+
+
+        </com.google.android.material.tabs.TabLayout>
+
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/viewPager"
+            android:layout_width="406dp"
+            android:layout_height="295dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tabLayout" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/floatingCartButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="40dp"
+            android:layout_marginBottom="70dp"
+            android:clickable="true"
+            app:layout_constraintBottom_toBottomOf="@+id/viewPager"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:srcCompat="?attr/actionModePasteDrawable" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>

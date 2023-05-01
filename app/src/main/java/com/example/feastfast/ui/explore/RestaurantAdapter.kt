@@ -30,7 +30,7 @@ class RestaurantAdapter(val data : List<Restaurant> , val context : Context) : R
             textCuisine.text =  data[position].cuisineType
             textAddress.text = data[position].locationAddress
             viewCardContent.setOnClickListener {
-                it.findNavController().navigate(R.id.action_navigation_explore_to_menuItemDetailsFragment)
+                it.findNavController().navigate(R.id.action_navigation_explore_to_restaurantFragment)
             }
         }
     }

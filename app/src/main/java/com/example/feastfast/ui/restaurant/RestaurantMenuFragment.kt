@@ -28,9 +28,10 @@ class RestaurantMenuFragment : Fragment() {
     ): View? {
         binding = FragmentRestaurantMenuBinding.inflate(inflater,container,false)
         val view = binding!!.root
+        val bundle = arguments
 
         binding!!.RecycleViewMenu.layoutManager = LinearLayoutManager(requireActivity())
-        binding!!.RecycleViewMenu.adapter = RestaurantMenuAdapterData(getCategories(2),requireActivity())
+        binding!!.RecycleViewMenu.adapter = RestaurantMenuAdapterData(getCategories(2),requireActivity(),bundle!!.getString("nameCategorie"))
         // Inflate the layout for this fragment
         return view
     }
@@ -38,7 +39,8 @@ class RestaurantMenuFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-/*
+
+    /*
         binding?.button3?.setOnClickListener{
             it.findNavController().navigate(R.id.action_mainFragment_to_panierFragment)
         }
