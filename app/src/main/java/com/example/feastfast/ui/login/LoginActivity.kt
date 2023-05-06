@@ -1,13 +1,17 @@
 package com.example.feastfast.ui.login
 
 import android.os.Bundle
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.FragmentManager
 import androidx.viewpager2.widget.ViewPager2
 import androidx.viewpager2.widget.ViewPager2.OnPageChangeCallback
 import com.example.feastfast.R
+import com.example.feastfast.databinding.ActivityLoginBinding
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayout.OnTabSelectedListener
+import android.view.View.OnClickListener
+import android.widget.Button
 
 
 class LoginActivity : AppCompatActivity() {
@@ -18,7 +22,8 @@ class LoginActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_login)
+        val binding = ActivityLoginBinding.inflate(layoutInflater)
+        setContentView(binding.root)
         tabLayout = findViewById<TabLayout>(R.id.tabLayout)
         viewPager2 = findViewById<ViewPager2>(R.id.viewPager)
         tabLayout?.addTab(tabLayout?.newTab()!!.setText("Login"))
@@ -39,6 +44,7 @@ class LoginActivity : AppCompatActivity() {
                 tabLayout!!.selectTab(tabLayout!!.getTabAt(position))
             }
         })
+
     }
 }
 
