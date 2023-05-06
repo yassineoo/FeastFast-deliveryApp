@@ -1,4 +1,4 @@
-package com.example.movieexample
+package com.example.feastfast
 
 import androidx.room.Dao
 import androidx.room.Delete

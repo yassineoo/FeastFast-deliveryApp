@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/restaurant_nav"
+    app:startDestination="@id/restaurantFragment">
+
+    <fragment
+        android:id="@+id/restaurantFragment"
+        android:name="com.example.feastfast.ui.restaurant.RestaurantFragment"
+        android:label="fragment_restaurant"
+        tools:layout="@layout/fragment_restaurant" >
+        <action
+            android:id="@+id/action_restaurantFragment_to_menuItemDetailsFragment"
+            app:destination="@id/menuItemDetailsFragment" />
+    </fragment>
+    <dialog
+        android:id="@+id/menuItemDetailsFragment"
+        android:name="com.example.feastfast.ui.menuItemDetails.MenuItemDetailsFragment"
+        android:label="MenuItemDetailsFragment" >
+        <action
+            android:id="@+id/action_menuItemDetailsFragment_to_restaurantFragment"
+            app:destination="@id/restaurantFragment" />
+    </dialog>
+</navigation>

@@ -15,6 +15,8 @@
     <color name="DeliveryFeeText">#9C9C9C</color>
     <color name="DeliveryBlue">#5DA3C0</color>
     <color name="resInfoText">#B5B0B0</color>
+    <color name="addToCart">#FFC2B1</color>
+    <color name="addToCart_50_opacity">#50FFC2B1</color>
 
 
     <color name="primary_color">#FFC600</color>

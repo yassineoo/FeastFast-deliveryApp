@@ -37,5 +37,12 @@
     <string name="include">Ingredients include:  </string>
     <string name="choose">Choose size</string>
     <string name="toppings">Add toppings</string>
+    <string name="EmptyCart"> Empty Cart </string>
+    <string name="addMoreItems">Add More Items</string>
 
+
+    <string name="BillText">Bill</string>
+    <string name="foodTotale">Food Totale </string>
+    <string name="deliveryFeeText">Delivery Fee</string>
+    <string name="total">Total</string>
 </resources>

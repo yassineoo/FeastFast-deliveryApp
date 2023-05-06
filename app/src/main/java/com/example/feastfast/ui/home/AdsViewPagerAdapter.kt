@@ -1,0 +1,35 @@
+package com.example.feastfast.ui.home
+
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import android.widget.ImageView
+import androidx.recyclerview.widget.RecyclerView
+import com.example.feastfast.R
+
+class AdsViewPagerAdapter (val Images:List<Int>):RecyclerView.Adapter<AdsViewPagerAdapter.ViewPagerViewHolder>() {
+    override fun onCreateViewHolder(
+        parent: ViewGroup,
+        viewType: Int
+    ): AdsViewPagerAdapter.ViewPagerViewHolder {
+       val view = LayoutInflater.from (parent.context).inflate(R.layout.home_ad_item,parent,false)
+        return  ViewPagerViewHolder(view)
+        TODO("Not yet implemented")
+    }
+
+    inner class ViewPagerViewHolder (itemView: View) : RecyclerView.ViewHolder(itemView) {
+        val ImageView : ImageView = itemView.findViewById(R.id.adImage)
+    }
+
+    override fun onBindViewHolder(holder: AdsViewPagerAdapter.ViewPagerViewHolder, position: Int) {
+        val curImage = Images[position];
+        holder.ImageView.setImageResource(curImage)
+    }
+
+    override fun getItemCount(): Int {
+        return  Images.size
+        TODO("Not yet implemented")
+    }
+
+
+}

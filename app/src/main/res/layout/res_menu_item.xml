@@ -6,6 +6,7 @@
     android:layout_height="wrap_content">
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/cardMenuItem"
         android:layout_width="413dp"
         android:layout_height="121dp"
         app:layout_constraintEnd_toEndOf="parent"

@@ -1,4 +1,4 @@
-package com.example.movieexample
+package com.example.feastfast
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey

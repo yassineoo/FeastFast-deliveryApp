@@ -15,11 +15,7 @@
         android:id="@+id/navigation_explore"
         android:name="com.example.feastfast.ui.explore.ExploreFragment"
         android:label="Explore"
-        tools:layout="@layout/fragment_explore" >
-        <action
-            android:id="@+id/action_navigation_explore_to_restaurantFragment"
-            app:destination="@id/restaurantFragment" />
-    </fragment>
+        tools:layout="@layout/fragment_explore" />
 
     <fragment
         android:id="@+id/navigation_orders"
@@ -31,22 +27,4 @@
         android:name="com.example.feastfast.ui.account.AccountFragment"
         android:label="Account"
         tools:layout="@layout/fragment_account" />
-    <dialog
-        android:id="@+id/menuItemDetailsFragment"
-        android:name="com.example.feastfast.ui.menuItemDetails.MenuItemDetailsFragment"
-        android:label="fragment_menu_item_details"
-        tools:layout="@layout/fragment_menu_item_details" >
-        <action
-            android:id="@+id/action_menuItemDetailsFragment_to_restaurantFragment"
-            app:destination="@id/restaurantFragment" />
-    </dialog>
-    <fragment
-        android:id="@+id/restaurantFragment"
-        android:name="com.example.feastfast.ui.restaurant.RestaurantFragment"
-        android:label="fragment_restaurant"
-        tools:layout="@layout/fragment_restaurant" >
-        <action
-            android:id="@+id/action_restaurantFragment_to_menuItemDetailsFragment"
-            app:destination="@id/menuItemDetailsFragment" />
-    </fragment>
 </navigation>
