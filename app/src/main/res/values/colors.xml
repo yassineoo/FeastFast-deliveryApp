@@ -27,5 +27,6 @@
     <color name="greyish">#9C9C9C</color>
     <color name= "tabBackground">#f5f5f5</color>
     <color name= "tabNotSlectedtext">#9C9C9C</color>
+    <color name= "deepRed">#FF0000</color>
 
 </resources>

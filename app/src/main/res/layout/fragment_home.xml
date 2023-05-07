@@ -129,7 +129,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        android:src="@drawable/baseline_my_location_24"
+        android:src="@drawable/icon_my_location"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -138,7 +138,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:src="@drawable/baseline_keyboard_arrow_down_24"
+        android:src="@drawable/icon_arrow_down"
         app:layout_constraintBottom_toBottomOf="@+id/icon_my_location"
         app:layout_constraintStart_toEndOf="@+id/textDeliveryAddress"
         app:layout_constraintTop_toTopOf="@+id/icon_my_location"
@@ -149,7 +149,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="15dp"
-        android:src="@drawable/baseline_shopping_cart_24"
+        android:src="@drawable/icon_cart_black"
         app:layout_constraintBottom_toBottomOf="@+id/icon_down"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/icon_down"

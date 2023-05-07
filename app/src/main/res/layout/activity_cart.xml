@@ -12,36 +12,9 @@
         tools:layout_editor_absoluteX="2dp"
         tools:layout_editor_absoluteY="139dp">
 
-        <View
-            android:id="@+id/horizontal_line2"
-            android:layout_width="0dp"
-            android:layout_height="1dp"
 
-            android:layout_marginTop="8dp"
-            android:background="@color/greyish"
-            android:elevation="10dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textDeliveryFee" />
 
-        <View
-            android:id="@+id/horizontal_line4"
-            android:layout_width="0dp"
-            android:layout_height="1dp"
-            android:layout_marginTop="5dp"
-            android:background="@color/greyish"
 
-            android:elevation="10dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/CaartSourceName" />
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/CartRecyclerView"
-            android:layout_width="409dp"
-            android:layout_height="259dp"
-            android:layout_marginTop="3dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/itemsText" />
 
         <TextView
             android:id="@+id/itemsText"
@@ -61,7 +34,7 @@
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:layout_marginTop="13dp"
-            android:src="@drawable/baseline_shopping_cart_24"
+            android:src="@drawable/icon_cart_black"
             app:layout_constraintBottom_toBottomOf="@+id/CaartSourceName"
             app:layout_constraintEnd_toStartOf="@+id/YourCartFromText"
             app:layout_constraintTop_toTopOf="parent" />
@@ -86,155 +59,208 @@
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="@+id/YourCartFromText"
             app:layout_constraintTop_toBottomOf="@+id/YourCartFromText" />
+        <View
+            android:id="@+id/horizontal_line4"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="5dp"
+            android:background="@color/greyish"
 
-        <RelativeLayout
-            android:id="@+id/relativeLayout2"
-            android:layout_width="170dp"
-            android:layout_height="39dp"
-            android:layout_marginStart="10dp"
-            android:layout_marginEnd="10dp"
-            android:background="@color/addToCart"
-            android:padding="8dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/relativeLayout"
-            app:layout_constraintTop_toTopOf="@+id/relativeLayout">
-
-            <ImageButton
-                android:id="@+id/addMoreIcon"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:layout_alignParentTop="true"
-                android:layout_marginTop="8dp"
-                android:background="@drawable/transparency"
-                android:src="@drawable/baseline_add_24" />
-
-            <TextView
-                android:id="@+id/addMoreLabel"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_marginStart="8dp"
-                android:layout_marginEnd="4dp"
-
-                android:fontFamily="@font/poppins"
-                android:text="@string/addMoreItems"
-                android:textColor="@color/white"
-                android:textSize="16sp"
-                android:textStyle="bold" />
-
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:id="@+id/relativeLayout"
-            android:layout_width="170dp"
-            android:layout_height="39dp"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="88dp"
-            android:layout_marginEnd="10dp"
-            android:background="@color/primary_color"
-            android:padding="8dp"
-            app:layout_constraintEnd_toStartOf="@+id/relativeLayout2"
+            android:elevation="10dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/CartRecyclerView">
+            app:layout_constraintTop_toBottomOf="@+id/CaartSourceName" />
 
-            <ImageButton
-                android:id="@+id/emptyCartIcon"
-                android:layout_width="30dp"
-                android:layout_height="48dp"
-                android:layout_alignParentStart="true"
-                android:layout_marginStart="8dp"
-                android:background="@drawable/transparency"
-                android:src="@drawable/baseline_delete_outline_24" />
-
-            <TextView
-                android:id="@+id/emptyCartLabel"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:layout_marginStart="8dp"
-                android:layout_toEndOf="@+id/emptyCartIcon"
-                android:fontFamily="@font/poppins"
-                android:text="@string/EmptyCart"
-                android:textColor="@color/white"
-                android:textSize="16sp"
-                android:textStyle="bold" />
-
-        </RelativeLayout>
-
-        <TextView
-            android:id="@+id/BillText"
-            android:layout_width="wrap_content"
+        <ScrollView
+            android:id="@+id/ScrollView"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="76dp"
-            android:fontFamily="@font/poppins"
-            android:text="Bill"
-            android:textColor="@color/black"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/relativeLayout" />
-
-        <TextView
-            android:id="@+id/TotalText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:fontFamily="@font/poppins"
-            android:text="@string/total"
-            android:textColor="@color/black"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="@+id/textDeliveryFee"
-            app:layout_constraintTop_toBottomOf="@+id/horizontal_line2" />
-
-        <TextView
-            android:id="@+id/foodTotaleText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:fontFamily="@font/poppins"
-            android:text="@string/foodTotale"
-            android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="@+id/BillText"
-            app:layout_constraintTop_toBottomOf="@+id/BillText" />
-
-        <TextView
-            android:id="@+id/textDeliveryFee"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:fontFamily="@font/poppins"
-            android:text="@string/deliveryFeeText"
-            android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="@+id/foodTotaleText"
-            app:layout_constraintTop_toBottomOf="@+id/foodTotaleText" />
-
-        <TextView
-            android:id="@+id/foodPrice"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="28dp"
-            android:text="1600 DZ"
+            android:fillViewport="true"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/foodTotaleText" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/itemsText">
 
-        <TextView
-            android:id="@+id/foodDeliveryPrice"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="250 DZ"
-            app:layout_constraintStart_toStartOf="@+id/foodPrice"
-            app:layout_constraintTop_toBottomOf="@+id/foodTotaleText" />
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/TotalePrice"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="1850 DZ"
-            app:layout_constraintStart_toStartOf="@+id/foodPrice"
-            app:layout_constraintTop_toTopOf="@+id/TotalText" />
+                <LinearLayout
+                    android:id="@+id/linearLayout2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
 
+                </LinearLayout>
+
+                <RelativeLayout
+                    android:id="@+id/button_add_more_items"
+                    android:layout_width="170dp"
+                    android:layout_height="39dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:background="@drawable/bg_pinkish_rounded_btn"
+                    android:padding="8dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/button_empty_cart"
+                    app:layout_constraintTop_toTopOf="@+id/button_empty_cart">
+
+                    <ImageView
+                        android:id="@+id/addMoreIcon"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_alignBottom="@+id/addMoreLabel"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginTop="0dp"
+                        android:layout_marginBottom="0dp"
+                        android:src="@drawable/icon_plus_white" />
+
+                    <TextView
+                        android:id="@+id/addMoreLabel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginEnd="4dp"
+
+                        android:fontFamily="@font/poppins"
+                        android:text="@string/addMoreItems"
+                        android:textColor="@color/white"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/button_empty_cart"
+                    android:layout_width="170dp"
+                    android:layout_height="39dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:background="@drawable/bg_yellow_rounded_btn"
+                    android:padding="8dp"
+                    app:layout_constraintEnd_toStartOf="@+id/button_add_more_items"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
+
+                    <ImageButton
+                        android:id="@+id/emptyCartIcon"
+                        android:layout_width="30dp"
+                        android:layout_height="48dp"
+                        android:layout_alignParentStart="true"
+                        android:layout_marginStart="8dp"
+                        android:background="@drawable/bg_transparency"
+                        android:src="@drawable/icon_trash_outline" />
+
+                    <TextView
+                        android:id="@+id/emptyCartLabel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="8dp"
+                        android:layout_toEndOf="@+id/emptyCartIcon"
+                        android:fontFamily="@font/poppins"
+                        android:text="@string/EmptyCart"
+                        android:textColor="@color/white"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/BillText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="76dp"
+                    android:fontFamily="@font/poppins"
+                    android:text="Bill"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/button_empty_cart" />
+
+                <TextView
+                    android:id="@+id/TotalText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="100dp"
+                    android:fontFamily="@font/poppins"
+                    android:text="@string/total"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/textDeliveryFee"
+                    app:layout_constraintTop_toBottomOf="@+id/horizontal_line2" />
+
+                <TextView
+                    android:id="@+id/foodTotaleText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="@font/poppins"
+                    android:text="@string/foodTotale"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="@+id/BillText"
+                    app:layout_constraintTop_toBottomOf="@+id/BillText" />
+
+                <TextView
+                    android:id="@+id/textDeliveryFee"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="@font/poppins"
+                    android:text="@string/deliveryFeeText"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="@+id/foodTotaleText"
+                    app:layout_constraintTop_toBottomOf="@+id/foodTotaleText" />
+
+                <TextView
+                    android:id="@+id/foodPrice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="28dp"
+                    android:text="1600 DZ"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/foodTotaleText" />
+
+                <TextView
+                    android:id="@+id/foodDeliveryPrice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="250 DZ"
+                    app:layout_constraintStart_toStartOf="@+id/foodPrice"
+                    app:layout_constraintTop_toBottomOf="@+id/foodTotaleText" />
+
+                <View
+                    android:id="@+id/horizontal_line2"
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+
+                    android:layout_marginTop="8dp"
+                    android:background="@color/greyish"
+                    android:elevation="0dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textDeliveryFee" />
+
+                <TextView
+                    android:id="@+id/TotalePrice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="1850 DZ"
+                    app:layout_constraintStart_toStartOf="@+id/foodPrice"
+                    app:layout_constraintTop_toTopOf="@+id/TotalText" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </ScrollView>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -12,7 +12,7 @@ class AdsViewPagerAdapter (val Images:List<Int>):RecyclerView.Adapter<AdsViewPag
         parent: ViewGroup,
         viewType: Int
     ): AdsViewPagerAdapter.ViewPagerViewHolder {
-       val view = LayoutInflater.from (parent.context).inflate(R.layout.home_ad_item,parent,false)
+       val view = LayoutInflater.from (parent.context).inflate(R.layout.list_item_home_ad,parent,false)
         return  ViewPagerViewHolder(view)
         TODO("Not yet implemented")
     }

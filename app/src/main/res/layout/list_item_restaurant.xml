@@ -43,7 +43,7 @@
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/hotspot_image" />
+                app:srcCompat="@drawable/image_hotspot" />
 
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/imageLogo"
@@ -52,7 +52,7 @@
                 android:layout_centerInParent="true"
                 android:layout_marginStart="44dp"
                 android:layout_marginTop="128dp"
-                android:src="@drawable/hotsppot_logo"
+                android:src="@drawable/image_hotspot_logo2"
                 app:civ_border_color="#FFFFFFFF"
                 app:civ_border_width="3dp"
                 app:layout_constraintStart_toStartOf="parent"
@@ -79,7 +79,7 @@
                 android:layout_marginEnd="40dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/imageRestaurant"
-                app:srcCompat="@drawable/baseline_star_24" />
+                app:srcCompat="@drawable/icon_star_yellow" />
 
             <TextView
                 android:id="@+id/textRating"
@@ -103,7 +103,7 @@
                 android:layout_marginTop="8dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textRestaurantName"
-                app:srcCompat="@drawable/baseline_food_bank_24" />
+                app:srcCompat="@drawable/icon_cuisine" />
 
             <TextView
                 android:id="@+id/textCuisine"
@@ -124,7 +124,7 @@
                 android:layout_marginTop="6dp"
                 app:layout_constraintStart_toStartOf="@+id/cuisine_icon"
                 app:layout_constraintTop_toBottomOf="@+id/cuisine_icon"
-                app:srcCompat="@drawable/baseline_location_on_24" />
+                app:srcCompat="@drawable/icon_location" />
 
             <TextView
                 android:id="@+id/textAddress"

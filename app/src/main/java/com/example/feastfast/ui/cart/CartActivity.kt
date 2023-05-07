@@ -2,10 +2,9 @@ package com.example.feastfast.ui.cart
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.recyclerview.widget.LinearLayoutManager
+import android.view.View
+import com.example.feastfast.R
 import com.example.feastfast.databinding.ActivityCartBinding
-import com.example.feastfast.databinding.ActivityRestaurantBinding
-import com.example.feastfast.ui.restaurant.RestaurantMenuAdapterData
 
 class CartActivity : AppCompatActivity() {
     lateinit var binding: ActivityCartBinding
@@ -14,17 +13,14 @@ class CartActivity : AppCompatActivity() {
         binding= ActivityCartBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
-        //binding.recyclerView.layoutManager = LinearLayoutManager(this,RecyclerView.HORIZONTAL,false)
-        binding.CartRecyclerView.layoutManager = LinearLayoutManager(this)
-        binding.CartRecyclerView.adapter = CartAdapter(getCategories(1),this)
 
-    }
+        val linearLayout = binding.linearLayout2
+        val addButton = binding.buttonAddMoreItems
 
-    fun getCategories(id: Int) : List<String>{
-        val data = mutableListOf<String>()
-        data.add("pizza")
-        data.add("tacos")
-        return data
+        addButton.setOnClickListener {
+            val newItem : View = layoutInflater.inflate(R.layout.list_item_cart, null)
+            linearLayout.addView(newItem)
+        }
     }
 
 }

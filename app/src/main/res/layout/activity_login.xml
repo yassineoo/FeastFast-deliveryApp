@@ -15,7 +15,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/logo" />
+        app:srcCompat="@drawable/app_logo" />
 
     <TextView
         android:id="@+id/welcomeText"
@@ -43,7 +43,7 @@
         app:tabBackground="@color/white"
         app:tabGravity="fill"
         app:tabIconTint="@color/black"
-        app:tabIndicator="@drawable/tabs_base_line"
+        app:tabIndicator="@drawable/bg_tabs_base_line"
         app:tabIndicatorAnimationMode="elastic"
         app:tabIndicatorColor="@android:color/transparent"
         app:tabIndicatorGravity="stretch"

@@ -34,7 +34,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="13dp"
-        android:src="@drawable/baseline_fastfood_24"
+        android:src="@drawable/icon_fast_food"
         app:layout_constraintBottom_toBottomOf="@+id/textAll"
         app:layout_constraintEnd_toStartOf="@+id/textExplore"
         app:layout_constraintTop_toTopOf="parent" />
@@ -56,20 +56,20 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="8dp"
-        android:background="@drawable/search_view_bg"
+        android:background="@drawable/bg_seach_view"
         app:iconifiedByDefault="false"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/horizontal_line"
-        app:queryBackground="@drawable/transparency"
+        app:queryBackground="@drawable/bg_transparency"
         app:queryHint="Food, restaurant, cuisine ..."
-        app:searchIcon="@drawable/baseline_search_24"></androidx.appcompat.widget.SearchView>
+        app:searchIcon="@drawable/icon_search"></androidx.appcompat.widget.SearchView>
     <ImageView
         android:id="@+id/iconFilters"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        android:src="@drawable/settings_04"
+        android:src="@drawable/icon_search_filters"
         app:layout_constraintBottom_toBottomOf="@+id/line"
         app:layout_constraintStart_toEndOf="@+id/line"
         app:layout_constraintTop_toTopOf="@+id/line" />

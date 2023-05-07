@@ -1,7 +1,6 @@
-package com.example.feastfast.ui.menuItemDetails
+package com.example.feastfast.ui.restaurant
 
 import android.os.Bundle
-import android.util.DisplayMetrics
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -30,9 +29,11 @@ class MenuItemDetailsFragment : BottomSheetDialogFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val behaviour = BottomSheetBehavior.from(binding.layoutRoot)
         binding.buttonLeave.setOnClickListener {
             NavHostFragment.findNavController(this).navigate(R.id.action_menuItemDetailsFragment_to_restaurantFragment)
+        }
+        binding.buttonAddToCart.setOnClickListener {
+
         }
     }
 

@@ -24,10 +24,10 @@
                 android:layout_marginTop="16dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/labanese_wrap" />
+                app:srcCompat="@drawable/image_lebanese_wrap" />
 
             <TextView
-                android:id="@+id/menu_item_name"
+                android:id="@+id/text_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
@@ -40,20 +40,20 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/menu_item_price"
+                android:id="@+id/text_price"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="40.00 DZ"
-                app:layout_constraintStart_toStartOf="@+id/menu_item_name"
-                app:layout_constraintTop_toBottomOf="@+id/menu_item_name" />
+                app:layout_constraintStart_toStartOf="@+id/text_name"
+                app:layout_constraintTop_toBottomOf="@+id/text_name" />
 
             <TextView
-                android:id="@+id/cart_item_size"
+                android:id="@+id/text_description"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="XL"
-                app:layout_constraintStart_toStartOf="@+id/menu_item_price"
-                app:layout_constraintTop_toBottomOf="@+id/menu_item_price" />
+                app:layout_constraintStart_toStartOf="@+id/text_price"
+                app:layout_constraintTop_toBottomOf="@+id/text_price" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.cardview.widget.CardView>

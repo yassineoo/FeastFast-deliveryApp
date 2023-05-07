@@ -17,16 +17,6 @@ import com.example.feastfast.ui.cart.CartActivity
 import com.example.feastfast.ui.explore.RestaurantAdapter
 import com.google.android.material.tabs.TabLayout
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [RestaurantFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class RestaurantFragment : Fragment() {
 
     lateinit var binding : FragmentRestaurantBinding
@@ -72,10 +62,9 @@ class RestaurantFragment : Fragment() {
         })
 
 
-        binding!!.floatingCartButton.setOnClickListener {
+        binding!!.viewCartButton.setOnClickListener {
             val intent = Intent(requireActivity(), CartActivity::class.java)
             requireActivity().startActivity(intent)
-            print("print('somthing')")
 
         }
     }

@@ -19,17 +19,18 @@
             android:layout_marginStart="12dp"
             app:layout_constraintBottom_toBottomOf="@+id/openTime"
             app:layout_constraintStart_toEndOf="@+id/openTime"
+            app:layout_constraintTop_toTopOf="@+id/openTime"
             app:srcCompat="@drawable/icon_res_arrow" />
 
 
-
-        <ImageButton
+        <ImageView
             android:id="@+id/gpsArrow3"
             android:layout_width="18dp"
             android:layout_height="18dp"
             android:layout_marginStart="12dp"
             app:layout_constraintBottom_toBottomOf="@+id/rating"
             app:layout_constraintStart_toEndOf="@+id/rating"
+            app:layout_constraintTop_toTopOf="@+id/rating"
             app:srcCompat="@drawable/icon_res_arrow" />
 
         <ImageView
@@ -40,9 +41,9 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/hotspot_image" />
+            app:srcCompat="@drawable/image_hotspot" />
 
-        <ImageView
+        <ImageButton
             android:id="@+id/resBackIcon"
             android:layout_width="34dp"
             android:layout_height="34dp"
@@ -50,28 +51,31 @@
             android:layout_marginTop="16dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/resImage"
-            app:srcCompat="@drawable/icon_back" />
+            android:background="@drawable/icon_back" />
 
-        <ImageView
+        <ImageButton
             android:id="@+id/resFavIcon"
             android:layout_width="34dp"
             android:layout_height="34dp"
             android:layout_marginEnd="20dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@+id/resBackIcon"
-            app:srcCompat="@drawable/icon_fav" />
-
-        <ImageView
+            android:background="@drawable/icon_fav" />
+        <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/resLogo"
             android:layout_width="80dp"
             android:layout_height="80dp"
+            android:layout_centerInParent="true"
             android:layout_marginTop="-40dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@+id/resImage"
             app:layout_constraintTop_toBottomOf="@+id/resImage"
-            app:srcCompat="@drawable/hotspot_logo" />
+            android:src="@drawable/image_hotspot_logo2"
+            app:civ_border_color="#FFFFFFFF"
+            app:civ_border_width="10dp" />
 
-        <ImageView
+
+        <ImageButton
             android:id="@+id/resFaceook"
             android:layout_width="48dp"
             android:layout_height="48dp"
@@ -79,34 +83,34 @@
             android:layout_marginTop="-18dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/resImage"
-            app:srcCompat="@drawable/icon_res_fb" />
+            android:background="@drawable/icon_res_fb" />
 
-        <ImageView
+        <ImageButton
             android:id="@+id/resInstagrame"
             android:layout_width="32dp"
             android:layout_height="32dp"
             android:layout_marginStart="10dp"
             app:layout_constraintStart_toEndOf="@+id/resFaceook"
             app:layout_constraintTop_toTopOf="@+id/resFaceook"
-            app:srcCompat="@drawable/icon_res_instagrame" />
+            android:background="@drawable/icon_res_instagrame" />
 
-        <ImageView
+        <ImageButton
             android:id="@+id/resPhone"
             android:layout_width="32dp"
             android:layout_height="32dp"
             android:layout_marginEnd="16dp"
             app:layout_constraintEnd_toStartOf="@+id/resInfo"
             app:layout_constraintTop_toTopOf="@+id/resInstagrame"
-            app:srcCompat="@drawable/icon_res_phone" />
+            android:background="@drawable/icon_res_phone" />
 
-        <ImageView
+        <ImageButton
             android:id="@+id/resInfo"
             android:layout_width="32dp"
             android:layout_height="32dp"
             android:layout_marginEnd="12dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@+id/resPhone"
-            app:srcCompat="@drawable/icon_res_info" />
+            android:background="@drawable/icon_res_info" />
 
         <TextView
             android:id="@+id/resName"
@@ -122,37 +126,29 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/resLogo" />
 
-        <View
-            android:id="@+id/cuisineView"
-            android:layout_width="140dp"
-            android:layout_height="32dp"
-            android:layout_marginTop="3dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/resName" />
 
         <TextView
             android:id="@+id/resCuisine"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="15dp"
-            android:text="Mexicaine"
+            android:layout_marginStart="8dp"
+            android:text="Mexican"
             android:textColor="@color/resInfoText"
             app:layout_constraintBottom_toBottomOf="@+id/cuisneIcon"
-            app:layout_constraintEnd_toEndOf="@+id/cuisineView" />
+            app:layout_constraintStart_toEndOf="@+id/cuisneIcon" />
 
         <ImageView
             android:id="@+id/cuisneIcon"
             android:layout_width="24dp"
             android:layout_height="24dp"
+            android:layout_marginStart="100dp"
             android:layout_marginTop="8dp"
-            android:layout_marginEnd="16dp"
             app:layout_constraintEnd_toStartOf="@+id/resCuisine"
-            app:layout_constraintStart_toStartOf="@+id/cuisineView"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/resName"
             app:srcCompat="@drawable/icon_res_cuisine" />
 
-        <ImageButton
+        <ImageView
             android:id="@+id/gpsIcon"
             android:layout_width="24dp"
             android:layout_height="24dp"
@@ -170,7 +166,7 @@
             app:layout_constraintBottom_toBottomOf="@+id/gpsIcon"
             app:layout_constraintStart_toStartOf="@+id/resCuisine" />
 
-        <ImageButton
+        <ImageView
             android:id="@+id/starIcon"
             android:layout_width="24dp"
             android:layout_height="24dp"
@@ -179,7 +175,7 @@
             app:layout_constraintTop_toBottomOf="@+id/resClockIcon"
             app:srcCompat="@drawable/icon_res_star" />
 
-        <ImageButton
+        <ImageView
             android:id="@+id/resClockIcon"
             android:layout_width="24dp"
             android:layout_height="24dp"
@@ -206,13 +202,14 @@
             app:layout_constraintBottom_toBottomOf="@+id/starIcon"
             app:layout_constraintStart_toStartOf="@+id/openTime" />
 
-        <ImageButton
+        <ImageView
             android:id="@+id/gpsArrow"
             android:layout_width="18dp"
             android:layout_height="18dp"
             android:layout_marginStart="12dp"
             app:layout_constraintBottom_toBottomOf="@+id/gps"
             app:layout_constraintStart_toEndOf="@+id/gps"
+            app:layout_constraintTop_toTopOf="@+id/gps"
             app:srcCompat="@drawable/icon_res_arrow" />
 
         <ImageView
@@ -223,7 +220,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/starIcon"
-            app:srcCompat="@drawable/res_deleivery_border" />
+            app:srcCompat="@drawable/bg_delivery_time" />
 
         <TextView
             android:id="@+id/deliveryFee"
@@ -295,7 +292,7 @@
             app:tabBackground="@color/tabBackground"
             app:tabGravity="fill"
             app:tabIconTint="@color/black"
-            app:tabIndicator="@drawable/tabs_base_line"
+            app:tabIndicator="@drawable/bg_tabs_base_line"
             app:tabIndicatorAnimationMode="elastic"
             app:tabIndicatorColor="@android:color/transparent"
             app:tabIndicatorGravity="stretch"
@@ -314,16 +311,55 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tabLayout" />
 
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/floatingCartButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="40dp"
-            android:layout_marginBottom="70dp"
-            android:clickable="true"
-            app:layout_constraintBottom_toBottomOf="@+id/viewPager"
+
+        <RelativeLayout
+            android:id="@+id/viewCartButton"
+            android:layout_width="250dp"
+            android:layout_height="39dp"
+            android:layout_marginTop="650dp"
+            android:background="@drawable/bg_red_rounded_button"
+            android:padding="8dp"
+            android:visibility="gone"
             app:layout_constraintEnd_toEndOf="parent"
-            app:srcCompat="?attr/actionModePasteDrawable" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/cart_icon"
+                android:layout_width="30dp"
+                android:layout_height="48dp"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="8dp"
+                android:src="@drawable/icon_cart_white" />
+
+            <TextView
+                android:id="@+id/textRestaurantName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="30dp"
+                android:fontFamily="@font/poppins"
+                android:text="View cart"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textNumberOfItems"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="180dp"
+                android:layout_toEndOf="@+id/cart_icon"
+                android:text="1"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+        </RelativeLayout>
+
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>
