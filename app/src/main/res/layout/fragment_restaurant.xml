@@ -49,30 +49,31 @@
             android:layout_height="34dp"
             android:layout_marginStart="20dp"
             android:layout_marginTop="16dp"
+            android:background="@drawable/icon_back"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/resImage"
-            android:background="@drawable/icon_back" />
+            app:layout_constraintTop_toTopOf="@+id/resImage" />
 
         <ImageButton
             android:id="@+id/resFavIcon"
             android:layout_width="34dp"
             android:layout_height="34dp"
             android:layout_marginEnd="20dp"
+            android:background="@drawable/icon_fav"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/resBackIcon"
-            android:background="@drawable/icon_fav" />
+            app:layout_constraintTop_toTopOf="@+id/resBackIcon" />
+
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/resLogo"
             android:layout_width="80dp"
             android:layout_height="80dp"
             android:layout_centerInParent="true"
             android:layout_marginTop="-40dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/resImage"
-            app:layout_constraintTop_toBottomOf="@+id/resImage"
             android:src="@drawable/image_hotspot_logo2"
             app:civ_border_color="#FFFFFFFF"
-            app:civ_border_width="10dp" />
+            app:civ_border_width="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/resImage"
+            app:layout_constraintTop_toBottomOf="@+id/resImage" />
 
 
         <ImageButton
@@ -81,36 +82,36 @@
             android:layout_height="48dp"
             android:layout_marginStart="12dp"
             android:layout_marginTop="-18dp"
+            android:background="@drawable/icon_res_fb"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/resImage"
-            android:background="@drawable/icon_res_fb" />
+            app:layout_constraintTop_toBottomOf="@+id/resImage" />
 
         <ImageButton
             android:id="@+id/resInstagrame"
             android:layout_width="32dp"
             android:layout_height="32dp"
             android:layout_marginStart="10dp"
+            android:background="@drawable/icon_res_instagrame"
             app:layout_constraintStart_toEndOf="@+id/resFaceook"
-            app:layout_constraintTop_toTopOf="@+id/resFaceook"
-            android:background="@drawable/icon_res_instagrame" />
+            app:layout_constraintTop_toTopOf="@+id/resFaceook" />
 
         <ImageButton
             android:id="@+id/resPhone"
             android:layout_width="32dp"
             android:layout_height="32dp"
             android:layout_marginEnd="16dp"
+            android:background="@drawable/icon_res_phone"
             app:layout_constraintEnd_toStartOf="@+id/resInfo"
-            app:layout_constraintTop_toTopOf="@+id/resInstagrame"
-            android:background="@drawable/icon_res_phone" />
+            app:layout_constraintTop_toTopOf="@+id/resInstagrame" />
 
         <ImageButton
             android:id="@+id/resInfo"
             android:layout_width="32dp"
             android:layout_height="32dp"
             android:layout_marginEnd="12dp"
+            android:background="@drawable/icon_res_info"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/resPhone"
-            android:background="@drawable/icon_res_info" />
+            app:layout_constraintTop_toTopOf="@+id/resPhone" />
 
         <TextView
             android:id="@+id/resName"
@@ -316,13 +317,13 @@
             android:id="@+id/viewCartButton"
             android:layout_width="250dp"
             android:layout_height="39dp"
-            android:layout_marginTop="650dp"
+            android:layout_marginBottom="20dp"
             android:background="@drawable/bg_red_rounded_button"
             android:padding="8dp"
-            android:visibility="gone"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintStart_toStartOf="parent">
 
             <ImageView
                 android:id="@+id/cart_icon"
@@ -358,7 +359,6 @@
                 android:textStyle="bold" />
 
         </RelativeLayout>
-
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

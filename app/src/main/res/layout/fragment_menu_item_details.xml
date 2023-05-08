@@ -206,21 +206,19 @@
                     android:id="@+id/radio_L"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:onClick="onRadioButtonClicked"
-                    android:text="L" />
+                    android:text="L"
+                    android:checked="true"/>
 
                 <RadioButton
                     android:id="@+id/radio_XL"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:onClick="onRadioButtonClicked"
                     android:text="XL" />
 
                 <RadioButton
                     android:id="@+id/radio_XXL"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:onClick="onRadioButtonClicked"
                     android:text="XXL" />
             </RadioGroup>
 
