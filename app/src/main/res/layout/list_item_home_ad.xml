@@ -1,13 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-    <ImageView
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/adImage"
         android:layout_width="match_parent"
         android:layout_height="400dp"
-        android:id="@+id/adImage"
-        android:scaleType="centerCrop"
         android:layout_centerInParent="true"
-        />
-
+        android:layout_marginStart="20dp"
+        android:adjustViewBounds="true"
+        android:scaleType="centerCrop"
+        app:shapeAppearanceOverlay="@style/roundedImageView" />
 </RelativeLayout>

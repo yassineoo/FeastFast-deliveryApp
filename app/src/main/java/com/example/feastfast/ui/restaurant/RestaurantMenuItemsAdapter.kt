@@ -32,11 +32,11 @@ class RestaurantMenuItemsAdapter(val data: List<MenuItem>, val context: Context,
 
     override fun onBindViewHolder(holder: MenuItemViewHolder, position: Int) {
         holder.binding.apply {
-        textPrice.text=data[position].price.toString()
-        textDescription.text=data[position].description
-        imageItem.setImageResource(data[position].image)
-        textName.text = data[position].name
-        cardMenuItem.setOnClickListener {
+            textSize.text=data[position].price.toString()
+            textPrice.text=data[position].description
+            imageItem.setImageResource(data[position].image)
+            textName.text = data[position].name
+            cardMenuItem.setOnClickListener {
                 val data = bundleOf("item" to data[position])
                 it.findNavController().navigate(R.id.action_restaurantFragment_to_menuItemDetailsFragment,data)
             }

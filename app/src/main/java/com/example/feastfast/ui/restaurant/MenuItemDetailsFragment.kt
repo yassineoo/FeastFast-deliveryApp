@@ -12,7 +12,7 @@ import androidx.fragment.app.FragmentActivity
 import androidx.navigation.fragment.NavHostFragment
 import com.example.feastfast.R
 import com.example.feastfast.databinding.FragmentMenuItemDetailsBinding
-import com.example.feastfast.models.AppDatabase
+import com.example.feastfast.models.room.AppDatabase
 import com.example.feastfast.models.CartItem
 import com.example.feastfast.models.MenuItem
 import com.google.android.material.bottomsheet.BottomSheetBehavior

@@ -12,13 +12,14 @@ import com.example.feastfast.R
 import com.example.feastfast.databinding.FragmentHomeBinding
 import com.example.feastfast.ui.login.LoginActivity
 import com.example.feastfast.ui.restaurant.RestaurantActivity
+import com.google.android.material.imageview.ShapeableImageView
 
 
 class HomeFragment : Fragment() {
 
-    private lateinit var ad1 : ImageView;
-    private lateinit var ad2 : ImageView;
-    private lateinit var ad3: ImageView;
+    private lateinit var ad1 : ShapeableImageView;
+    private lateinit var ad2 : ShapeableImageView;
+    private lateinit var ad3: ShapeableImageView;
 
     private lateinit var viewPager2 : ViewPager2
 
@@ -36,16 +37,6 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding!!.button.setOnClickListener {
-            val intent = Intent(requireActivity(),RestaurantActivity::class.java)
-            intent.putExtra("Username", "John Doe")
-            requireActivity().startActivity(intent)
-        }
-        binding!!.loginbtn.setOnClickListener {
-            val intent = Intent(requireActivity(),LoginActivity::class.java)
-            intent.putExtra("Username", "John Doe")
-            requireActivity().startActivity(intent)
-        }
         var images = listOf<Int>(R.drawable.image_hotspot,R.drawable.image_hotspot_logo,R.drawable.image_hotspot,R.drawable.image_hotspot_logo,R.drawable.image_hotspot);
         val adapter =  AdsViewPagerAdapter(images)
         binding!!.viewPager2.adapter = adapter

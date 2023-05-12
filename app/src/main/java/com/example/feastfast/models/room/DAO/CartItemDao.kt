@@ -1,4 +1,4 @@
-package com.example.feastfast.models.DAO
+package com.example.feastfast.models.room.DAO
 
 import androidx.room.*
 import com.example.feastfast.models.CartItem
