@@ -2,8 +2,8 @@ package com.example.feastfast.models
 
 data class Restaurant(
     val name:String,
-    val logo:Int,
-    val picture : Int,
+    val logo:String,
+    val picture : String,
     val locationAddress: String,
     val locationMapLong: Float,
     val locationMapLat: Float,

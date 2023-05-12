@@ -9,7 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.widget.ViewPager2
 import com.example.feastfast.databinding.FragmentRestaurantBinding
-import com.example.feastfast.models.AppDatabase
+import com.example.feastfast.models.room.AppDatabase
 import com.example.feastfast.ui.cart.CartActivity
 import com.google.android.material.tabs.TabLayout
 
@@ -63,7 +63,13 @@ class RestaurantFragment : Fragment() {
         binding.viewCartButton.setOnClickListener {
             val intent = Intent(myContext, CartActivity::class.java)
             myContext.startActivity(intent)
+            myContext.finish()
 
+        }
+
+        val buttonBack = binding.resBackIcon
+        buttonBack.setOnClickListener {
+            myContext.finish()
         }
     }
 
@@ -77,18 +83,17 @@ class RestaurantFragment : Fragment() {
         //end of
         val numberOfItems = binding.textNumberOfItems
         numberOfItems.text=items.size.toString()
+
     }
 
     fun getCategories() : List<String>{
         val data = mutableListOf<String>()
         data.add("pizza")
         data.add("tacos")
-        data.add("traditionalle")
-        data.add("7alwayat")
-        data.add("pizza3")
-        data.add("tacos4")
-        data.add("traditionalle5")
-        data.add("7alwayat2")
+        data.add("traditional")
+        data.add("Deserts")
+        data.add("Pizza")
+        data.add("Tacos")
         return data
     }
 

@@ -36,14 +36,8 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding!!.button.setOnClickListener {
-            val intent = Intent(requireActivity(),RestaurantActivity::class.java)
-            intent.putExtra("Username", "John Doe")
-            requireActivity().startActivity(intent)
-        }
         binding!!.loginbtn.setOnClickListener {
             val intent = Intent(requireActivity(),LoginActivity::class.java)
-            intent.putExtra("Username", "John Doe")
             requireActivity().startActivity(intent)
         }
         var images = listOf<Int>(R.drawable.image_hotspot,R.drawable.image_hotspot_logo,R.drawable.image_hotspot,R.drawable.image_hotspot_logo,R.drawable.image_hotspot);
