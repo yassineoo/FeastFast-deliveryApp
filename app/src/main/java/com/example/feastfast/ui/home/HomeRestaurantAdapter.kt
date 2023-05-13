@@ -1,23 +1,22 @@
-package com.example.feastfast.ui.explore
+package com.example.feastfast.ui.home
 
 import android.content.Context
 import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.core.view.marginBottom
-import androidx.core.view.setMargins
 
 import androidx.recyclerview.widget.RecyclerView
+import com.example.feastfast.databinding.ListItemHomeRestaurantBinding
 
 import com.example.feastfast.databinding.ListItemRestaurantBinding
 import com.example.feastfast.models.Restaurant
 import com.example.feastfast.ui.restaurant.RestaurantActivity
 
-class RestaurantAdapter(val data : List<Restaurant> , val context : Context) : RecyclerView.Adapter<RestaurantAdapter.RestaurantListItemViewHolder>() {
+class HomeRestaurantAdapter(val data : List<Restaurant>, val context : Context) : RecyclerView.Adapter<HomeRestaurantAdapter.HomeRestaurantListItemViewHolder>() {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RestaurantListItemViewHolder {
-        return RestaurantAdapter.RestaurantListItemViewHolder(
-            ListItemRestaurantBinding.inflate(
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HomeRestaurantListItemViewHolder {
+        return HomeRestaurantAdapter.HomeRestaurantListItemViewHolder(
+            ListItemHomeRestaurantBinding.inflate(
                 LayoutInflater.from(parent.context),
                 parent,
                 false
@@ -27,7 +26,7 @@ class RestaurantAdapter(val data : List<Restaurant> , val context : Context) : R
 
     override fun getItemCount() = data.size
 
-    override fun onBindViewHolder(holder: RestaurantListItemViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: HomeRestaurantListItemViewHolder, position: Int) {
         holder.binding.apply {
             imageRestaurant.setImageResource(data[position].picture)
             textRating.text = data[position].averageRating.toString()
@@ -35,16 +34,13 @@ class RestaurantAdapter(val data : List<Restaurant> , val context : Context) : R
             textAddress.text = data[position].locationAddress
             viewCardContent.setOnClickListener {
                     val intent = Intent(context , RestaurantActivity::class.java)
-                    context .startActivity(intent)
-            }
-            if (position==data.size-1){
-            val params =root.layoutParams as ViewGroup.MarginLayoutParams
-            params.setMargins(0,0,0,550)
+                    context.startActivity(intent)
+
             }
 
         }
     }
 
 
-    class RestaurantListItemViewHolder(val binding: ListItemRestaurantBinding) : RecyclerView.ViewHolder(binding.root)
+    class HomeRestaurantListItemViewHolder(val binding: ListItemHomeRestaurantBinding) : RecyclerView.ViewHolder(binding.root)
 }

@@ -1,19 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
+    android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:layout_marginBottom="5dp"
-    android:id="@+id/root">
+    android:layout_marginBottom="5dp">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/CardViewRestaurant"
-        android:layout_width="match_parent"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginTop="15dp"
-        android:layout_marginEnd="20dp"
         android:layout_marginBottom="5dp"
         app:cardCornerRadius="20dp"
         app:cardElevation="5dp"
@@ -37,7 +34,7 @@
             <ImageView
                 android:id="@+id/imageRestaurant"
                 android:layout_width="0dp"
-                android:layout_height="150dp"
+                android:layout_height="130dp"
                 android:adjustViewBounds="true"
                 android:scaleType="centerCrop"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -48,14 +45,14 @@
 
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/imageLogo"
-                android:layout_width="45dp"
-                android:layout_height="45dp"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
                 android:layout_centerInParent="true"
-                android:layout_marginStart="44dp"
-                android:layout_marginTop="128dp"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="110dp"
                 android:src="@drawable/image_hotspot_logo2"
                 app:civ_border_color="#FFFFFFFF"
-                app:civ_border_width="3dp"
+                app:civ_border_width="2dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/imageRestaurant" />
 
@@ -66,7 +63,7 @@
                 android:fontFamily="@font/poppins"
                 android:text="HotSpot DZ"
                 android:textColor="#000000"
-                android:textSize="15sp"
+                android:textSize="13sp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="@+id/imageLogo"
                 app:layout_constraintStart_toStartOf="@+id/imageLogo"
@@ -89,7 +86,7 @@
                 android:layout_marginStart="4dp"
                 android:text="4.1"
                 android:textColor="@color/primary_color"
-                android:textSize="10sp"
+                android:textSize="9sp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="@+id/star_icon"
                 app:layout_constraintStart_toEndOf="@+id/star_icon"
@@ -100,8 +97,8 @@
                 android:id="@+id/cuisine_icon"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="28dp"
-                android:layout_marginTop="8dp"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="6dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textRestaurantName"
                 app:srcCompat="@drawable/icon_cuisine" />
@@ -110,10 +107,10 @@
                 android:id="@+id/textCuisine"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="6dp"
+                android:layout_marginStart="5dp"
                 android:text="Portuguese, Mexican"
                 android:textColor="@color/greyish"
-                android:textSize="10sp"
+                android:textSize="8sp"
                 app:layout_constraintBottom_toBottomOf="@+id/cuisine_icon"
                 app:layout_constraintStart_toEndOf="@+id/cuisine_icon"
                 app:layout_constraintTop_toTopOf="@+id/cuisine_icon" />
@@ -131,10 +128,10 @@
                 android:id="@+id/textAddress"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="6dp"
+                android:layout_marginStart="5dp"
                 android:text="7th st, view kouba, algiers"
                 android:textColor="@color/greyish"
-                android:textSize="10sp"
+                android:textSize="8sp"
                 app:layout_constraintBottom_toBottomOf="@+id/location_icon"
                 app:layout_constraintStart_toEndOf="@+id/location_icon"
                 app:layout_constraintTop_toTopOf="@+id/location_icon" />
