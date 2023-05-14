@@ -46,7 +46,7 @@ class HomeFragment : Fragment() {
             intent.putExtra("Username", "John Doe")
             requireActivity().startActivity(intent)
         }
-        var images = listOf<Int>(R.drawable.image_hotspot,R.drawable.image_hotspot_logo,R.drawable.image_hotspot,R.drawable.image_hotspot_logo,R.drawable.image_hotspot);
+        var images = listOf<Int>(R.drawable.ad_one,R.drawable.ad2,R.drawable.ad3,R.drawable.ad4,R.drawable.ad5);
         val adapter =  AdsViewPagerAdapter(images)
         binding!!.viewPager2.adapter = adapter
         binding!!.viewPager2.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback(){
