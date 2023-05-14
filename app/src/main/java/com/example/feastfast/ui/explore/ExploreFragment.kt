@@ -32,7 +32,7 @@ class ExploreFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         myContext= requireActivity()
         binding.recycleView.layoutManager = LinearLayoutManager(myContext)
-        binding.recycleView.adapter= RestaurantAdapter(loadData(),myContext)
+        loadData()
     }
 
     /*fun loadData() : List<Restaurant> {
@@ -45,8 +45,7 @@ class ExploreFragment : Fragment() {
             Restaurant("HotSpot DZ",R.drawable.image_hotspot_logo2,R.drawable.image_hotspot,"7th street, view kouba", 0F,0F,"Mexican, portuguese",4.1F,"0550710721","hotspot@hotspot.dz","https://www.instagram.com/hotspot_dz/","https://web.facebook.com/HotSpotdz")
         )
     }*/
-    fun loadData(): List<Restaurant>{
-        var data : List<Restaurant> = listOf()
+    fun loadData(){
         val exceptionHandler = CoroutineExceptionHandler{ coroutineContext, throwable ->
             myContext.runOnUiThread {
                 Toast.makeText(myContext, "request successful with Some unspecified error", Toast.LENGTH_SHORT).show()
@@ -56,15 +55,13 @@ class ExploreFragment : Fragment() {
             val response = Endpoint.createEndpoint().getAllRestaurants()
             withContext(Dispatchers.Main) {
                 if (response.isSuccessful && response.body() != null) {
-                    data = response.body()!!.toList()
-
-                    print(data.size)
+                    val data = response.body()!!.toList()
+                    binding.recycleView.adapter= RestaurantAdapter(data,myContext)
                 } else {
                     Toast.makeText(myContext, "Request unsuccessful!", Toast.LENGTH_SHORT).show()
                 }
             }
         }
-        return data
     }
 
 }

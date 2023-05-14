@@ -1,3 +1,3 @@
 package com.example.feastfast.util
 
-val url = "https://0e79-105-235-129-20.ngrok-free.app"
+val url = "https://034a-105-235-128-96.ngrok-free.app"
