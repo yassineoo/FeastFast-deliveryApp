@@ -6,10 +6,12 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 
 import com.example.feastfast.databinding.ListItemRestaurantBinding
 import com.example.feastfast.models.Restaurant
 import com.example.feastfast.ui.restaurant.RestaurantActivity
+import com.example.feastfast.util.url
 
 class RestaurantAdapter(val data : List<Restaurant> , val context : Context) : RecyclerView.Adapter<RestaurantAdapter.RestaurantListItemViewHolder>() {
 
@@ -27,13 +29,13 @@ class RestaurantAdapter(val data : List<Restaurant> , val context : Context) : R
 
     override fun onBindViewHolder(holder: RestaurantListItemViewHolder, position: Int) {
         holder.binding.apply {
-            imageRestaurant.setImageResource(data[position].picture)
+            Glide.with(context).load(url+data[position].logo).into(imageLogo)
+            Glide.with(context).load(url+data[position].picture).into(imageRestaurant)
             textRating.text = data[position].averageRating.toString()
             textCuisine.text =  data[position].cuisineType
             textAddress.text = data[position].locationAddress
             viewCardContent.setOnClickListener {
                     val intent = Intent(context , RestaurantActivity::class.java)
-                    intent.putExtra("Username", "John Doe")
                     context .startActivity(intent)
 
             }
