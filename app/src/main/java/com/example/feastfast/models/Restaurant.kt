@@ -1,5 +1,7 @@
 package com.example.feastfast.models
 
+import java.io.Serializable
+
 data class Restaurant(
     val name:String,
     val logo:String,
@@ -12,5 +14,5 @@ data class Restaurant(
     val phoneNumber: String,
     val email: String,
     val instaLink: String,
-    val fbLink: String,
-)
+    val fbLink: String
+) : Serializable

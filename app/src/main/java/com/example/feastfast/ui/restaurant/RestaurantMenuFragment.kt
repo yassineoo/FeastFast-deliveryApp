@@ -21,8 +21,15 @@ class RestaurantMenuFragment : Fragment() {
         val view = binding!!.root
         val bundle = arguments
 
+        // Retrieve the bundle arguments
+        val nameCategorie = arguments?.getString("nameCategorie")
+        val menuItems = arguments?.getSerializable("menuItems") as? List<MenuItem>
+        // Filter the menuItems based on the category name
+        val filteredItems = menuItems?.filter { it.categorie == nameCategorie }
+
+
         binding!!.RecycleViewMenu.layoutManager = LinearLayoutManager(requireActivity())
-        binding!!.RecycleViewMenu.adapter = RestaurantMenuItemsAdapter(getMenuItems(2),requireActivity(),bundle!!.getString("nameCategorie"))
+        binding!!.RecycleViewMenu.adapter = RestaurantMenuItemsAdapter(filteredItems,requireActivity(),bundle!!.getString("nameCategorie"))
         return view
     }
 
@@ -33,15 +40,16 @@ class RestaurantMenuFragment : Fragment() {
     }
     fun getMenuItems(id: Int) : List<MenuItem>{
         val data = listOf<MenuItem>(
-            MenuItem(name = "Mediterranean wrap", image = R.drawable.image_wrap, price = 400.0, description = "A delicious menu item for middle east cuisine lovers", restaurantId = 1),
-            MenuItem(name="Pizza",image=R.drawable.image_pizza,price=300.0, description = "Pizza! not much to explain", restaurantId = 1),
-            MenuItem(name = "Mediterranean wrap", image = R.drawable.image_wrap, price = 400.0, description = "A delicious menu item for middle east cuisine lovers", restaurantId = 1),
-            MenuItem(name="Pizza",image=R.drawable.image_pizza,price=300.0, description = "Pizza! not much to explain", restaurantId = 1),
-            MenuItem(name = "Mediterranean wrap", image = R.drawable.image_wrap, price = 400.0, description = "A delicious menu item for middle east cuisine lovers", restaurantId = 1),
-            MenuItem(name="Pizza",image=R.drawable.image_pizza,price=300.0, description = "Pizza! not much to explain", restaurantId = 1),
-            MenuItem(name = "Mediterranean wrap", image = R.drawable.image_wrap, price = 400.0, description = "A delicious menu item for middle east cuisine lovers", restaurantId = 1),
-            MenuItem(name="Pizza",image=R.drawable.image_pizza,price=300.0, description = "Pizza! not much to explain", restaurantId = 1),
-        )
+            MenuItem(name = "Mediterranean wrap", "sas", price = 400.0, description = "A delicious menu item for middle east cuisine lovers", restaurantId = 1,categorie ="sandawich"),
+         /*   MenuItem(name="Pizza",image=R.drawable.image_pizza,price=300.0, description = "Pizza! not much to explain", restaurantId = 1,categorie ="pizza"),
+            MenuItem(name = "Mediterranean wrap", image = R.drawable.image_wrap, price = 400.0, description = "A delicious menu item for middle east cuisine lovers", restaurantId = 1,categorie ="sandawich"),
+            MenuItem(name="Pizza",image=R.drawable.image_pizza,price=300.0, description = "Pizza! not much to explain", restaurantId = 1,categorie ="pizza"),
+            MenuItem(name = "Mediterranean wrap", image = R.drawable.image_wrap, price = 400.0, description = "A delicious menu item for middle east cuisine lovers", restaurantId = 1,categorie ="cake"),
+            MenuItem(name="Pizza",image=R.drawable.image_pizza,price=300.0, description = "Pizza! not much to explain", restaurantId = 1,categorie ="pizza"),
+            MenuItem(name = "Mediterranean wrap", image = R.drawable.image_wrap, price = 400.0, description = "A delicious menu item for middle east cuisine lovers", restaurantId = 1,categorie ="cake"),
+            MenuItem(name="Pizza",image=R.drawable.image_pizza,price=300.0, description = "Pizza! not much to explain", restaurantId = 1,categorie ="pizza"),
+
+    */    )
 
         return data
     }

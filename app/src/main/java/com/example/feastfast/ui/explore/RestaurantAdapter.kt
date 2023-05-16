@@ -7,6 +7,7 @@ import android.view.ViewGroup
 
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.engine.GlideException
 
 import com.example.feastfast.databinding.ListItemRestaurantBinding
 import com.example.feastfast.models.Restaurant
@@ -35,8 +36,10 @@ class RestaurantAdapter(val data : List<Restaurant> , val context : Context) : R
             textCuisine.text =  data[position].cuisineType
             textAddress.text = data[position].locationAddress
             viewCardContent.setOnClickListener {
-                    val intent = Intent(context , RestaurantActivity::class.java)
-                    context .startActivity(intent)
+                val intent = Intent(context , RestaurantActivity::class.java)
+                intent.putExtra("hi" , 5)
+                intent.putExtra("restaurant", data[position]) // Pass the Restaurant object as an extra
+                context .startActivity(intent)
 
             }
 

@@ -11,7 +11,7 @@ import com.example.feastfast.databinding.ListItemMenuBinding
 import com.example.feastfast.models.MenuItem
 
 
-class RestaurantMenuItemsAdapter(val data: List<MenuItem>, val context: Context, val name :String?="kook") :
+class RestaurantMenuItemsAdapter(val data: List<MenuItem>?, val context: Context, val name :String?="kook") :
     RecyclerView.Adapter<RestaurantMenuItemsAdapter.MenuItemViewHolder>() {
 
     class MenuItemViewHolder(val binding: ListItemMenuBinding) : RecyclerView.ViewHolder(binding.root)
@@ -27,17 +27,17 @@ class RestaurantMenuItemsAdapter(val data: List<MenuItem>, val context: Context,
     }
 
     override fun getItemCount(): Int {
-        return data.size
+        return data!!.size
     }
 
     override fun onBindViewHolder(holder: MenuItemViewHolder, position: Int) {
         holder.binding.apply {
 
-        textSize.text=data[position].price.toString()
-        textPrice.text=data[position].description
+        textSize.text=data!![position].price.toString()
+        textPrice.text=data!![position].description
 
-        imageItem.setImageResource(data[position].image)
-        textName.text = data[position].name
+       // imageItem.setImageResource(data[position].image)
+        textName.text = data!![position].name
         cardMenuItem.setOnClickListener {
                 val data = bundleOf("item" to data[position])
                 it.findNavController().navigate(R.id.action_restaurantFragment_to_menuItemDetailsFragment,data)
