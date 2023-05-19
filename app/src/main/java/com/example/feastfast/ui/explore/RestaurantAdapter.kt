@@ -37,7 +37,6 @@ class RestaurantAdapter(val data : List<Restaurant> , val context : Context) : R
             textAddress.text = data[position].locationAddress
             viewCardContent.setOnClickListener {
                 val intent = Intent(context , RestaurantActivity::class.java)
-                intent.putExtra("hi" , 5)
                 intent.putExtra("restaurant", data[position]) // Pass the Restaurant object as an extra
                 context .startActivity(intent)
 
