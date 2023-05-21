@@ -14,7 +14,6 @@ class AdsViewPagerAdapter (val Images:List<Int>):RecyclerView.Adapter<AdsViewPag
     ): AdsViewPagerAdapter.ViewPagerViewHolder {
        val view = LayoutInflater.from (parent.context).inflate(R.layout.list_item_home_ad,parent,false)
         return  ViewPagerViewHolder(view)
-        TODO("Not yet implemented")
     }
 
     inner class ViewPagerViewHolder (itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -28,7 +27,6 @@ class AdsViewPagerAdapter (val Images:List<Int>):RecyclerView.Adapter<AdsViewPag
 
     override fun getItemCount(): Int {
         return  Images.size
-        TODO("Not yet implemented")
     }
 
 

@@ -34,8 +34,12 @@ class HomeRestaurantAdapter(val data : List<Restaurant>, val context : Context) 
             textAddress.text = data[position].locationAddress
             viewCardContent.setOnClickListener {
                     val intent = Intent(context , RestaurantActivity::class.java)
+                    intent.putExtra("Restaurant",data[position])
                     context.startActivity(intent)
-
+            }
+            if (position==data.size-1){
+                val params =root.layoutParams as ViewGroup.MarginLayoutParams
+                params.setMargins(0,0,50,0)
             }
 
         }

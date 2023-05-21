@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -14,20 +13,14 @@ import com.example.feastfast.R
 import com.example.feastfast.databinding.FragmentHomeBinding
 import com.example.feastfast.models.Category
 import com.example.feastfast.models.Restaurant
-import com.example.feastfast.ui.login.LoginActivity
-import com.example.feastfast.ui.restaurant.RestaurantActivity
-import com.google.android.material.imageview.ShapeableImageView
+import com.example.feastfast.models.room.AppDatabase
+import com.example.feastfast.ui.cart.CartActivity
 
 
 class HomeFragment : Fragment() {
 
-    private lateinit var ad1 : ShapeableImageView;
-    private lateinit var ad2 : ShapeableImageView;
-    private lateinit var ad3: ShapeableImageView;
-
-    private lateinit var viewPager2 : ViewPager2
     lateinit var myContext : FragmentActivity
-    private val categories = listOf<Category>(
+    private val categories = listOf(
         Category(name = "Pizza",R.color.primary_color,R.drawable.image_category_pizza),
         Category(name = "Sandwich",R.color.pinkish,R.drawable.image_category_hotdog),
         Category(name = "Shawarma",R.color.brownish,R.drawable.image_category_shawarma),
@@ -49,7 +42,7 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         myContext = requireActivity()
-        var images = listOf<Int>(R.drawable.image_hotspot,R.drawable.image_hotspot_logo,R.drawable.image_hotspot,R.drawable.image_hotspot_logo,R.drawable.image_hotspot);
+        var images = listOf(R.drawable.image_hotspot,R.drawable.image_hotspot_logo,R.drawable.image_hotspot,R.drawable.image_hotspot_logo,R.drawable.image_hotspot);
         val adapter =  AdsViewPagerAdapter(images)
         binding.viewPager2.adapter = adapter
         binding.viewPager2.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback(){
@@ -57,23 +50,17 @@ class HomeFragment : Fragment() {
                 position: Int,
                 positionOffset: Float,
                 positionOffsetPixels: Int
-            ) {
+            ){
                 super.onPageScrolled(position, positionOffset, positionOffsetPixels)
                 changeColor()
             }
-
-            override fun onPageSelected(position: Int) {
-                super.onPageSelected(position)
-            }
-
             override fun onPageScrollStateChanged(state: Int) {
                 super.onPageScrollStateChanged(state)
                 changeColor()
             }
-
         })
 
-
+        showCartCount()
 
         binding.recyclerViewCategories.layoutManager = LinearLayoutManager(myContext,LinearLayoutManager.HORIZONTAL,false)
         binding.recyclerViewFreeDelivery.layoutManager = LinearLayoutManager(myContext,LinearLayoutManager.HORIZONTAL,false)
@@ -88,14 +75,35 @@ class HomeFragment : Fragment() {
         binding.recyclerViewTopRated.adapter=HomeRestaurantAdapter(loadData(),myContext)
     }
 
+    override fun onResume() {
+        super.onResume()
+        showCartCount()
+    }
+
+    fun showCartCount(){
+        val items = AppDatabase.getInstance(myContext)!!.getMenuItemDao().getCartContents()
+        val isFilled = items.isNotEmpty()
+        val redCircle = binding.redCircle
+        val numberOfItems = binding.textNumberOfItems
+        redCircle.visibility = if(isFilled) View.VISIBLE else View.GONE
+        numberOfItems.visibility= if(isFilled) View.VISIBLE else View.GONE
+        numberOfItems.text=items.size.toString()
+            binding.iconCart.setOnClickListener{
+                if (isFilled){
+                    val intent = Intent(myContext, CartActivity::class.java)
+                    myContext.startActivity(intent)
+                }
+        }
+    }
+
     fun loadData() : List<Restaurant> {
         return listOf(
-            Restaurant("HotSpot DZ",R.drawable.image_hotspot_logo2,R.drawable.image_hotspot,"7th street, view kouba", 0F,0F,"Mexican, portuguese",4.1F,"0550710721","hotspot@hotspot.dz","https://www.instagram.com/hotspot_dz/","https://web.facebook.com/HotSpotdz"),
-            Restaurant("HotSpot DZ",R.drawable.image_hotspot_logo2,R.drawable.image_hotspot,"7th street, view kouba", 0F,0F,"Mexican, portuguese",4.1F,"0550710721","hotspot@hotspot.dz","https://www.instagram.com/hotspot_dz/","https://web.facebook.com/HotSpotdz"),
-            Restaurant("HotSpot DZ",R.drawable.image_hotspot_logo2,R.drawable.image_hotspot,"7th street, view kouba", 0F,0F,"Mexican, portuguese",4.1F,"0550710721","hotspot@hotspot.dz","https://www.instagram.com/hotspot_dz/","https://web.facebook.com/HotSpotdz"),
-            Restaurant("HotSpot DZ",R.drawable.image_hotspot_logo2,R.drawable.image_hotspot,"7th street, view kouba", 0F,0F,"Mexican, portuguese",4.1F,"0550710721","hotspot@hotspot.dz","https://www.instagram.com/hotspot_dz/","https://web.facebook.com/HotSpotdz"),
-            Restaurant("HotSpot DZ",R.drawable.image_hotspot_logo2,R.drawable.image_hotspot,"7th street, view kouba", 0F,0F,"Mexican, portuguese",4.1F,"0550710721","hotspot@hotspot.dz","https://www.instagram.com/hotspot_dz/","https://web.facebook.com/HotSpotdz"),
-            Restaurant("HotSpot DZ",R.drawable.image_hotspot_logo2,R.drawable.image_hotspot,"7th street, view kouba", 0F,0F,"Mexican, portuguese",4.1F,"0550710721","hotspot@hotspot.dz","https://www.instagram.com/hotspot_dz/","https://web.facebook.com/HotSpotdz")
+            Restaurant(1,"HotSpot DZ",R.drawable.image_hotspot_logo2,R.drawable.image_hotspot,"7th street, view kouba", 0F,0F,"Mexican, portuguese",4.1F,"0550710721","hotspot@hotspot.dz","https://www.instagram.com/hotspot_dz/","https://web.facebook.com/HotSpotdz"),
+            Restaurant(2,"HotSpot DZ",R.drawable.image_hotspot_logo2,R.drawable.image_hotspot,"7th street, view kouba", 0F,0F,"Mexican, portuguese",4.1F,"0550710721","hotspot@hotspot.dz","https://www.instagram.com/hotspot_dz/","https://web.facebook.com/HotSpotdz"),
+            Restaurant(4,"HotSpot DZ",R.drawable.image_hotspot_logo2,R.drawable.image_hotspot,"7th street, view kouba", 0F,0F,"Mexican, portuguese",4.1F,"0550710721","hotspot@hotspot.dz","https://www.instagram.com/hotspot_dz/","https://web.facebook.com/HotSpotdz"),
+            Restaurant(5,"HotSpot DZ",R.drawable.image_hotspot_logo2,R.drawable.image_hotspot,"7th street, view kouba", 0F,0F,"Mexican, portuguese",4.1F,"0550710721","hotspot@hotspot.dz","https://www.instagram.com/hotspot_dz/","https://web.facebook.com/HotSpotdz"),
+            Restaurant(6,"HotSpot DZ",R.drawable.image_hotspot_logo2,R.drawable.image_hotspot,"7th street, view kouba", 0F,0F,"Mexican, portuguese",4.1F,"0550710721","hotspot@hotspot.dz","https://www.instagram.com/hotspot_dz/","https://web.facebook.com/HotSpotdz"),
+            Restaurant(7,"HotSpot DZ",R.drawable.image_hotspot_logo2,R.drawable.image_hotspot,"7th street, view kouba", 0F,0F,"Mexican, portuguese",4.1F,"0550710721","hotspot@hotspot.dz","https://www.instagram.com/hotspot_dz/","https://web.facebook.com/HotSpotdz")
         )
     }
     fun changeColor(){
@@ -133,7 +141,7 @@ class HomeFragment : Fragment() {
                 binding.ind5.setBackgroundColor( getResources().getColor(R.color.addToCart_50_opacity))
 
             }
-            5 -> {
+            4 -> {
                 binding.ind5.setBackgroundColor( getResources().getColor(R.color.addToCart))
                 binding.ind1.setBackgroundColor( getResources().getColor(R.color.addToCart_50_opacity))
                 binding.ind2.setBackgroundColor( getResources().getColor(R.color.addToCart_50_opacity))
@@ -141,6 +149,7 @@ class HomeFragment : Fragment() {
                 binding.ind3.setBackgroundColor( getResources().getColor(R.color.addToCart_50_opacity))
 
             }
+
 
         }
 

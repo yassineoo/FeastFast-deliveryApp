@@ -35,7 +35,7 @@
             android:layout_height="24dp"
             android:layout_marginTop="13dp"
             android:src="@drawable/icon_cart_black"
-            app:layout_constraintBottom_toBottomOf="@+id/CaartSourceName"
+            app:layout_constraintBottom_toBottomOf="@+id/textCartSourceName"
             app:layout_constraintEnd_toStartOf="@+id/YourCartFromText"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -50,7 +50,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/CaartSourceName"
+            android:id="@+id/textCartSourceName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
@@ -68,7 +68,7 @@
 
             android:elevation="10dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/CaartSourceName" />
+            app:layout_constraintTop_toBottomOf="@+id/textCartSourceName" />
 
         <ScrollView
             android:id="@+id/ScrollView"
@@ -187,13 +187,11 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
-                    android:layout_marginBottom="100dp"
                     android:fontFamily="@font/poppins"
                     android:text="@string/total"
                     android:textColor="@color/black"
                     android:textSize="18sp"
                     android:textStyle="bold"
-                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="@+id/textDeliveryFee"
                     app:layout_constraintTop_toBottomOf="@+id/horizontal_line2" />
 
@@ -255,6 +253,36 @@
                     android:text="1850 DZ"
                     app:layout_constraintStart_toStartOf="@+id/textFoodPrice"
                     app:layout_constraintTop_toTopOf="@+id/TotalText" />
+
+                <RelativeLayout
+                    android:id="@+id/buttonCheckout"
+                    android:layout_width="250dp"
+                    android:layout_height="39dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="150dp"
+                    android:background="@drawable/bg_red_rounded_button"
+                    android:padding="8dp"
+                    android:visibility="visible"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/TotalText">
+
+
+                    <TextView
+                        android:id="@+id/textCheckout"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="30dp"
+                        android:fontFamily="@font/poppins"
+                        android:text="@string/checkout"
+                        android:textColor="@color/white"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                </RelativeLayout>
 
 
             </androidx.constraintlayout.widget.ConstraintLayout>
