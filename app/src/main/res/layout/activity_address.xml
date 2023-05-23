@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.address.AddressActivity">
+
+    <!--header start-->
+    <ImageView
+        android:id="@+id/locationIcon"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginTop="13dp"
+        android:layout_marginEnd="5dp"
+        android:src="@drawable/icon_my_location"
+        app:layout_constraintBottom_toBottomOf="@+id/textaddress"
+        app:layout_constraintEnd_toStartOf="@+id/chooseText"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/chooseText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text="@string/choose"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textaddress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/deliveryAddress"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/chooseText"
+        app:layout_constraintTop_toBottomOf="@+id/chooseText" />
+    <View
+        android:id="@+id/horizontal_line4"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_marginTop="5dp"
+        android:background="@color/greyish"
+
+        android:elevation="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textaddress" />
+    <!--header end-->
+
+    <RelativeLayout
+        android:id="@+id/textBox"
+        android:layout_width="300dp"
+        android:layout_height="65dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="35dp"
+        android:layout_marginEnd="10dp"
+        android:background="@drawable/bg_yellow_with_opacity_rounded_btn"
+        android:padding="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/horizontal_line4">
+
+
+        <TextView
+            android:id="@+id/accurateAddressText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginStart="8dp"
+            android:fontFamily="@font/poppins"
+            android:text="@string/accurateAddressText"
+            android:textColor="@color/black"
+            android:textSize="11sp"
+            android:textStyle="normal" />
+
+    </RelativeLayout>
+
+    <EditText
+        android:id="@+id/editTextAddress"
+        android:layout_width="270dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="25dp"
+        android:background="@drawable/bg_text_input"
+        android:backgroundTint="@color/input_base_line"
+        android:hint="@string/enterDeliveryAddress"
+        android:inputType="textEmailAddress"
+        android:paddingLeft="40sp"
+        android:textColor="#000000"
+        android:textColorHint="@color/place_holder"
+        android:textSize="11sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textBox" />
+
+    <Button
+        android:id="@+id/btnConfirm"
+        android:layout_width="270dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="25dp"
+        android:background="@drawable/bg_blackish_disabled_rounded_button"
+        android:text="Confirm Address"
+        android:textAllCaps="false"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:backgroundTint="@null"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextAddress" />
+
+    <TextView
+        android:id="@+id/textAlternatively"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:text="@string/alternatively"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnConfirm" />
+
+    <RelativeLayout
+        android:id="@+id/btnLocation"
+        android:layout_width="270dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="10dp"
+        android:background="@drawable/bg_yellow_with_opacity_rounded_btn"
+        android:padding="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textAlternatively">
+
+        <ImageView
+            android:id="@+id/iconMap"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/icon_map"
+            android:layout_centerVertical="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="35dp"/>
+
+        <TextView
+            android:id="@+id/useLocationText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="15dp"
+            android:layout_toEndOf="@+id/iconMap"
+            android:fontFamily="@font/poppins"
+            android:text="@string/useLocation"
+            android:textColor="@color/black"
+            android:textSize="11sp"
+            android:textStyle="normal" />
+
+    </RelativeLayout>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

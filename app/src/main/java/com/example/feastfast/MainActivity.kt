@@ -1,6 +1,9 @@
 package com.example.feastfast
 
+import android.app.Activity
+import android.content.Intent
 import android.os.Bundle
+import android.widget.Toast
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
@@ -12,6 +15,7 @@ import com.example.feastfast.databinding.ActivityMainBinding
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
+    var address : String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,5 +37,19 @@ class MainActivity : AppCompatActivity() {
       //  setupActionBarWithNavController(navController, appBarConfiguration)
 
         navView.setupWithNavController(navController)
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == 1 && resultCode == Activity.RESULT_OK) {
+            val receivedData = data?.getStringExtra("address")
+            Toast.makeText(this,"$receivedData" , Toast.LENGTH_SHORT).show()
+            address = receivedData
+        }
+
+    }
+
+    fun passAddress() : String? {
+        return address
     }
 }

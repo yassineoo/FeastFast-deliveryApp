@@ -1,5 +1,6 @@
 package com.example.feastfast.ui.home
 
+import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,11 +10,13 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.viewpager2.widget.ViewPager2
+import com.example.feastfast.MainActivity
 import com.example.feastfast.R
 import com.example.feastfast.databinding.FragmentHomeBinding
 import com.example.feastfast.models.Category
 import com.example.feastfast.models.Restaurant
 import com.example.feastfast.models.room.AppDatabase
+import com.example.feastfast.ui.address.AddressActivity
 import com.example.feastfast.ui.cart.CartActivity
 
 
@@ -62,6 +65,14 @@ class HomeFragment : Fragment() {
 
         showCartCount()
 
+        binding.iconMyLocation.setOnClickListener {
+            val intent = Intent(requireContext(), AddressActivity::class.java)
+            myContext.startActivityForResult(intent,1)
+        }
+
+        setAddress()
+
+
         binding.recyclerViewCategories.layoutManager = LinearLayoutManager(myContext,LinearLayoutManager.HORIZONTAL,false)
         binding.recyclerViewFreeDelivery.layoutManager = LinearLayoutManager(myContext,LinearLayoutManager.HORIZONTAL,false)
         binding.recyclerViewNearYou.layoutManager = LinearLayoutManager(myContext,LinearLayoutManager.HORIZONTAL,false)
@@ -78,6 +89,7 @@ class HomeFragment : Fragment() {
     override fun onResume() {
         super.onResume()
         showCartCount()
+        setAddress()
     }
 
     fun showCartCount(){
@@ -88,11 +100,11 @@ class HomeFragment : Fragment() {
         redCircle.visibility = if(isFilled) View.VISIBLE else View.GONE
         numberOfItems.visibility= if(isFilled) View.VISIBLE else View.GONE
         numberOfItems.text=items.size.toString()
-            binding.iconCart.setOnClickListener{
-                if (isFilled){
-                    val intent = Intent(myContext, CartActivity::class.java)
-                    myContext.startActivity(intent)
-                }
+        binding.iconCart.setOnClickListener{
+            if (isFilled){
+                val intent = Intent(myContext, CartActivity::class.java)
+                myContext.startActivity(intent)
+            }
         }
     }
 
@@ -154,5 +166,14 @@ class HomeFragment : Fragment() {
         }
 
     }
+
+    fun setAddress(){
+        val activity = activity as MainActivity
+        val address = activity.passAddress()
+        if (address!=null){
+            binding.textDeliveryAddress.text=address
+        }
+    }
+
 }
 

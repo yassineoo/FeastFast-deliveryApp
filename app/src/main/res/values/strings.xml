@@ -35,7 +35,7 @@
     <string name="YourCartFrom">Your Cart From </string>
     <string name="details">Details</string>
     <string name="include">Ingredients include:  </string>
-    <string name="choose">Choose size</string>
+    <string name="chooseSize">Choose size</string>
     <string name="toppings">Add toppings</string>
     <string name="EmptyCart"> Empty Cart </string>
     <string name="addMoreItems">Add More Items</string>
@@ -46,8 +46,12 @@
     <string name="topRated">Top rated</string>
     <string name="topPastry">Top pastry and bakery</string>
     <string name="checkout">Checkout</string>
-
-
+    <string name="choose">choose</string>
+    <string name="deliveryAddress">Delivery Address</string>
+    <string name="accurateAddressText">Please provide your address as accurately as possible so that your order reaches you in no time</string>
+    <string name="enterDeliveryAddress">Enter you delivery address</string>
+    <string name="alternatively">Or Alternatively</string>
+    <string name="useLocation">Use your current location</string>
 
     <string name="BillText">Bill</string>
     <string name="foodTotal">Food Total</string>

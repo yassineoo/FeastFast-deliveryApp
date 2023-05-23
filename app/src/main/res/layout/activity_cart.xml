@@ -12,23 +12,7 @@
         tools:layout_editor_absoluteX="2dp"
         tools:layout_editor_absoluteY="139dp">
 
-
-
-
-
-        <TextView
-            android:id="@+id/itemsText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="80dp"
-            android:text="Items"
-            android:textColor="@color/black"
-            android:textSize="24dp"
-            android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
+        <!--header start-->
         <ImageView
             android:id="@+id/cartShoppingIcon"
             android:layout_width="24dp"
@@ -38,7 +22,6 @@
             app:layout_constraintBottom_toBottomOf="@+id/textCartSourceName"
             app:layout_constraintEnd_toStartOf="@+id/YourCartFromText"
             app:layout_constraintTop_toTopOf="parent" />
-
         <TextView
             android:id="@+id/YourCartFromText"
             android:layout_width="wrap_content"
@@ -48,7 +31,6 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
-
         <TextView
             android:id="@+id/textCartSourceName"
             android:layout_width="wrap_content"
@@ -69,6 +51,23 @@
             android:elevation="10dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textCartSourceName" />
+        <!--header end-->
+
+
+        <TextView
+            android:id="@+id/itemsText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="80dp"
+            android:text="Items"
+            android:textColor="@color/black"
+            android:textSize="24dp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
 
         <ScrollView
             android:id="@+id/ScrollView"
