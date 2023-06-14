@@ -39,17 +39,4 @@ class MainActivity : AppCompatActivity() {
         navView.setupWithNavController(navController)
     }
 
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-        if (requestCode == 1 && resultCode == Activity.RESULT_OK) {
-            val receivedData = data?.getStringExtra("address")
-            Toast.makeText(this,"$receivedData" , Toast.LENGTH_SHORT).show()
-            address = receivedData
-        }
-
-    }
-
-    fun passAddress() : String? {
-        return address
-    }
 }

@@ -1,11 +1,13 @@
 package com.example.feastfast.ui.home
 
 import android.app.Activity
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.edit
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -45,7 +47,7 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         myContext = requireActivity()
-        var images = listOf(R.drawable.image_hotspot,R.drawable.image_hotspot_logo,R.drawable.image_hotspot,R.drawable.image_hotspot_logo,R.drawable.image_hotspot);
+        var images = listOf(R.drawable.image_hotspot,R.drawable.image_hotspot_logo,R.drawable.image_hotspot,R.drawable.image_hotspot_logo,R.drawable.image_hotspot)
         val adapter =  AdsViewPagerAdapter(images)
         binding.viewPager2.adapter = adapter
         binding.viewPager2.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback(){
@@ -65,9 +67,9 @@ class HomeFragment : Fragment() {
 
         showCartCount()
 
-        binding.iconMyLocation.setOnClickListener {
-            val intent = Intent(requireContext(), AddressActivity::class.java)
-            myContext.startActivityForResult(intent,1)
+        binding.iconDown.setOnClickListener {
+            val intent = Intent(myContext, AddressActivity::class.java)
+            myContext.startActivity(intent)
         }
 
         setAddress()
@@ -122,57 +124,51 @@ class HomeFragment : Fragment() {
 
         when (binding.viewPager2.currentItem){
             0 -> {
-                binding.ind1.setBackgroundColor( getResources().getColor(R.color.addToCart))
-                binding.ind2.setBackgroundColor( getResources().getColor(R.color.addToCart_50_opacity))
-                binding.ind3.setBackgroundColor( getResources().getColor(R.color.addToCart_50_opacity))
-                binding.ind4.setBackgroundColor( getResources().getColor(R.color.addToCart_50_opacity))
-                binding.ind5.setBackgroundColor( getResources().getColor(R.color.addToCart_50_opacity))
+                binding.ind1.setBackgroundColor( resources.getColor(R.color.addToCart))
+                binding.ind2.setBackgroundColor( resources.getColor(R.color.addToCart_50_opacity))
+                binding.ind3.setBackgroundColor( resources.getColor(R.color.addToCart_50_opacity))
+                binding.ind4.setBackgroundColor( resources.getColor(R.color.addToCart_50_opacity))
+                binding.ind5.setBackgroundColor( resources.getColor(R.color.addToCart_50_opacity))
 
             }
             1 -> {
-                binding.ind2.setBackgroundColor( getResources().getColor(R.color.addToCart))
-                binding.ind1.setBackgroundColor( getResources().getColor(R.color.addToCart_50_opacity))
-                binding.ind3.setBackgroundColor( getResources().getColor(R.color.addToCart_50_opacity))
-                binding.ind4.setBackgroundColor( getResources().getColor(R.color.addToCart_50_opacity))
-                binding.ind5.setBackgroundColor( getResources().getColor(R.color.addToCart_50_opacity))
+                binding.ind2.setBackgroundColor( resources.getColor(R.color.addToCart))
+                binding.ind1.setBackgroundColor( resources.getColor(R.color.addToCart_50_opacity))
+                binding.ind3.setBackgroundColor( resources.getColor(R.color.addToCart_50_opacity))
+                binding.ind4.setBackgroundColor( resources.getColor(R.color.addToCart_50_opacity))
+                binding.ind5.setBackgroundColor( resources.getColor(R.color.addToCart_50_opacity))
             }
             2 -> {
-                binding.ind3.setBackgroundColor( getResources().getColor(R.color.addToCart))
-                binding.ind1.setBackgroundColor( getResources().getColor(R.color.addToCart_50_opacity))
-                binding.ind2.setBackgroundColor( getResources().getColor(R.color.addToCart_50_opacity))
-                binding.ind4.setBackgroundColor( getResources().getColor(R.color.addToCart_50_opacity))
-                binding.ind5.setBackgroundColor( getResources().getColor(R.color.addToCart_50_opacity))
+                binding.ind3.setBackgroundColor( resources.getColor(R.color.addToCart))
+                binding.ind1.setBackgroundColor( resources.getColor(R.color.addToCart_50_opacity))
+                binding.ind2.setBackgroundColor( resources.getColor(R.color.addToCart_50_opacity))
+                binding.ind4.setBackgroundColor( resources.getColor(R.color.addToCart_50_opacity))
+                binding.ind5.setBackgroundColor( resources.getColor(R.color.addToCart_50_opacity))
 
             }
 
             3 -> {
-                binding.ind4.setBackgroundColor( getResources().getColor(R.color.addToCart))
-                binding.ind1.setBackgroundColor( getResources().getColor(R.color.addToCart_50_opacity))
-                binding.ind2.setBackgroundColor( getResources().getColor(R.color.addToCart_50_opacity))
-                binding.ind3.setBackgroundColor( getResources().getColor(R.color.addToCart_50_opacity))
-                binding.ind5.setBackgroundColor( getResources().getColor(R.color.addToCart_50_opacity))
+                binding.ind4.setBackgroundColor( resources.getColor(R.color.addToCart))
+                binding.ind1.setBackgroundColor( resources.getColor(R.color.addToCart_50_opacity))
+                binding.ind2.setBackgroundColor( resources.getColor(R.color.addToCart_50_opacity))
+                binding.ind3.setBackgroundColor( resources.getColor(R.color.addToCart_50_opacity))
+                binding.ind5.setBackgroundColor( resources.getColor(R.color.addToCart_50_opacity))
 
             }
             4 -> {
-                binding.ind5.setBackgroundColor( getResources().getColor(R.color.addToCart))
-                binding.ind1.setBackgroundColor( getResources().getColor(R.color.addToCart_50_opacity))
-                binding.ind2.setBackgroundColor( getResources().getColor(R.color.addToCart_50_opacity))
-                binding.ind4.setBackgroundColor( getResources().getColor(R.color.addToCart_50_opacity))
-                binding.ind3.setBackgroundColor( getResources().getColor(R.color.addToCart_50_opacity))
-
+                binding.ind5.setBackgroundColor( resources.getColor(R.color.addToCart))
+                binding.ind1.setBackgroundColor( resources.getColor(R.color.addToCart_50_opacity))
+                binding.ind2.setBackgroundColor( resources.getColor(R.color.addToCart_50_opacity))
+                binding.ind4.setBackgroundColor( resources.getColor(R.color.addToCart_50_opacity))
+                binding.ind3.setBackgroundColor( resources.getColor(R.color.addToCart_50_opacity))
             }
-
-
         }
-
     }
 
     fun setAddress(){
-        val activity = activity as MainActivity
-        val address = activity.passAddress()
-        if (address!=null){
-            binding.textDeliveryAddress.text=address
-        }
+        val pref = myContext.getSharedPreferences("myPreferences",Context.MODE_PRIVATE)
+        val addressToShow = pref.getString("address","Enter your location")
+        binding.textDeliveryAddress.text=addressToShow
     }
 
 }
