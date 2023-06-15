@@ -65,7 +65,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/horizontal_line"
         app:queryBackground="@drawable/bg_transparency"
-        app:queryHint="Food, restaurant, cuisine ..."
+        app:queryHint="@string/searchHint"
         app:searchIcon="@drawable/icon_search"></androidx.appcompat.widget.SearchView>
 
     <ImageView
@@ -93,7 +93,9 @@
         android:id="@+id/recycleView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:paddingBottom="180dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/searchView" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -4,19 +4,15 @@ import android.content.Context
 import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.core.view.marginBottom
-import androidx.core.view.setMargins
-
 import androidx.recyclerview.widget.RecyclerView
-
 import com.example.feastfast.databinding.ListItemRestaurantBinding
 import com.example.feastfast.models.Restaurant
 import com.example.feastfast.ui.restaurant.RestaurantActivity
 
-class RestaurantAdapter(val data : List<Restaurant> , val context : Context) : RecyclerView.Adapter<RestaurantAdapter.RestaurantListItemViewHolder>() {
+class RestaurantAdapter(var data : List<Restaurant> , val context : Context) : RecyclerView.Adapter<RestaurantAdapter.RestaurantListItemViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RestaurantListItemViewHolder {
-        return RestaurantAdapter.RestaurantListItemViewHolder(
+        return RestaurantListItemViewHolder(
             ListItemRestaurantBinding.inflate(
                 LayoutInflater.from(parent.context),
                 parent,
@@ -39,14 +35,14 @@ class RestaurantAdapter(val data : List<Restaurant> , val context : Context) : R
                     intent.putExtra("Restaurant",data[position])
                     context.startActivity(intent)
             }
-            if (position==data.size-1){
-            val params =root.layoutParams as ViewGroup.MarginLayoutParams
-            params.setMargins(0,0,0,550)
-            }
-
         }
     }
 
+
+    fun setFilteredList(newData : List<Restaurant>){
+        this.data=newData
+        notifyDataSetChanged()
+    }
 
     class RestaurantListItemViewHolder(val binding: ListItemRestaurantBinding) : RecyclerView.ViewHolder(binding.root)
 }

@@ -52,6 +52,7 @@
     <string name="enterDeliveryAddress">Enter you delivery address</string>
     <string name="alternatively">Or Alternatively</string>
     <string name="useLocation">Use your current location</string>
+    <string name="searchHint">Search for a store</string>
 
     <string name="BillText">Bill</string>
     <string name="foodTotal">Food Total</string>
