@@ -6,183 +6,239 @@
     android:layout_height="match_parent"
     tools:context=".ui.login.signupFragment">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <EditText
-            android:id="@+id/emailAdressInput"
-            android:layout_width="365dp"
-            android:layout_height="50dp"
-            android:layout_marginTop="20dp"
-            android:backgroundTint="@color/input_base_line"
-            android:hint="@string/emailPlaceHolder"
-            android:inputType="textEmailAddress"
-            android:paddingLeft="40sp"
-            android:textColor="#000000"
-            android:textColorHint="@color/place_holder"
-            app:layout_constraintStart_toStartOf="@+id/editTextPhone2"
-            app:layout_constraintTop_toBottomOf="@+id/editTextPhone2" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-        <EditText
-            android:id="@+id/password"
-            android:layout_width="365dp"
-            android:layout_height="50dp"
-            android:layout_marginTop="20dp"
-            android:backgroundTint="@color/input_base_line"
-            android:ems="10"
-            android:hint="@string/passwordPlaceHolder"
-            android:inputType="textPassword"
-            android:paddingLeft="40sp"
-            android:textColorHint="@color/place_holder"
-            app:layout_constraintStart_toStartOf="@+id/emailAdressInput"
-            app:layout_constraintTop_toBottomOf="@+id/emailAdressInput" />
 
-        <Button
-            android:id="@+id/loginBtn"
-            android:layout_width="308dp"
-            android:layout_height="52dp"
-            android:layout_marginTop="48dp"
-            android:background="@drawable/bg_selected_rounded_button"
-            android:text="Register"
-            android:textColor="@color/white"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            app:backgroundTint="@null"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.495"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/password" />
+            <EditText
+                android:id="@+id/emailAdressInput"
+                android:layout_width="365dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="20dp"
+                android:backgroundTint="@color/input_base_line"
+                android:hint="@string/emailPlaceHolder"
+                android:inputType="textEmailAddress"
+                android:paddingLeft="40sp"
+                android:textColor="#000000"
+                android:textColorHint="@color/place_holder"
+                app:layout_constraintStart_toStartOf="@+id/editTextPhone2"
+                app:layout_constraintTop_toBottomOf="@+id/editTextPhone2" />
 
-        <TextView
-            android:id="@+id/orText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="26dp"
-            android:text="OR Register in With"
-            android:textAllCaps="false"
-            android:textColor="#000000"
-            android:textSize="17sp"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/loginBtn" />
+            <EditText
+                android:id="@+id/password"
+                android:layout_width="365dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="20dp"
+                android:backgroundTint="@color/input_base_line"
+                android:ems="10"
+                android:hint="@string/passwordPlaceHolder"
+                android:inputType="textPassword"
+                android:paddingLeft="40sp"
+                android:textColorHint="@color/place_holder"
+                app:layout_constraintStart_toStartOf="@+id/emailAdressInput"
+                app:layout_constraintTop_toBottomOf="@+id/emailAdressInput" />
 
-        <ImageView
-            android:id="@+id/facebookIcon"
-            android:layout_width="45dp"
-            android:layout_height="38dp"
-            android:layout_marginStart="64dp"
-            android:layout_marginTop="20dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/orText"
-            app:srcCompat="@drawable/icon_facebook" />
 
-        <ImageView
-            android:id="@+id/googleIcon"
-            android:layout_width="46dp"
-            android:layout_height="40dp"
-            android:layout_marginEnd="60dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/instagrameIcon"
-            app:srcCompat="@drawable/icon_google" />
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/profilePicture"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_marginTop="8dp"
+                android:src="@drawable/icon_person"
+                app:layout_constraintEnd_toEndOf="parent"
 
-        <ImageView
-            android:id="@+id/instagrameIcon"
-            android:layout_width="47dp"
-            android:layout_height="37dp"
-            android:layout_marginStart="72dp"
-            app:layout_constraintEnd_toStartOf="@+id/googleIcon"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toEndOf="@+id/facebookIcon"
-            app:layout_constraintTop_toTopOf="@+id/facebookIcon"
-            app:srcCompat="@drawable/icon_instagrame" />
+                app:layout_constraintHorizontal_bias="0.498"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/addPictutreText" />
 
-        <TextView
-            android:id="@+id/termsConditionSign"
-            android:layout_width="226dp"
-            android:layout_height="39dp"
-            android:layout_marginTop="28dp"
-            android:text="@string/terms"
-            android:textColor="#000000"
+            <Button
+                android:id="@+id/registerBtn"
+                android:layout_width="308dp"
+                android:layout_height="52dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/bg_selected_rounded_button"
+                android:text="Register"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:backgroundTint="@null"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.495"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/takePhoto" />
 
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/facebookIcon" />
+            <TextView
+                android:id="@+id/orText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="60dp"
+                android:text="OR Register in With"
+                android:textAllCaps="false"
+                android:textColor="#000000"
+                android:textSize="17sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.498"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/registerBtn" />
 
-        <ImageView
-            android:id="@+id/imageView8"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="16dp"
-            app:layout_constraintStart_toStartOf="@+id/emailAdressInput"
-            app:layout_constraintTop_toTopOf="@+id/emailAdressInput"
-            app:srcCompat="@drawable/icon_mail" />
+            <ImageView
+                android:id="@+id/facebookIcon"
+                android:layout_width="45dp"
+                android:layout_height="38dp"
+                android:layout_marginStart="64dp"
+                android:layout_marginTop="20dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/orText"
+                app:srcCompat="@drawable/icon_facebook" />
 
-        <ImageView
-            android:id="@+id/imageView2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:src="@drawable/icon_lock"
-            app:layout_constraintStart_toStartOf="@+id/imageView8"
-            app:layout_constraintTop_toTopOf="@+id/password" />
+            <ImageView
+                android:id="@+id/googleIcon"
+                android:layout_width="46dp"
+                android:layout_height="40dp"
+                android:layout_marginEnd="60dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/instagrameIcon"
+                app:srcCompat="@drawable/icon_google" />
 
-        <ImageView
-            android:id="@+id/imageView5"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/icon_open_eye_password"
-            app:layout_constraintEnd_toEndOf="@+id/password"
-            app:layout_constraintTop_toTopOf="@+id/imageView2" />
+            <ImageView
+                android:id="@+id/instagrameIcon"
+                android:layout_width="47dp"
+                android:layout_height="37dp"
+                android:layout_marginStart="72dp"
+                app:layout_constraintEnd_toStartOf="@+id/googleIcon"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toEndOf="@+id/facebookIcon"
+                app:layout_constraintTop_toTopOf="@+id/facebookIcon"
+                app:srcCompat="@drawable/icon_instagrame" />
 
-        <EditText
-            android:id="@+id/editTextPhone2"
-            android:layout_width="365dp"
-            android:layout_height="50dp"
-            android:layout_marginTop="20dp"
-            android:backgroundTint="@color/input_base_line"
-            android:ems="10"
-            android:hint="@string/phoneNumberPlaceHolder"
-            android:inputType="phone"
-            android:paddingLeft="40sp"
-            android:textColorHint="@color/place_holder"
-            app:layout_constraintStart_toStartOf="@+id/editTextTextPersonName"
-            app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName" />
+            <TextView
+                android:id="@+id/termsConditionSign"
+                android:layout_width="226dp"
+                android:layout_height="39dp"
+                android:layout_marginTop="32dp"
+                android:text="@string/terms"
+                android:textColor="#000000"
 
-        <EditText
-            android:id="@+id/editTextTextPersonName"
-            android:layout_width="365dp"
-            android:layout_height="50dp"
-            android:layout_marginTop="16dp"
-            android:backgroundTint="@color/input_base_line"
-            android:ems="10"
-            android:hint="@string/fullNamePlaceHolder"
-            android:inputType="textPersonName"
-            android:paddingLeft="40sp"
-            android:textColor="#000000"
-            android:textColorHint="@color/place_holder"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.497"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/facebookIcon" />
 
-        <ImageView
-            android:id="@+id/imageView9"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:src="@drawable/icon_person"
-            app:layout_constraintStart_toStartOf="@+id/imageView8"
-            app:layout_constraintTop_toTopOf="@+id/editTextTextPersonName" />
+            <ImageView
+                android:id="@+id/emailIcon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
+                app:layout_constraintStart_toStartOf="@+id/emailAdressInput"
+                app:layout_constraintTop_toTopOf="@+id/emailAdressInput"
+                app:srcCompat="@drawable/icon_mail" />
 
-        <ImageView
-            android:id="@+id/imageView10"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:src="@drawable/icon_phone"
-            app:layout_constraintStart_toStartOf="@+id/imageView8"
-            app:layout_constraintTop_toTopOf="@+id/editTextPhone2" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <ImageView
+                android:id="@+id/passwordLockIcon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:src="@drawable/icon_lock"
+                app:layout_constraintStart_toStartOf="@+id/emailIcon"
+                app:layout_constraintTop_toTopOf="@+id/password" />
+
+            <EditText
+                android:id="@+id/editTextPhone2"
+                android:layout_width="365dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="20dp"
+                android:backgroundTint="@color/input_base_line"
+                android:ems="10"
+                android:hint="@string/phoneNumberPlaceHolder"
+                android:inputType="phone"
+                android:paddingLeft="40sp"
+                android:textColorHint="@color/place_holder"
+                app:layout_constraintStart_toStartOf="@+id/editTextTextPersonName"
+                app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName" />
+
+            <EditText
+                android:id="@+id/editTextTextPersonName"
+                android:layout_width="365dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="16dp"
+                android:backgroundTint="@color/input_base_line"
+                android:ems="10"
+                android:hint="@string/fullNamePlaceHolder"
+                android:inputType="textPersonName"
+                android:paddingLeft="40sp"
+                android:textColor="#000000"
+                android:textColorHint="@color/place_holder"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/iconFullName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:src="@drawable/icon_person"
+                app:layout_constraintStart_toStartOf="@+id/emailIcon"
+                app:layout_constraintTop_toTopOf="@+id/editTextTextPersonName" />
+
+            <ImageView
+                android:id="@+id/phoneIcon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:src="@drawable/icon_phone"
+                app:layout_constraintStart_toStartOf="@+id/emailIcon"
+                app:layout_constraintTop_toTopOf="@+id/editTextPhone2" />
+
+            <ImageButton
+                android:id="@+id/takePhoto"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="-20dp"
+                android:src="@drawable/baseline_camera_alt_24"
+                android:tint="@color/primary_color_50_opactity"
+                app:layout_constraintStart_toStartOf="@+id/profilePicture"
+                app:layout_constraintTop_toBottomOf="@+id/profilePicture" />
+
+            <ImageButton
+                android:id="@+id/addPhotoIcon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="-20dp"
+                android:src="@drawable/baseline_image_24"
+                android:tint="@color/primary_color_50_opactity"
+                app:layout_constraintEnd_toEndOf="@+id/profilePicture"
+                app:layout_constraintTop_toBottomOf="@+id/profilePicture" />
+
+            <TextView
+                android:id="@+id/addPictutreText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:text="@string/addPicture"
+                android:textColor="@color/greyish"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/password" />
+
+            <ImageButton
+                android:id="@+id/showHidePassword"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="4dp"
+                android:background="@color/white"
+                android:src="@drawable/icon_open_eye_password"
+                android:tint="@color/greyish"
+                app:layout_constraintEnd_toEndOf="@+id/password"
+                app:layout_constraintTop_toTopOf="@+id/passwordLockIcon" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
 </FrameLayout>

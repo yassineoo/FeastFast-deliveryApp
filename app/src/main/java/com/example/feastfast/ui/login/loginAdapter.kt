@@ -10,7 +10,7 @@ class loginAdapter(fragment: FragmentActivity) : FragmentStateAdapter(fragment) 
 
 
     override fun createFragment(position: Int): Fragment {
-        return if (position == 1) {
+        return if (position == 0) {
             loginFragment()
         } else signupFragment()
     }

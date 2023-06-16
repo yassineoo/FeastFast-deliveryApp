@@ -26,5 +26,14 @@
         android:id="@+id/navigation_account"
         android:name="com.example.feastfast.ui.account.AccountFragment"
         android:label="Account"
-        tools:layout="@layout/fragment_account" />
+        tools:layout="@layout/fragment_account" >
+        <action
+            android:id="@+id/action_navigation_account_to_personalinfoFragment"
+            app:destination="@id/personalinfoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/personalinfoFragment"
+        android:name="com.example.feastfast.personalinfoFragment"
+        android:label="fragment_personalinfo"
+        tools:layout="@layout/fragment_personalinfo" />
 </navigation>
