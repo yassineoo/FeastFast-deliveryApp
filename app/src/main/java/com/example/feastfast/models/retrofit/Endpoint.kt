@@ -11,16 +11,32 @@ import retrofit2.http.POST
 import retrofit2.http.Path
 
 interface Endpoint {
-    @GET("res")
-    suspend fun getAllRestaurants() : Response<List<Restaurant>>
+    @GET("res/{idUser}")
+    suspend fun getAllRestaurants(@Path("idUser") idUser: Int) : Response<List<Restaurant>>
+    @GET("res/fav/{idUser}")
+    suspend fun  getFavRestaurants(@Path("idUser") idUser: Int) : Response<List<Restaurant>>
+
 
     @GET("res/{id}/menu")
     suspend fun getRestaurantById(@Path("id") id: Int) : Response<List<MenuItem>>
 
 
+    @GET("users/{idUser}")
+    suspend fun getUserProfile(@Path("idUser") idUser: Int) : Response<User>
+
+
+
+    @GET("users/{idUser}/{idRes}")
+    suspend fun favoriteRestaurant(@Path("idUser") idUser: Int , @Path("idRes") idRes: Int?  ) : Response<FavClickResponse>
+
+
     @POST("users/login")
     suspend fun login(
         @Body loginRequest: LoginRequest
+    ): Response<User>
+    @POST("users/edit")
+    suspend fun editProfile(
+        @Body editProfileRequest: EditProfileRequest
     ): Response<User>
 
     @POST("users/register")

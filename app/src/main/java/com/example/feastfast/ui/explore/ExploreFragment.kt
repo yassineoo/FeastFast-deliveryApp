@@ -51,8 +51,11 @@ class ExploreFragment : Fragment() {
                 Toast.makeText(myContext, "request successful with Some unspecified error", Toast.LENGTH_SHORT).show()
             }
         }
+
         CoroutineScope(Dispatchers.IO+exceptionHandler).launch {
-            val response = Endpoint.createEndpoint().getAllRestaurants()
+            val pref = requireActivity().getSharedPreferences("fileName", Context.MODE_PRIVATE)
+            val idUser = pref.getInt("idUser",0)
+            val response = Endpoint.createEndpoint().getAllRestaurants(idUser)
             withContext(Dispatchers.Main) {
                 if (response.isSuccessful && response.body() != null) {
                     val data = response.body()!!.toList()

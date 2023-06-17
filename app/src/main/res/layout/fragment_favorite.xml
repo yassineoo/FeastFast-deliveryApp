@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.account.favoriteFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.explore.ExploreFragment">
+
+
+        <!--page header start -->
+        <TextView
+            android:id="@+id/textExplore"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="Favorite restaurants"
+            android:textColor="#000000"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.471"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textAll"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="my Restaurants"
+            android:textColor="#000000"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@+id/textExplore"
+            app:layout_constraintTop_toBottomOf="@+id/textExplore" />
+
+        <ImageView
+            android:id="@+id/pizza_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="13dp"
+            android:src="@drawable/icon_fast_food"
+            app:layout_constraintBottom_toBottomOf="@+id/textAll"
+            app:layout_constraintEnd_toStartOf="@+id/textExplore"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            android:id="@+id/horizontal_line"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="5dp"
+            android:background="@color/greyish"
+            android:elevation="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textAll" />
+        <!--page header end -->
+
+        <androidx.appcompat.widget.SearchView
+            android:id="@+id/searchView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/bg_seach_view"
+            app:iconifiedByDefault="false"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/horizontal_line"
+            app:queryBackground="@drawable/bg_transparency"
+            app:queryHint="Food, restaurant, cuisine ..."
+            app:searchIcon="@drawable/icon_search"></androidx.appcompat.widget.SearchView>
+
+        <ImageView
+            android:id="@+id/iconFilters"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:src="@drawable/icon_search_filters"
+            app:layout_constraintBottom_toBottomOf="@+id/line"
+            app:layout_constraintStart_toEndOf="@+id/line"
+            app:layout_constraintTop_toTopOf="@+id/line" />
+
+        <View
+            android:id="@+id/line"
+            android:layout_width="1dp"
+            android:layout_height="30dp"
+            android:layout_marginEnd="60dp"
+            android:background="#000000"
+            app:layout_constraintBottom_toBottomOf="@+id/searchView"
+            app:layout_constraintEnd_toEndOf="@+id/searchView"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintTop_toTopOf="@+id/searchView" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycleView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/searchView" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</FrameLayout>

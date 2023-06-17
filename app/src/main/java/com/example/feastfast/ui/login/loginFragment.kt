@@ -87,6 +87,9 @@ class loginFragment : Fragment() {
                             pref.edit {
                                 putBoolean("connected",true)
                                 putInt("idUser", data.id)
+                                putString("name" ,data.name)
+                                putString("email" ,data.email)
+                                putString("phone" ,data.phone_number)
                             }
 
                             val intent = Intent(requireActivity() ,MainActivity::class.java)

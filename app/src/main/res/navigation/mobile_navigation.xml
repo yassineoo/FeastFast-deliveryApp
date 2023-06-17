@@ -30,10 +30,18 @@
         <action
             android:id="@+id/action_navigation_account_to_personalinfoFragment"
             app:destination="@id/personalinfoFragment" />
+        <action
+            android:id="@+id/action_navigation_account_to_favoriteFragment"
+            app:destination="@id/favoriteFragment" />
     </fragment>
     <fragment
         android:id="@+id/personalinfoFragment"
-        android:name="com.example.feastfast.personalinfoFragment"
+        android:name="com.example.feastfast.ui.personalinfoFragment"
         android:label="fragment_personalinfo"
         tools:layout="@layout/fragment_personalinfo" />
+    <fragment
+        android:id="@+id/favoriteFragment"
+        android:name="com.example.feastfast.ui.account.favoriteFragment"
+        android:label="fragment_favorite"
+        tools:layout="@layout/fragment_favorite" />
 </navigation>
