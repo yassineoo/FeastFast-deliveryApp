@@ -61,4 +61,6 @@ dependencies {
     testImplementation "androidx.room:room-testing:$room_version"
     //location service
     implementation 'com.google.android.gms:play-services-location:21.0.0'
+    //splash screen
+    implementation "androidx.core:core-splashscreen:1.0.0"
 }

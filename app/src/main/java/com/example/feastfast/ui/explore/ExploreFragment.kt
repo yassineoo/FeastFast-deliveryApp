@@ -62,7 +62,7 @@ class ExploreFragment : Fragment() {
     }
 
     fun getRestaurantById(id: Int) : Restaurant?{
-        return data.find { it.id==id }
+        return loadData().find { it.id==id }
     }
 
     fun search(queryText:String?){

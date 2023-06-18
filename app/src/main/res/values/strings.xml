@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">FeastFast</string>
+    <string name="app_name">Feast Fast</string>
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
@@ -53,6 +53,8 @@
     <string name="alternatively">Or Alternatively</string>
     <string name="useLocation">Use your current location</string>
     <string name="searchHint">Search for a store</string>
+    <string name="your">Your</string>
+    <string name="orders">Orders</string>
 
     <string name="BillText">Bill</string>
     <string name="foodTotal">Food Total</string>
