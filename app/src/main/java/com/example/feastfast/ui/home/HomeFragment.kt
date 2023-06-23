@@ -1,18 +1,15 @@
 package com.example.feastfast.ui.home
 
-import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.content.edit
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.viewpager2.widget.ViewPager2
-import com.example.feastfast.MainActivity
 import com.example.feastfast.R
 import com.example.feastfast.databinding.FragmentHomeBinding
 import com.example.feastfast.models.Category
