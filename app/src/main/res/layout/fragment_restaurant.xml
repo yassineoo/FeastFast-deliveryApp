@@ -24,7 +24,7 @@
 
 
         <ImageView
-            android:id="@+id/gpsArrow3"
+            android:id="@+id/ratingArrow"
             android:layout_width="15dp"
             android:layout_height="15dp"
             android:layout_marginStart="10dp"

@@ -3,6 +3,8 @@ package com.example.feastfast.ui.login
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.text.method.HideReturnsTransformationMethod
+import android.text.method.PasswordTransformationMethod
 import androidx.preference.PreferenceManager
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -13,6 +15,7 @@ import android.widget.EditText
 import android.widget.Toast
 import androidx.core.content.edit
 import com.example.feastfast.MainActivity
+import com.example.feastfast.R
 
 import com.example.feastfast.databinding.FragmentLoginBinding
 import com.example.feastfast.models.LoginRequest
@@ -45,6 +48,22 @@ class loginFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
 
+
+        binding!!.showHidePasswordLogin.setOnClickListener {
+
+            if ( binding!!.password.transformationMethod == PasswordTransformationMethod.getInstance()) {
+                // Show password
+                binding!!.showHidePasswordLogin.setImageResource(R.drawable.icon_open_eye_password)
+
+                binding!!.password.transformationMethod = HideReturnsTransformationMethod.getInstance()
+            } else {
+                binding!!.showHidePasswordLogin.setImageResource(R.drawable.baseline_hide_source_24)
+
+                // Hide password
+                binding!!.password.transformationMethod = PasswordTransformationMethod.getInstance()
+            }
+
+        }
 
         // Initialize views
         emailEditText = binding!!.emailAdressInput
@@ -90,6 +109,7 @@ class loginFragment : Fragment() {
                                 putString("name" ,data.name)
                                 putString("email" ,data.email)
                                 putString("phone" ,data.phone_number)
+                                putString("profile_image" ,data.profile_picture)
                             }
 
                             val intent = Intent(requireActivity() ,MainActivity::class.java)

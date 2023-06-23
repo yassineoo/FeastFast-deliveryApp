@@ -49,7 +49,7 @@
                 android:layout_width="150dp"
                 android:layout_height="150dp"
                 android:layout_marginTop="8dp"
-                android:src="@drawable/icon_person"
+                android:src="@drawable/profile_placeholder"
                 app:layout_constraintEnd_toEndOf="parent"
 
                 app:layout_constraintHorizontal_bias="0.498"
@@ -122,13 +122,16 @@
                 android:layout_width="226dp"
                 android:layout_height="39dp"
                 android:layout_marginTop="32dp"
+                android:layout_marginBottom="10dp"
                 android:text="@string/terms"
-                android:textColor="#000000"
 
+                android:textColor="#000000"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.497"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/facebookIcon" />
+                app:layout_constraintTop_toBottomOf="@+id/facebookIcon"
+                app:layout_constraintVertical_bias="0.0" />
 
             <ImageView
                 android:id="@+id/emailIcon"
@@ -202,20 +205,22 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="-20dp"
+                android:backgroundTint="@color/white"
                 android:src="@drawable/baseline_camera_alt_24"
-                android:tint="@color/primary_color_50_opactity"
                 app:layout_constraintStart_toStartOf="@+id/profilePicture"
-                app:layout_constraintTop_toBottomOf="@+id/profilePicture" />
+                app:layout_constraintTop_toBottomOf="@+id/profilePicture"
+                app:tint="@color/primary_color" />
 
             <ImageButton
                 android:id="@+id/addPhotoIcon"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="-20dp"
+                android:backgroundTint="@color/white"
                 android:src="@drawable/baseline_image_24"
-                android:tint="@color/primary_color_50_opactity"
                 app:layout_constraintEnd_toEndOf="@+id/profilePicture"
-                app:layout_constraintTop_toBottomOf="@+id/profilePicture" />
+                app:layout_constraintTop_toBottomOf="@+id/profilePicture"
+                app:tint="@color/primary_color" />
 
             <TextView
                 android:id="@+id/addPictutreText"
@@ -236,9 +241,9 @@
                 android:layout_marginEnd="4dp"
                 android:background="@color/white"
                 android:src="@drawable/icon_open_eye_password"
-                android:tint="@color/greyish"
                 app:layout_constraintEnd_toEndOf="@+id/password"
-                app:layout_constraintTop_toTopOf="@+id/passwordLockIcon" />
+                app:layout_constraintTop_toTopOf="@+id/passwordLockIcon"
+                app:tint="@color/greyish" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 </FrameLayout>

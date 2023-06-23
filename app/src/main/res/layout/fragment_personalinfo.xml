@@ -17,7 +17,7 @@
 
             android:layout_marginTop="24dp"
             android:background="@drawable/bg_selected_rounded_button"
-            android:text="Save Changes"
+            android:text="@string/saveChanges"
             android:textColor="@color/white"
             android:textSize="20sp"
             android:textStyle="bold"
@@ -25,7 +25,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.495"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/password2" />
+            app:layout_constraintTop_toBottomOf="@+id/passwordEdit" />
 
         <EditText
             android:id="@+id/emailAdress"
@@ -52,7 +52,7 @@
             app:srcCompat="@drawable/icon_mail" />
 
         <EditText
-            android:id="@+id/password2"
+            android:id="@+id/passwordEdit"
             android:layout_width="365dp"
             android:layout_height="50dp"
             android:layout_marginTop="20dp"
@@ -65,6 +65,17 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/emailAdress" />
+
+        <ImageButton
+            android:id="@+id/showHidePasswordEdit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="5dp"
+            android:background="@color/white"
+            android:src="@drawable/icon_open_eye_password"
+            app:layout_constraintEnd_toEndOf="@+id/passwordEdit"
+            app:layout_constraintTop_toTopOf="@+id/passwordLockIcon2"
+            app:tint="@color/greyish" />
 
         <EditText
             android:id="@+id/userPhone"
@@ -116,7 +127,7 @@
             app:layout_constraintTop_toTopOf="@+id/userName2" />
 
         <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/imageView4"
+            android:id="@+id/pictureProfile"
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_marginTop="28dp"
@@ -148,15 +159,16 @@
 
             android:layout_marginTop="48dp"
             android:background="@drawable/bg_pinkish_rounded_btn"
-            android:text="change profile"
+            android:text="@string/changeProfile"
             android:textColor="@color/white"
-            android:textSize="16sp"
+            android:textSize="14sp"
             android:textStyle="bold"
             app:backgroundTint="@null"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.497"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView4" />
+            app:layout_constraintTop_toBottomOf="@+id/pictureProfile"
+            />
 
         <ImageView
             android:id="@+id/passwordLockIcon2"
@@ -164,8 +176,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
             android:src="@drawable/icon_lock"
-            app:layout_constraintStart_toStartOf="@+id/password2"
-            app:layout_constraintTop_toTopOf="@+id/password2" />
+            app:layout_constraintStart_toStartOf="@+id/passwordEdit"
+            app:layout_constraintTop_toTopOf="@+id/passwordEdit" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

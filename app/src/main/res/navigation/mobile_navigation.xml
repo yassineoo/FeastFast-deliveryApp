@@ -33,6 +33,9 @@
         <action
             android:id="@+id/action_navigation_account_to_favoriteFragment"
             app:destination="@id/favoriteFragment" />
+        <action
+            android:id="@+id/action_navigation_account_to_aboutAppFragment"
+            app:destination="@id/aboutAppFragment" />
     </fragment>
     <fragment
         android:id="@+id/personalinfoFragment"
@@ -44,4 +47,14 @@
         android:name="com.example.feastfast.ui.account.favoriteFragment"
         android:label="fragment_favorite"
         tools:layout="@layout/fragment_favorite" />
+    <fragment
+        android:id="@+id/aboutAppFragment"
+        android:name="com.example.feastfast.ui.account.AboutAppFragment"
+        android:label="fragment_about_app"
+        tools:layout="@layout/fragment_about_app" />
+    <fragment
+        android:id="@+id/notLoginFragment"
+        android:name="com.example.feastfast.ui.account.NotLoginFragment"
+        android:label="fragment_not_login"
+        tools:layout="@layout/fragment_not_login" />
 </navigation>

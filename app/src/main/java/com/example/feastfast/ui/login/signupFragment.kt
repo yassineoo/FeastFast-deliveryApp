@@ -1,7 +1,9 @@
 package com.example.feastfast.ui.login
 
 import android.Manifest
+import android.app.Activity
 import android.app.Activity.RESULT_OK
+import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
@@ -16,21 +18,36 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import androidx.core.content.edit
 import androidx.fragment.app.Fragment
+import com.example.feastfast.MainActivity
 import com.example.feastfast.R
 import com.example.feastfast.databinding.FragmentSignupBinding
 import com.example.feastfast.models.RegisterRequest
 import com.example.feastfast.models.User
 import com.example.feastfast.models.retrofit.Endpoint
+import com.google.android.gms.auth.api.signin.GoogleSignIn
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount
+import com.google.android.gms.auth.api.signin.GoogleSignInClient
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions
+import com.google.android.gms.tasks.Task
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.GoogleAuthProvider
 import kotlinx.coroutines.*
 import okhttp3.MediaType
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
 import okhttp3.RequestBody.Companion.asRequestBody
+import okhttp3.RequestBody.Companion.toRequestBody
 import java.io.File
+import java.io.FileOutputStream
+import java.io.InputStream
+import java.io.OutputStream
+import java.lang.annotation.Native
 import java.net.URI.create
 
 
@@ -42,7 +59,8 @@ class signupFragment : Fragment() {
     private lateinit var fullNameEditText: EditText
     private lateinit var phoneNumberEditText: EditText
     private lateinit var registerButton: Button
-
+    private lateinit var auth : FirebaseAuth
+    private lateinit var googleSignInClient : GoogleSignInClient
     private val pickImage = 100
     private val REQUEST_IMAGE_CAPTURE = 0
     private var imageUri: Uri? = null
@@ -74,6 +92,27 @@ class signupFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+
+        auth = FirebaseAuth.getInstance()
+
+        val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+            .requestIdToken(getString(R.string.default_web_client_id))
+            .requestEmail()
+            .build()
+
+        googleSignInClient = GoogleSignIn.getClient(requireActivity() , gso)
+
+        binding!!.googleIcon.setOnClickListener {
+            print("------------------------------------------")
+            print("------------------------------------------")
+            print("------------------------------------------")
+            print("------------------------------------------")
+            print("------------------------------------------")
+            print("------------------------------------------")
+
+            signInGoogle()
+            print("------------------------------------------")
+        }
 
         // Initialize views
         emailEditText = binding!!.emailAdressInput
@@ -119,61 +158,6 @@ class signupFragment : Fragment() {
         }
 
 
-/*
-
-
-        // Register button click listener
-        registerButton.setOnClickListener {
-           // val photoFile = File(imageUri)
-           // val photoBase64 = convertFileToBase64(photoFile)
-
-            // Perform registration
-            val email = emailEditText.text.toString()
-            val password = passwordEditText.text.toString()
-            val fullName = fullNameEditText.text.toString()
-            val phoneNumber = phoneNumberEditText.text.toString()
-
-
-            // Validate inputs
-            if (email.isEmpty() || password.isEmpty() || fullName.isEmpty() || phoneNumber.isEmpty()) {
-                Toast.makeText(requireContext(), "Please fill in all fields", Toast.LENGTH_SHORT).show()
-            } else {
-
-                val registerRequest = RegisterRequest(fullName, email,phoneNumber, password ,"Native")
-
-                // Call your registration API endpoint here and handle the response
-
-
-                val exceptionHandler = CoroutineExceptionHandler{ coroutineContext, throwable ->
-                    requireActivity().runOnUiThread {
-                        Toast.makeText(requireActivity(), "register request successful with Some unspecified error", Toast.LENGTH_SHORT).show()
-                    }
-                }
-                CoroutineScope(Dispatchers.IO+exceptionHandler).launch {
-                    val response = Endpoint.createEndpoint().register(registerRequest)
-                    withContext(Dispatchers.Main) {
-                        if (response.isSuccessful && response.body() != null) {
-                             val data = response.body()!! as User
-                            Toast.makeText(requireActivity(), " hi done " + data.name, Toast.LENGTH_SHORT).show()
-
-                        } else {
-                            Toast.makeText(requireActivity(), "register Request unsuccessful!", Toast.LENGTH_SHORT).show()
-                        }
-                    }
-                }
-
-                // You can show a loading indicator or disable the button during the registration process
-
-                // Example code to show a success message
-                Toast.makeText(requireContext(), "Registration successful", Toast.LENGTH_SHORT).show()
-
-                // Example code to navigate to the login screen after successful registration
-
-            }
-        }
-*/
-
-
         registerButton.setOnClickListener {
             val email = emailEditText.text.toString()
             val password = passwordEditText.text.toString()
@@ -186,48 +170,134 @@ class signupFragment : Fragment() {
 
                 val exceptionHandler = CoroutineExceptionHandler { coroutineContext, throwable ->
                     requireActivity().runOnUiThread {
-                        Toast.makeText(requireActivity(), "register request successful with Some unspecified error", Toast.LENGTH_SHORT).show()
+                        val errorMessage = "Error occurred: ${throwable.localizedMessage}"
+                        Toast.makeText(requireActivity(), errorMessage, Toast.LENGTH_LONG).show()
                     }
                 }
 
+                var multipartImage: MultipartBody.Part? = null
+
+                // create request body for image file
+                if (imageUri != null) {
+                    val inputStream: InputStream? =
+                        requireActivity().contentResolver.openInputStream(imageUri!!)
+                    val file = File(
+                        requireActivity().cacheDir,
+                        "temp_image"
+                    ) // Create a temporary file to store the image
+                    file.createNewFile()
+
+                    // Copy the contents of the input stream to the file
+                    val outputStream: OutputStream = FileOutputStream(file)
+                    inputStream?.copyTo(outputStream)
+                    outputStream.close()
+                    inputStream?.close()
+
+                    val fileReqBody = file.asRequestBody("image/*".toMediaTypeOrNull())
+                    multipartImage =
+                        MultipartBody.Part.createFormData("image", file.name, fileReqBody)
+
                 CoroutineScope(Dispatchers.IO + exceptionHandler).launch {
-                    // create request body for image file
-                    val file = File(imageUri?.path) // get File from imageUri
-                    val fileReqBody = file.asRequestBody("image/*".toMediaTypeOrNull()) // create RequestBody instance
 
-                    // create MultipartBody.Part using file request-body,file name and part name
-                    val part = MultipartBody.Part.createFormData("image", file.name, fileReqBody)
 
-                    // create RequestBody for other required parts
-                    val fullNamePart = RequestBody.create(MultipartBody.FORM, fullName)
-                    val emailPart = RequestBody.create(MultipartBody.FORM, email)
-                    val phoneNumberPart = RequestBody.create(MultipartBody.FORM, phoneNumber)
-                    val passwordPart = RequestBody.create(MultipartBody.FORM, password)
-                    val typePart = RequestBody.create(MultipartBody.FORM, "Native")
-                    val registerRequest = RegisterRequest(fullNamePart, emailPart, phoneNumberPart, passwordPart, typePart,part)
 
-                    val response = Endpoint.createEndpoint().register( registerRequest)
+                       val userData = MultipartBody.Part
+                        .createFormData(
+                            "user_data",
+                                "{\"name\" : \"$fullName\" ,\"email\":\"$email\" , \"phone_number\":\"$phoneNumber\",\"password\":\"$password\",\"registration_type\":\"Native\"}"
+                        )
+
+                        val response = Endpoint.createEndpoint().register(userData , multipartImage)
 
                     withContext(Dispatchers.Main) {
                         if (response.isSuccessful && response.body() != null) {
                             val data = response.body()!! as User
-                            Toast.makeText(requireActivity(), " hi done " + data.name, Toast.LENGTH_SHORT).show()
+                            Toast.makeText(
+                                requireActivity(),
+                                " hi done " + data.name,
+                                Toast.LENGTH_SHORT
+                            ).show()
+                            // save the token
+                            val pref = requireActivity().getSharedPreferences("fileName", Context.MODE_PRIVATE)
+                            pref.edit {
+                                putBoolean("connected",true)
+                                putInt("idUser", data.id)
+                                putString("name" ,data.name)
+                                putString("email" ,data.email)
+                                putString("phone" ,data.phone_number)
+                            }
+
+                            val intent = Intent(requireActivity() , MainActivity::class.java)
+                            //     intent.putExtra("user", data) // Pass the Restaurant object as an extra
+                            requireActivity().startActivity(intent)
                         } else {
-                            Toast.makeText(requireActivity(), "register Request unsuccessful!", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(
+                                requireActivity(),
+                                "register Request unsuccessful!",
+                                Toast.LENGTH_SHORT
+                            ).show()
                         }
                     }
                 }
-                Toast.makeText(requireContext(), "Registration successful", Toast.LENGTH_SHORT).show()
+            }
+
+
+
+
+            }
+
+        }
+
+
+    }
+
+
+    fun createPartFromString(stringData: String): RequestBody {
+        return stringData.toRequestBody("text/plain".toMediaTypeOrNull())
+    }
+
+
+
+
+    private fun signInGoogle(){
+        val signInIntent = googleSignInClient.signInIntent
+        launcher.launch(signInIntent)
+    }
+
+    private val launcher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()){
+            result ->
+        if (result.resultCode == Activity.RESULT_OK){
+
+            val task = GoogleSignIn.getSignedInAccountFromIntent(result.data)
+            handleResults(task)
+        }
+    }
+
+    private fun handleResults(task: Task<GoogleSignInAccount>) {
+        if (task.isSuccessful){
+            val account : GoogleSignInAccount? = task.result
+            if (account != null){
+                updateUI(account)
+            }
+        }else{
+            Toast.makeText(requireActivity(), task.exception.toString() , Toast.LENGTH_SHORT).show()
+        }
+    }
+
+    private fun updateUI(account: GoogleSignInAccount) {
+        val credential = GoogleAuthProvider.getCredential(account.idToken , null)
+        auth.signInWithCredential(credential).addOnCompleteListener {
+            if (it.isSuccessful){
+                val intent : Intent = Intent(requireActivity() , MainActivity::class.java)
+                intent.putExtra("email" , account.email)
+                intent.putExtra("name" , account.displayName)
+                startActivity(intent)
+            }else{
+                Toast.makeText(requireActivity(), it.exception.toString() , Toast.LENGTH_SHORT).show()
+
             }
         }
     }
 }
 
 
-
-/*
-
-
-
-
-*/

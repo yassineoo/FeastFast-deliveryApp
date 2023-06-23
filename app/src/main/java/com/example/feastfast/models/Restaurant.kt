@@ -14,6 +14,7 @@ data class Restaurant(
     val opening_time :String ,
     val closing_time :String ,
     var averageRating: Float,
+    val ratersCount:Int,
     val phoneNumber: String,
     val email: String,
     val instaLink: String,

@@ -10,6 +10,6 @@ data class RegisterRequest(
     val phone_number : RequestBody,
     val password: RequestBody,
     val registration_type :RequestBody,
-    val pic : MultipartBody.Part
+
 )
 

@@ -36,15 +36,13 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding!!.loginbtn.setOnClickListener {
-            val intent = Intent(requireActivity(),LoginActivity::class.java)
-            requireActivity().startActivity(intent)
-        }
+
 
         var images = listOf<Int>(R.drawable.image_hotspot,R.drawable.image_hotspot_logo2,R.drawable.image_hotspot,R.drawable.image_hotspot_logo2,R.drawable.image_hotspot);
 
         val adapter =  AdsViewPagerAdapter(images)
         binding!!.viewPager2.adapter = adapter
+
         binding!!.viewPager2.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback(){
             override fun onPageScrolled(
                 position: Int,

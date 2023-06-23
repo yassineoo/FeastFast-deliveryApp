@@ -16,6 +16,9 @@ import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.viewpager2.widget.ViewPager2
 import android.Manifest
+import androidx.core.os.bundleOf
+import androidx.navigation.findNavController
+import com.example.feastfast.MainActivity
 import com.example.feastfast.R
 import com.example.feastfast.databinding.FragmentRestaurantBinding
 import com.example.feastfast.models.MenuItem
@@ -23,6 +26,7 @@ import com.example.feastfast.models.Restaurant
 import com.example.feastfast.models.retrofit.Endpoint
 import com.example.feastfast.models.room.AppDatabase
 import com.example.feastfast.ui.cart.CartActivity
+import com.example.feastfast.ui.login.LoginActivity
 import com.example.feastfast.viewModels.RestaurantViewModel
 import com.google.android.material.tabs.TabLayout
 import kotlinx.coroutines.*
@@ -86,6 +90,8 @@ class RestaurantFragment : Fragment() {
 
 
 
+
+
         loadData()
 
 
@@ -133,7 +139,7 @@ class RestaurantFragment : Fragment() {
         val startTime = res?.opening_time?.substring(11,16)
         val endTime = res?.closing_time?.substring(11,16)
         binding.openTime.text = startTime+"-"+endTime
-
+        binding.rating.text = "${res?.averageRating}(${res?.ratersCount} Rating)"
 
         if (res?.isPreferred == true ) {
             viewModel.initilizeFavState( 1)
@@ -174,7 +180,7 @@ class RestaurantFragment : Fragment() {
                 startActivity(intent)
             }
         }
-         binding!!.resPhone. setOnClickListener {
+        binding!!.resPhone. setOnClickListener {
             val phoneNumber = res?.phoneNumber
 
             val callIntent = Intent(Intent.ACTION_DIAL)
@@ -194,7 +200,17 @@ class RestaurantFragment : Fragment() {
             }
         }
 
-   
+        binding!!.ratingArrow.setOnClickListener {
+            val data= Bundle()
+            data.putInt("id",res!!.id)
+            data.putFloat("average",res!!.averageRating)
+            data.putInt("count",res!!.ratersCount)
+
+            //     val data2 = bundleOf("ratings" to res?.averageRating )
+          //  ,res?.raterCount,res?.id
+            it.findNavController().navigate(R.id.action_restaurantFragment_to_ratingFragment,data)
+
+        }
 
     }
 
@@ -213,7 +229,7 @@ class RestaurantFragment : Fragment() {
             binding?.resFavIcon?.setImageResource(R.drawable.baseline_favorite_red_24)
         }
         else {
-            binding!!.resFavIcon.setImageResource(R.drawable.baseline_favorite_24)
+            binding!!.resFavIcon.setImageResource(R.drawable.icon_fav)
 
         }
     }
