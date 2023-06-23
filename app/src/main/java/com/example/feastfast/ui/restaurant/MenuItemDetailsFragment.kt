@@ -12,9 +12,9 @@ import androidx.fragment.app.FragmentActivity
 import androidx.navigation.fragment.NavHostFragment
 import com.example.feastfast.R
 import com.example.feastfast.databinding.FragmentMenuItemDetailsBinding
-import com.example.feastfast.models.room.AppDatabase
 import com.example.feastfast.models.CartItem
 import com.example.feastfast.models.MenuItem
+import com.example.feastfast.models.room.AppDatabase
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
@@ -47,7 +47,8 @@ class MenuItemDetailsFragment() : BottomSheetDialogFragment() {
 
 
         //updating ui based on menu item
-        binding.imageView.setImageResource(menuItem.image)
+        //todo : glide image for menu item
+        //binding.imageView.setImageResource(menuItem.image)
         binding.textDescription.text = menuItem.description
         binding.textMenuItem.text = menuItem.name
 

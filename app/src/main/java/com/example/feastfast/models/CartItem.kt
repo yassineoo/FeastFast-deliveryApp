@@ -9,13 +9,13 @@ data class CartItem(
     @PrimaryKey(autoGenerate = true)
     var itemId : Int? = null,
     val name : String,
-    val image : Int,
+    val image : String,
     val price : Double,
     var quantity : Int? = 1,
     var size : String? = "L",
     val specialInstructions : String? = null,
     val restaurantId : Int,
-    val restaurantName : String
+    val restaurantName : String?
 ){
     fun getTotalPrice(): Double{
         return price*quantity!!.toDouble()*Util().sizeToPriceMultiplier(size!!)

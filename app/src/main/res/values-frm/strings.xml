@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">FeastFast</string>
+    <string name="title_home">Accueil</string>
+    <string name="title_dashboard">Tableau de bord</string>
+    <string name="title_notifications">Notifications</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Bonjour fragment vide</string>
+    <string name="title_activity_login">Activité de connexion</string>
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Mot de passe</string>
+    <string name="action_sign_in">Se connecter ou s\'inscrire</string>
+    <string name="action_sign_in_short">Se connecter</string>
+    <string name="welcome">Bienvenue !</string>
+    <string name="invalid_username">Nom d\'utilisateur non valide</string>
+    <string name="invalid_password">Le mot de passe doit comporter plus de 5 caractères</string>
+    <string name="login_failed">Échec de la connexion</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">Premier Fragment</string>
+    <string name="second_fragment_label">Deuxième Fragment</string>
+    <string name="next">Suivant</string>
+    <string name="previous">Précédent</string>
+
+    <string name="hello_first_fragment">Bonjour premier fragment</string>
+    <string name="hello_second_fragment">Bonjour deuxième fragment. Arg: %1$s</string>
+    <string name="fullNamePlaceHolder">Nom complet</string>
+    <string name="phoneNumberPlaceHolder">Numéro de téléphone</string>
+    <string name="emailPlaceHolder">Adresse email</string>
+    <string name="passwordPlaceHolder">Mot de passe</string>
+    <string name="forgotPassword">Mot de passe oublié ?</string>
+    <string name="rememberMe">Se souvenir de moi</string>
+    <string name="terms">En utilisant FeastFast, vous acceptez nos conditions d\'utilisation et notre politique de confidentialité</string>
+    <string name="addPicture">Ajouter une photo de profil !</string>
+
+    <string name="deliver">Livrer à</string>
+    <string name="explore">Explorer</string>
+    <string name="allRestaurants">Tous les restaurants</string>
+    <string name="YourCartFrom">Votre panier depuis </string>
+    <string name="details">Détails</string>
+    <string name="include">Ingrédients inclus : </string>
+    <string name="choose">Choisir la taille</string>
+    <string name="toppings">Ajouter des garnitures</string>
+    <string name="EmptyCart">Panier vide</string>
+    <string name="addMoreItems">Ajouter plus d\'articles</string>
+    <string name="viewCart">Voir le panier</string>
+
+    <string name="BillText">Facture</string>
+    <string name="foodTotal">Total des plats</string>
+    <string name="deliveryFeeText">Frais de livraison</string>
+    <string name="total">Total</string>
+
+    <string name="personalInfo">Informations personnelles</string>
+    <string name="favoriteResttaurants">Restaurants favoris</string>
+    <string name="language">Langues</string>
+    <string name="customerSupport">Support client</string>
+    <string name="aboutApp">À propos de l\'application</string>
+    <string name="logout">Déconnexion</string>
+    <string name="saveChanges">Enregistrer les modifications</string>
+    <string name="changeProfile">Modifier le profil</string>
+</resources>

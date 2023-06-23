@@ -1,17 +1,23 @@
 package com.example.feastfast.models
 
+import java.io.Serializable
+
 data class Restaurant(
     val id : Int,
     val name:String,
-    val logo:Int,
-    val picture : Int,
+    val logo:String,
+    val picture : String,
     val locationAddress: String,
     val locationMapLong: Float,
     val locationMapLat: Float,
     val cuisineType: String,
+    val opening_time :String ,
+    val closing_time :String ,
     var averageRating: Float,
+    val ratersCount:Int,
     val phoneNumber: String,
     val email: String,
     val instaLink: String,
     val fbLink: String,
-): java.io.Serializable
+    val isPreferred: Boolean?,
+) : Serializable

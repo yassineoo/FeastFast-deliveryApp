@@ -25,8 +25,15 @@ class RestaurantMenuFragment : Fragment() {
         val bundle = arguments
         currentRestaurant = bundle!!.getSerializable("Restaurant") as Restaurant
 
+        // Retrieve the bundle arguments
+        val nameCategorie = arguments?.getString("nameCategorie")
+        val menuItems = arguments?.getSerializable("menuItems") as? List<MenuItem>
+        // Filter the menuItems based on the category name
+        val filteredItems = menuItems?.filter { it.categorie == nameCategorie }
+
+
         binding!!.RecycleViewMenu.layoutManager = LinearLayoutManager(requireActivity())
-        binding!!.RecycleViewMenu.adapter = RestaurantMenuItemsAdapter(getMenuItems(),requireActivity(),bundle!!.getString("nameCategorie"))
+        binding!!.RecycleViewMenu.adapter = RestaurantMenuItemsAdapter(filteredItems,requireActivity(),bundle!!.getString("nameCategorie"))
         return view
     }
 
@@ -34,20 +41,6 @@ class RestaurantMenuFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-    }
-    fun getMenuItems() : List<MenuItem>{
-        val data = listOf<MenuItem>(
-            MenuItem(name = "Mediterranean wrap", image = R.drawable.image_wrap, price = 400.0, description = "A delicious menu item for middle east cuisine lovers", restaurantId = currentRestaurant.id,restaurantName = currentRestaurant.name ),
-            MenuItem(name="Pizza",image=R.drawable.image_pizza,price=300.0, description = "Pizza! not much to explain", restaurantId = currentRestaurant.id,restaurantName = currentRestaurant.name ),
-            MenuItem(name = "Mediterranean wrap", image = R.drawable.image_wrap, price = 400.0, description = "A delicious menu item for middle east cuisine lovers", restaurantId = currentRestaurant.id,restaurantName = currentRestaurant.name ),
-            MenuItem(name="Pizza",image=R.drawable.image_pizza,price=300.0, description = "Pizza! not much to explain", restaurantId = currentRestaurant.id,restaurantName = currentRestaurant.name ),
-            MenuItem(name = "Mediterranean wrap", image = R.drawable.image_wrap, price = 400.0, description = "A delicious menu item for middle east cuisine lovers", restaurantId = currentRestaurant.id,restaurantName = currentRestaurant.name ),
-            MenuItem(name="Pizza",image=R.drawable.image_pizza,price=300.0, description = "Pizza! not much to explain", restaurantId = currentRestaurant.id,restaurantName = currentRestaurant.name ),
-            MenuItem(name = "Mediterranean wrap", image = R.drawable.image_wrap, price = 400.0, description = "A delicious menu item for middle east cuisine lovers", restaurantId = currentRestaurant.id,restaurantName = currentRestaurant.name ),
-            MenuItem(name="Pizza",image=R.drawable.image_pizza,price=300.0, description = "Pizza! not much to explain", restaurantId = currentRestaurant.id,restaurantName = currentRestaurant.name ),
-        )
-
-        return data
     }
 
 

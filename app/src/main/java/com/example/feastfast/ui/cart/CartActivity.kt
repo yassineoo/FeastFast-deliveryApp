@@ -11,6 +11,10 @@ import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import com.example.feastfast.databinding.ActivityCartBinding
 import com.example.feastfast.databinding.ListItemCartBinding
+<<<<<<< HEAD
+=======
+import com.example.feastfast.models.room.AppDatabase
+>>>>>>> profile_fav
 import com.example.feastfast.models.CartItem
 import com.example.feastfast.models.Order
 import com.example.feastfast.models.retrofit.Endpoint
@@ -25,18 +29,23 @@ class CartActivity : AppCompatActivity() {
     lateinit var binding: ActivityCartBinding
     lateinit var linearLayout: LinearLayout
     lateinit var cartItems: MutableList<CartItem>
+<<<<<<< HEAD
     lateinit var currentRestaurantName: String
     var currentRestaurantId : Int = 0
     var foodBill = 0.0
     val deliveryBill = 250.0
     val myContext = this
     @RequiresApi(Build.VERSION_CODES.O)
+=======
+    var foodBill = 0.0
+>>>>>>> profile_fav
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding= ActivityCartBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
 
+<<<<<<< HEAD
         linearLayout = binding.linearLayout2
         val addButton = binding.buttonAddMoreItems
         //getting cart information from room db
@@ -44,6 +53,17 @@ class CartActivity : AppCompatActivity() {
         currentRestaurantName = AppDatabase.getInstance(this)!!.getMenuItemDao().getCurrentRestaurantName().get(0)
         currentRestaurantId = AppDatabase.getInstance(this)!!.getMenuItemDao().getCurrentRestaurantId().get(0)
         binding.textCartSourceName.text=currentRestaurantName
+=======
+        val deliveryBill = 250.0
+        linearLayout = binding.linearLayout2
+        val addButton = binding.buttonAddMoreItems
+        cartItems = AppDatabase.getInstance(this)!!.getMenuItemDao().getCartContents().toMutableList()
+
+        //displaying the items that where added to cart start
+        displayCartItems()
+        //end
+
+>>>>>>> profile_fav
 
 
         //displaying the items that where added to cart start
@@ -119,6 +139,10 @@ class CartActivity : AppCompatActivity() {
 
     fun displayCartItems(){
         for (cartItem in cartItems){
+<<<<<<< HEAD
+=======
+            foodBill+=cartItem.getTotalPrice()
+>>>>>>> profile_fav
             val itemBinding: ListItemCartBinding = ListItemCartBinding.inflate(layoutInflater)
             itemBinding.imageItem.setImageResource(cartItem.image)
             itemBinding.textNumberOfItems.text="x${cartItem.quantity.toString()}"
@@ -126,10 +150,17 @@ class CartActivity : AppCompatActivity() {
             itemBinding.textPrice.text=cartItem.getTotalPrice().toString()
             itemBinding.textSize.text=cartItem.size
             itemBinding.trashButton.setOnClickListener {
+<<<<<<< HEAD
                 linearLayout.removeAllViews()
                 AppDatabase.getInstance(this)!!.getMenuItemDao().deleteFromCart(cartItem)
                 cartItems = AppDatabase.getInstance(this)!!.getMenuItemDao().getCartContents() as MutableList<CartItem>
                 updateUi()
+=======
+                cartItems.remove(cartItem)
+                linearLayout.removeAllViews()
+                AppDatabase.getInstance(this)!!.getMenuItemDao().deleteFromCart(cartItem)
+                foodBill-=cartItem.getTotalPrice()
+>>>>>>> profile_fav
                 displayCartItems()
             }
             val newItemView : View = itemBinding.root
@@ -137,6 +168,7 @@ class CartActivity : AppCompatActivity() {
         }
     }
 
+<<<<<<< HEAD
     fun updateUi(){
         foodBill= cartItems.sumOf { it.getTotalPrice() }
         binding.textDeliveryPrice.text= "$deliveryBill DZD"
@@ -145,4 +177,6 @@ class CartActivity : AppCompatActivity() {
         }
 
 
+=======
+>>>>>>> profile_fav
 }

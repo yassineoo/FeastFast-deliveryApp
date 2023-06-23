@@ -44,7 +44,7 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         myContext = requireActivity()
-        var images = listOf(R.drawable.image_hotspot,R.drawable.image_hotspot_logo,R.drawable.image_hotspot,R.drawable.image_hotspot_logo,R.drawable.image_hotspot)
+        var images = listOf(R.drawable.image_hotspot,R.drawable.ad3,R.drawable.image_hotspot,R.drawable.ad2,R.drawable.image_hotspot)
         val adapter =  AdsViewPagerAdapter(images)
         binding.viewPager2.adapter = adapter
         binding.viewPager2.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback(){
@@ -72,7 +72,7 @@ class HomeFragment : Fragment() {
         setAddress()
 
 
-        binding.recyclerViewCategories.layoutManager = LinearLayoutManager(myContext,LinearLayoutManager.HORIZONTAL,false)
+        /*binding.recyclerViewCategories.layoutManager = LinearLayoutManager(myContext,LinearLayoutManager.HORIZONTAL,false)
         binding.recyclerViewFreeDelivery.layoutManager = LinearLayoutManager(myContext,LinearLayoutManager.HORIZONTAL,false)
         binding.recyclerViewNearYou.layoutManager = LinearLayoutManager(myContext,LinearLayoutManager.HORIZONTAL,false)
         binding.recyclerViewTopPastry.layoutManager = LinearLayoutManager(myContext,LinearLayoutManager.HORIZONTAL,false)
@@ -82,7 +82,7 @@ class HomeFragment : Fragment() {
         binding.recyclerViewFreeDelivery.adapter=HomeRestaurantAdapter(loadData(),myContext)
         binding.recyclerViewNearYou.adapter=HomeRestaurantAdapter(loadData(),myContext)
         binding.recyclerViewTopPastry.adapter=HomeRestaurantAdapter(loadData(),myContext)
-        binding.recyclerViewTopRated.adapter=HomeRestaurantAdapter(loadData(),myContext)
+        binding.recyclerViewTopRated.adapter=HomeRestaurantAdapter(loadData(),myContext)*/
     }
 
     override fun onResume() {
@@ -107,7 +107,9 @@ class HomeFragment : Fragment() {
         }
     }
 
-    fun loadData() : List<Restaurant> {
+
+    //todo : load data from server in home page
+    /*fun loadData() : List<Restaurant> {
         return listOf(
             Restaurant(1,"HotSpot DZ",R.drawable.image_hotspot_logo2,R.drawable.image_hotspot,"7th street, view kouba", 0F,0F,"Mexican, portuguese",4.1F,"0550710721","hotspot@hotspot.dz","https://www.instagram.com/hotspot_dz/","https://web.facebook.com/HotSpotdz"),
             Restaurant(2,"HotSpot DZ",R.drawable.image_hotspot_logo2,R.drawable.image_hotspot,"7th street, view kouba", 0F,0F,"Mexican, portuguese",4.1F,"0550710721","hotspot@hotspot.dz","https://www.instagram.com/hotspot_dz/","https://web.facebook.com/HotSpotdz"),
@@ -116,7 +118,7 @@ class HomeFragment : Fragment() {
             Restaurant(6,"HotSpot DZ",R.drawable.image_hotspot_logo2,R.drawable.image_hotspot,"7th street, view kouba", 0F,0F,"Mexican, portuguese",4.1F,"0550710721","hotspot@hotspot.dz","https://www.instagram.com/hotspot_dz/","https://web.facebook.com/HotSpotdz"),
             Restaurant(7,"HotSpot DZ",R.drawable.image_hotspot_logo2,R.drawable.image_hotspot,"7th street, view kouba", 0F,0F,"Mexican, portuguese",4.1F,"0550710721","hotspot@hotspot.dz","https://www.instagram.com/hotspot_dz/","https://web.facebook.com/HotSpotdz")
         )
-    }
+    }*/
     fun changeColor(){
 
         when (binding.viewPager2.currentItem){
@@ -169,4 +171,3 @@ class HomeFragment : Fragment() {
     }
 
 }
-

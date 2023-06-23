@@ -26,5 +26,35 @@
         android:id="@+id/navigation_account"
         android:name="com.example.feastfast.ui.account.AccountFragment"
         android:label="Account"
-        tools:layout="@layout/fragment_account" />
+        tools:layout="@layout/fragment_account" >
+        <action
+            android:id="@+id/action_navigation_account_to_personalinfoFragment"
+            app:destination="@id/personalinfoFragment" />
+        <action
+            android:id="@+id/action_navigation_account_to_favoriteFragment"
+            app:destination="@id/favoriteFragment" />
+        <action
+            android:id="@+id/action_navigation_account_to_aboutAppFragment"
+            app:destination="@id/aboutAppFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/personalinfoFragment"
+        android:name="com.example.feastfast.ui.personalinfoFragment"
+        android:label="fragment_personalinfo"
+        tools:layout="@layout/fragment_personalinfo" />
+    <fragment
+        android:id="@+id/favoriteFragment"
+        android:name="com.example.feastfast.ui.account.favoriteFragment"
+        android:label="fragment_favorite"
+        tools:layout="@layout/fragment_favorite" />
+    <fragment
+        android:id="@+id/aboutAppFragment"
+        android:name="com.example.feastfast.ui.account.AboutAppFragment"
+        android:label="fragment_about_app"
+        tools:layout="@layout/fragment_about_app" />
+    <fragment
+        android:id="@+id/notLoginFragment"
+        android:name="com.example.feastfast.ui.account.NotLoginFragment"
+        android:label="fragment_not_login"
+        tools:layout="@layout/fragment_not_login" />
 </navigation>

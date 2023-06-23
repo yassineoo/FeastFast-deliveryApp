@@ -29,6 +29,8 @@
     <string name="forgotPassword">Forgot Password ?</string>
     <string name="rememberMe">Remember Me</string>
     <string name="terms">By using Feast Fast you agree on our terms and privacy policy</string>
+    <string name="addPicture">Add profile picture !</string>
+
     <string name="deliver">Deliver to</string>
     <string name="explore">Explore</string>
     <string name="allRestaurants">All restaurants</string>
@@ -40,6 +42,7 @@
     <string name="EmptyCart"> Empty Cart </string>
     <string name="addMoreItems">Add More Items</string>
     <string name="viewCart">View cart</string>
+<<<<<<< HEAD
     <string name="categories">Categories</string>
     <string name="nearYou">Near you</string>
     <string name="freeDelivery">Free delivery</string>
@@ -55,9 +58,24 @@
     <string name="searchHint">Search for a store</string>
     <string name="your">Your</string>
     <string name="orders">Orders</string>
+=======
+
+>>>>>>> profile_fav
 
     <string name="BillText">Bill</string>
     <string name="foodTotal">Food Total</string>
     <string name="deliveryFeeText">Delivery Fee</string>
     <string name="total">Total</string>
+
+
+    <string name="personalInfo">Personnal Information</string>
+    <string name="favoriteResttaurants">Favorite Restaurants</string>
+    <string name="language">Languages</string>
+    <string name="customerSupport">Costumer Support</string>
+    <string name="aboutApp">About App</string>
+    <string name="logout">LogOut</string>
+    <string name="saveChanges">Save Changes</string>
+    <string name="changeProfile">Change Profile</string>
+
+
 </resources>
