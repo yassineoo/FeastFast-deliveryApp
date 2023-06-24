@@ -9,6 +9,7 @@ import android.widget.LinearLayout
 import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
+import com.bumptech.glide.Glide
 import com.example.feastfast.databinding.ActivityCartBinding
 import com.example.feastfast.databinding.ListItemCartBinding
 import com.example.feastfast.models.CartItem
@@ -17,6 +18,7 @@ import com.example.feastfast.models.Restaurant
 import com.example.feastfast.models.retrofit.Endpoint
 import com.example.feastfast.models.room.AppDatabase
 import com.example.feastfast.ui.restaurant.RestaurantActivity
+import com.example.feastfast.util.url
 import kotlinx.coroutines.*
 import java.time.LocalDate
 import java.time.LocalTime
@@ -141,8 +143,7 @@ class CartActivity : AppCompatActivity() {
     fun displayCartItems(){
         for (cartItem in cartItems){
             val itemBinding: ListItemCartBinding = ListItemCartBinding.inflate(layoutInflater)
-            //todo : glide for cart item
-            //itemBinding.imageItem.setImageResource(cartItem.image)
+            Glide.with(myContext).load(url +cartItem.image) . into(itemBinding.imageItem)
             itemBinding.textNumberOfItems.text="x${cartItem.quantity.toString()}"
             itemBinding.textName.text=cartItem.name
             itemBinding.textPrice.text=cartItem.getTotalPrice().toString()

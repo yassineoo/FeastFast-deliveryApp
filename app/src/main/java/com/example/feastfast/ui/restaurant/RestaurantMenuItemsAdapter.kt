@@ -6,9 +6,11 @@ import android.view.ViewGroup
 import androidx.core.os.bundleOf
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.feastfast.R
 import com.example.feastfast.databinding.ListItemMenuBinding
 import com.example.feastfast.models.MenuItem
+import com.example.feastfast.util.url
 
 
 class RestaurantMenuItemsAdapter(val data: List<MenuItem>?, val context: Context, val name :String?="kook") :
@@ -35,8 +37,8 @@ class RestaurantMenuItemsAdapter(val data: List<MenuItem>?, val context: Context
 
         textSize.text=data!![position].price.toString()
         textPrice.text=data!![position].description
+        Glide.with(context).load(url +data!![position].image) . into(imageItem)
 
-       // imageItem.setImageResource(data[position].image)
         textName.text = data!![position].name
         cardMenuItem.setOnClickListener {
                 val data = bundleOf("menuItemss" to data[position])
