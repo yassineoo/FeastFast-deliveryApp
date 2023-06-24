@@ -5,9 +5,11 @@ import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.feastfast.databinding.ListItemHomeRestaurantBinding
 import com.example.feastfast.models.Restaurant
 import com.example.feastfast.ui.restaurant.RestaurantActivity
+import com.example.feastfast.util.url
 
 class HomeRestaurantAdapter(val data : List<Restaurant>, val context : Context) : RecyclerView.Adapter<HomeRestaurantAdapter.HomeRestaurantListItemViewHolder>() {
 
@@ -25,11 +27,13 @@ class HomeRestaurantAdapter(val data : List<Restaurant>, val context : Context) 
 
     override fun onBindViewHolder(holder: HomeRestaurantListItemViewHolder, position: Int) {
         holder.binding.apply {
-            //todo : glide for home restaurant
-            //imageRestaurant.setImageResource(data[position].picture)
+
+            Glide.with(context).load(url +data[position].logo) . into(imageLogo)
+            Glide.with(context).load(url +data[position].picture).into(imageRestaurant)
             textRating.text = data[position].averageRating.toString()
             textCuisine.text =  data[position].cuisineType
             textAddress.text = data[position].locationAddress
+            textRestaurantName.text = data[position].name
             viewCardContent.setOnClickListener {
                     val intent = Intent(context , RestaurantActivity::class.java)
                     intent.putExtra("Restaurant",data[position])

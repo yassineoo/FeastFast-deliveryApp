@@ -162,6 +162,24 @@ class RestaurantFragment : Fragment() {
                 startActivity(intent)
             }
         }
+
+        binding!!.gpsArrow.setOnClickListener {
+            val latitude = 37.7749
+            val longitude = -122.4194
+
+            val mapUri = Uri.parse("geo:$latitude,$longitude")
+            val mapIntent = Intent(Intent.ACTION_VIEW, mapUri)
+            mapIntent.setPackage("com.google.android.apps.maps")
+
+            if (mapIntent.resolveActivity(requireActivity().packageManager) != null) {
+                startActivity(mapIntent)
+            } else {
+                // Google Maps app is not installed, open in browser
+                val mapUrl = "https://www.google.com/maps?q=$latitude,$longitude"
+                val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse(mapUrl))
+                startActivity(browserIntent)
+            }
+        }
         binding!!.resPhone. setOnClickListener {
             val phoneNumber = res?.phoneNumber
 

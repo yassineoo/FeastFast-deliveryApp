@@ -14,6 +14,9 @@ const val url = "https://1377-41-220-149-75.ngrok-free.app/"
 interface Endpoint {
     @GET("res/{idUser}")
     suspend fun getAllRestaurants(@Path("idUser") idUser: Int) : Response<List<Restaurant>>
+
+    @GET("res/topRaters/{idUser}")
+    suspend fun getAllRestaurantsTopRaters(@Path("idUser") idUser: Int) : Response<List<Restaurant>>
     @GET("res/fav/{idUser}")
     suspend fun  getFavRestaurants(@Path("idUser") idUser: Int) : Response<List<Restaurant>>
 
