@@ -6,7 +6,6 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.bumptech.glide.load.engine.GlideException
 import com.example.feastfast.databinding.ListItemRestaurantBinding
 import com.example.feastfast.models.Restaurant
 import com.example.feastfast.ui.restaurant.RestaurantActivity

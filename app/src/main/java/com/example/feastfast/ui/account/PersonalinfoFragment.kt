@@ -51,7 +51,7 @@ class personalinfoFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         //  val pref = PreferenceManager.getDefaultSharedPreferences(requireActivity() );
-        val pref = requireActivity().getSharedPreferences("fileName", Context.MODE_PRIVATE)
+        val pref = requireActivity().getSharedPreferences("myPreferences", Context.MODE_PRIVATE)
         binding!!.changeprofile.setOnClickListener {
             val gallery = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI)
             startActivityForResult(gallery, pickImage)
@@ -134,7 +134,7 @@ class personalinfoFragment : Fragment() {
                     MultipartBody.Part.createFormData("image", file.name, fileReqBody)
 
                 CoroutineScope(Dispatchers.IO + exceptionHandler).launch {
-                    val pref = requireActivity().getSharedPreferences("fileName", Context.MODE_PRIVATE)
+                    val pref = requireActivity().getSharedPreferences("myPreferences", Context.MODE_PRIVATE)
                     val idUser = pref.getInt("idUser",0)
 
 

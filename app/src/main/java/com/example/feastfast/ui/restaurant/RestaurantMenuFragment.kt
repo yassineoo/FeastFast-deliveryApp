@@ -31,6 +31,7 @@ class RestaurantMenuFragment : Fragment() {
         var filteredItems = menuItems?.filter { it.categorie == nameCategorie }
         for(item in filteredItems!!){
             item.restaurantName=currentRestaurant.name
+            item.restaurantId = currentRestaurant.id
         }
 
 

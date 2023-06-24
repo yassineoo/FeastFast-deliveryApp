@@ -1,12 +1,9 @@
 package com.example.feastfast.ui.restaurant
 
 import android.os.Bundle
-import com.example.feastfast.R
-
 import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.FragmentManager
 import androidx.navigation.fragment.NavHostFragment
-import androidx.viewpager2.widget.ViewPager2
+import com.example.feastfast.R
 import com.example.feastfast.databinding.ActivityRestaurantBinding
 import com.example.feastfast.models.Restaurant
 

@@ -13,9 +13,9 @@ import com.example.feastfast.databinding.ActivityCartBinding
 import com.example.feastfast.databinding.ListItemCartBinding
 import com.example.feastfast.models.CartItem
 import com.example.feastfast.models.Order
+import com.example.feastfast.models.Restaurant
 import com.example.feastfast.models.retrofit.Endpoint
 import com.example.feastfast.models.room.AppDatabase
-import com.example.feastfast.ui.explore.ExploreFragment
 import com.example.feastfast.ui.restaurant.RestaurantActivity
 import kotlinx.coroutines.*
 import java.time.LocalDate
@@ -26,7 +26,7 @@ class CartActivity : AppCompatActivity() {
     lateinit var linearLayout: LinearLayout
     lateinit var cartItems: MutableList<CartItem>
     lateinit var currentRestaurantName: String
-    var currentRestaurantId : Int = 0
+    var currentRestaurantId : Int = 5
     var foodBill = 0.0
     val deliveryBill = 250.0
     val myContext = this
@@ -36,6 +36,7 @@ class CartActivity : AppCompatActivity() {
         binding= ActivityCartBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
+
 
         linearLayout = binding.linearLayout2
         val addButton = binding.buttonAddMoreItems
@@ -61,11 +62,30 @@ class CartActivity : AppCompatActivity() {
         }
 
         addButton.setOnClickListener {
-            val currentRestaurant = ExploreFragment().getRestaurantById(currentRestaurantId)
-            val intent = Intent(this, RestaurantActivity::class.java)
-            intent.putExtra("Restaurant",currentRestaurant)
-            this.startActivity(intent)
-            this.finish()
+
+
+            val exceptionHandler = CoroutineExceptionHandler{ coroutineContext, throwable ->
+                this.runOnUiThread {
+                    Toast.makeText(myContext, "request successful with Some unspecified error", Toast.LENGTH_SHORT).show()
+                }
+            }
+
+            CoroutineScope(Dispatchers.IO+exceptionHandler).launch {
+                val pref = myContext.getSharedPreferences("myPreferences", Context.MODE_PRIVATE)
+                val idUser = pref.getInt("idUser",0)
+                val response = Endpoint.createEndpoint().getUniqueRestaurantById(currentRestaurantId,idUser)
+                withContext(Dispatchers.Main) {
+                    if (response.isSuccessful && response.body() != null) {
+                        val data = response.body()!! as Restaurant
+                        val intent = Intent(myContext, RestaurantActivity::class.java)
+                        intent.putExtra("Restaurant", data)
+                        myContext.startActivity(intent)
+                        myContext.finish()
+                    } else {
+                        Toast.makeText(myContext, "Request unsuccessful!", Toast.LENGTH_SHORT).show()
+                    }
+                }
+            }
 
         }
 

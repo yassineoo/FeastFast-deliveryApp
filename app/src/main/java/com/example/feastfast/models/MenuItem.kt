@@ -5,7 +5,7 @@ data class MenuItem(
     val image : String,
     val price : Double,
     val description: String,
-    val restaurantId : Int,
+    var restaurantId : Int,
     val categorie : String,
     var restaurantName : String?,
 ):java.io.Serializable{

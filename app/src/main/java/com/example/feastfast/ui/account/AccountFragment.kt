@@ -36,7 +36,7 @@ class AccountFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         //  val pref = PreferenceManager.getDefaultSharedPreferences(requireActivity() );
-        val pref = requireActivity().getSharedPreferences("fileName", Context.MODE_PRIVATE)
+        val pref = requireActivity().getSharedPreferences("myPreferences", Context.MODE_PRIVATE)
 
         // Check if the user is not logged in
         val navController = findNavController()

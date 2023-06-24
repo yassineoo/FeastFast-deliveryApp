@@ -218,13 +218,14 @@ class signupFragment : Fragment() {
                                 Toast.LENGTH_SHORT
                             ).show()
                             // save the token
-                            val pref = requireActivity().getSharedPreferences("fileName", Context.MODE_PRIVATE)
+                            val pref = requireActivity().getSharedPreferences("myPreferences", Context.MODE_PRIVATE)
                             pref.edit {
                                 putBoolean("connected",true)
                                 putInt("idUser", data.id)
                                 putString("name" ,data.name)
                                 putString("email" ,data.email)
                                 putString("phone" ,data.phone_number)
+                                putString("profile_image" ,data.profile_picture)
                             }
 
                             val intent = Intent(requireActivity() , MainActivity::class.java)

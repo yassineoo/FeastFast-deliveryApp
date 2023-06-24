@@ -5,7 +5,6 @@ import android.content.Intent
 import android.os.Bundle
 import android.text.method.HideReturnsTransformationMethod
 import android.text.method.PasswordTransformationMethod
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,15 +12,13 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.core.content.edit
+import androidx.fragment.app.Fragment
 import com.example.feastfast.MainActivity
 import com.example.feastfast.R
-
 import com.example.feastfast.databinding.FragmentLoginBinding
 import com.example.feastfast.models.LoginRequest
-import com.example.feastfast.models.RegisterRequest
 import com.example.feastfast.models.User
 import com.example.feastfast.models.retrofit.Endpoint
-import com.example.feastfast.ui.restaurant.RestaurantActivity
 import kotlinx.coroutines.*
 
 
@@ -101,7 +98,7 @@ class loginFragment : Fragment() {
 
                             // save the token
                           //  val pref = PreferenceManager.getDefaultSharedPreferences(requireActivity() );
-                            val pref = requireActivity().getSharedPreferences("fileName", Context.MODE_PRIVATE)
+                            val pref = requireActivity().getSharedPreferences("myPreferences", Context.MODE_PRIVATE)
                             pref.edit {
                                 putBoolean("connected",true)
                                 putInt("idUser", data.id)

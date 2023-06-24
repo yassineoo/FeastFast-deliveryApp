@@ -40,7 +40,7 @@ class RestaurantMenuItemsAdapter(val data: List<MenuItem>?, val context: Context
         textName.text = data!![position].name
         cardMenuItem.setOnClickListener {
                 val data = bundleOf("menuItemss" to data[position])
-                it.findNavController().navigate(R.id.action_restaurantFragment_to_menuItemDetailsFragment,data)
+            it.findNavController().navigate(R.id.action_restaurantFragment_to_menuItemDetailsFragment,data)
             }
         }
     }

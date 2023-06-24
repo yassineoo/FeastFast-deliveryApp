@@ -1,7 +1,4 @@
 package com.example.feastfast.models.retrofit
-import com.example.feastfast.models.MenuItem
-import com.example.feastfast.models.Order
-import com.example.feastfast.models.Restaurant
 import com.example.feastfast.models.*
 import com.example.feastfast.util.url
 import okhttp3.MultipartBody
@@ -22,6 +19,9 @@ interface Endpoint {
 
     @GET("res/{id}/menu")
     suspend fun getRestaurantById(@Path("id") id: Int) : Response<List<MenuItem>>
+
+    @GET("res/resbyid/{idRes}/{idUser}")
+    suspend fun getUniqueRestaurantById(@Path("idRes") idRes: Int, @Path("idUser") idUser: Int) : Response<Restaurant>
 
     @POST("orders/creatOrder")
     suspend fun sendOrder(
