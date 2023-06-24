@@ -8,9 +8,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentActivity
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.feastfast.R
 import com.example.feastfast.databinding.FragmentExploreBinding
 import com.example.feastfast.models.Restaurant
 import com.example.feastfast.models.retrofit.Endpoint
@@ -22,7 +20,7 @@ class ExploreFragment : Fragment() {
 
     lateinit var myContext : Context
     lateinit var adapter: RestaurantAdapter
-    lateinit var data : List<Restaurant>
+    lateinit var myData : List<Restaurant>
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -71,6 +69,7 @@ class ExploreFragment : Fragment() {
             withContext(Dispatchers.Main) {
                 if (response.isSuccessful && response.body() != null) {
                     val data = response.body()!!.toList()
+                    myData=data
                     binding.recycleView.adapter= RestaurantAdapter(data,myContext)
                     adapter = binding.recycleView.adapter as RestaurantAdapter
                 } else {
@@ -81,13 +80,13 @@ class ExploreFragment : Fragment() {
     }
 
     fun getRestaurantById(id: Int) : Restaurant?{
-        return null
+        return Restaurant(0,"","","","",0.0F,0.0F,"","","",0.0F,0,"","","","",false)
     }
 
     fun search(queryText:String?){
         if (queryText != null && queryText.isNotEmpty()){
             val filteredList = mutableListOf<Restaurant>()
-            for(restaurant in data){
+            for(restaurant in myData){
                 if (restaurant.name.lowercase().contains(queryText.lowercase())){
                     filteredList.add(restaurant)
                 }
@@ -97,7 +96,7 @@ class ExploreFragment : Fragment() {
                 adapter.setFilteredList(filteredList)
             }else{
                 Toast.makeText(context,"No matches found" , Toast.LENGTH_SHORT).show()
-                adapter.setFilteredList(data)
+                adapter.setFilteredList(myData)
             }
         }
     }

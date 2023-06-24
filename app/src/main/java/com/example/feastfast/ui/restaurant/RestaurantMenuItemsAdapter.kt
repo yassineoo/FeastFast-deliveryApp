@@ -39,7 +39,7 @@ class RestaurantMenuItemsAdapter(val data: List<MenuItem>?, val context: Context
        // imageItem.setImageResource(data[position].image)
         textName.text = data!![position].name
         cardMenuItem.setOnClickListener {
-                val data = bundleOf("item" to data[position])
+                val data = bundleOf("menuItemss" to data[position])
                 it.findNavController().navigate(R.id.action_restaurantFragment_to_menuItemDetailsFragment,data)
             }
         }

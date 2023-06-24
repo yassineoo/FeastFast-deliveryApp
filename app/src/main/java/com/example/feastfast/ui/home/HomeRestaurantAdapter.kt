@@ -4,11 +4,8 @@ import android.content.Context
 import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
-
 import androidx.recyclerview.widget.RecyclerView
 import com.example.feastfast.databinding.ListItemHomeRestaurantBinding
-
-import com.example.feastfast.databinding.ListItemRestaurantBinding
 import com.example.feastfast.models.Restaurant
 import com.example.feastfast.ui.restaurant.RestaurantActivity
 
@@ -28,7 +25,8 @@ class HomeRestaurantAdapter(val data : List<Restaurant>, val context : Context) 
 
     override fun onBindViewHolder(holder: HomeRestaurantListItemViewHolder, position: Int) {
         holder.binding.apply {
-            imageRestaurant.setImageResource(data[position].picture)
+            //todo : glide for home restaurant
+            //imageRestaurant.setImageResource(data[position].picture)
             textRating.text = data[position].averageRating.toString()
             textCuisine.text =  data[position].cuisineType
             textAddress.text = data[position].locationAddress

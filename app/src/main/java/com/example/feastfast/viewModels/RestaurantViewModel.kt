@@ -18,14 +18,14 @@ class RestaurantViewModel : ViewModel() {
     val data: LiveData<List<MenuItem>> get() = _data
     val favrite: LiveData<Int> get() = _favrite
 
-    fun loadData() {
+    fun loadData(restaurantId : Int) {
         val exceptionHandler = CoroutineExceptionHandler() { coroutineContext, throwable ->
             val errorMessage = "Error occurred: ${throwable.localizedMessage}"
-           // Toast.makeText(requireActivity(), errorMessage, Toast.LENGTH_LONG).show(
+           // Toast.makeText(requireActivity(), errorMessage, Toast.LENGTH_LONG).show()
         }
 
         viewModelScope.launch(Dispatchers.IO + exceptionHandler) {
-            val response = Endpoint.createEndpoint().getRestaurantById(1)
+            val response = Endpoint.createEndpoint().getRestaurantById(restaurantId)
             withContext(Dispatchers.Main) {
                 if (response.isSuccessful && response.body() != null) {
                     _data.value = response.body()!!.toList()

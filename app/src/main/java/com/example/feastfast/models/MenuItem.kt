@@ -7,7 +7,7 @@ data class MenuItem(
     val description: String,
     val restaurantId : Int,
     val categorie : String,
-    val restaurantName : String?,
+    var restaurantName : String?,
 ):java.io.Serializable{
     fun menuItemToCartItem(menuItem: MenuItem): CartItem {
         return CartItem(
@@ -15,7 +15,7 @@ data class MenuItem(
             image = menuItem.image,
             price = menuItem.price,
             restaurantId = menuItem.restaurantId,
-            restaurantName = menuItem.restaurantName
+            restaurantName = if(menuItem.restaurantName!= null) menuItem.restaurantName else "default"
         )
     }
 }

@@ -3,7 +3,6 @@
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_login">LoginActivity</string>
     <string name="prompt_email">Email</string>
@@ -42,7 +41,6 @@
     <string name="EmptyCart"> Empty Cart </string>
     <string name="addMoreItems">Add More Items</string>
     <string name="viewCart">View cart</string>
-<<<<<<< HEAD
     <string name="categories">Categories</string>
     <string name="nearYou">Near you</string>
     <string name="freeDelivery">Free delivery</string>
@@ -58,9 +56,6 @@
     <string name="searchHint">Search for a store</string>
     <string name="your">Your</string>
     <string name="orders">Orders</string>
-=======
-
->>>>>>> profile_fav
 
     <string name="BillText">Bill</string>
     <string name="foodTotal">Food Total</string>

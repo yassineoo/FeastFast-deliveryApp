@@ -8,12 +8,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
-import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.viewpager2.widget.ViewPager2
 import com.example.feastfast.R
 import com.example.feastfast.databinding.FragmentHomeBinding
 import com.example.feastfast.models.Category
-import com.example.feastfast.models.Restaurant
 import com.example.feastfast.models.room.AppDatabase
 import com.example.feastfast.ui.address.AddressActivity
 import com.example.feastfast.ui.cart.CartActivity

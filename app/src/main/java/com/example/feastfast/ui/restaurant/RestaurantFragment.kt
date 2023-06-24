@@ -1,5 +1,6 @@
 package com.example.feastfast.ui.restaurant
 
+import android.Manifest
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
@@ -8,28 +9,21 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.ViewModelProvider
-import androidx.viewpager2.widget.ViewPager2
-import android.Manifest
-import androidx.core.os.bundleOf
 import androidx.navigation.findNavController
-import com.example.feastfast.MainActivity
+import androidx.viewpager2.widget.ViewPager2
 import com.example.feastfast.R
 import com.example.feastfast.databinding.FragmentRestaurantBinding
 import com.example.feastfast.models.MenuItem
 import com.example.feastfast.models.Restaurant
-import com.example.feastfast.models.retrofit.Endpoint
 import com.example.feastfast.models.room.AppDatabase
 import com.example.feastfast.ui.cart.CartActivity
-import com.example.feastfast.ui.login.LoginActivity
 import com.example.feastfast.viewModels.RestaurantViewModel
 import com.google.android.material.tabs.TabLayout
-import kotlinx.coroutines.*
 
 class RestaurantFragment : Fragment() {
 
@@ -52,7 +46,6 @@ class RestaurantFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         // Retrieve the Restaurant object from arguments
-        var restaurant = arguments?.getSerializable("restaurant") as? Restaurant
 
         binding = FragmentRestaurantBinding.inflate(inflater,container,false)
         val view = binding.root
@@ -95,13 +88,13 @@ class RestaurantFragment : Fragment() {
 
 
 
-        loadData()
+        loadData(currentRestaurant.id)
 
 
     }
 
 
-    fun loadData(){
+    fun loadData(restaurantId : Int) {
 
         viewModel.data.observe(viewLifecycleOwner) { data ->
             setupViewPagerAndTabLayout(data)
@@ -113,7 +106,7 @@ class RestaurantFragment : Fragment() {
             // Perform any other UI updates using the data
         }
 
-        viewModel.loadData()
+        viewModel.loadData(restaurantId)
 
     }
 
