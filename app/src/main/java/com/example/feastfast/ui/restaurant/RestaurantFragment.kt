@@ -16,12 +16,14 @@ import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import androidx.viewpager2.widget.ViewPager2
+import com.bumptech.glide.Glide
 import com.example.feastfast.R
 import com.example.feastfast.databinding.FragmentRestaurantBinding
 import com.example.feastfast.models.MenuItem
 import com.example.feastfast.models.Restaurant
 import com.example.feastfast.models.room.AppDatabase
 import com.example.feastfast.ui.cart.CartActivity
+import com.example.feastfast.util.url
 import com.example.feastfast.viewModels.RestaurantViewModel
 import com.google.android.material.tabs.TabLayout
 
@@ -115,13 +117,14 @@ class RestaurantFragment : Fragment() {
         idRes = res?.id
         binding.resName.text = res?.name
         binding.resCuisine.text = res?.cuisineType
-        //binding.resImage = res.ima
-        //binding.res.text = res.name
+        Glide.with(myContext).load(url +res?.picture) . into(binding!!.resImage)
+        Glide.with(myContext).load(url +res?.logo) . into(binding!!.resLogo)
         binding.textgps.text = res?.locationAddress
         val startTime = res?.opening_time?.substring(11,16)
         val endTime = res?.closing_time?.substring(11,16)
         binding.openTime.text = startTime+"-"+endTime
         binding.textrating.text = "${res?.averageRating}(${res?.ratersCount} Rating)"
+
 
         if (res?.isPreferred == true ) {
             viewModel.initilizeFavState( 1)

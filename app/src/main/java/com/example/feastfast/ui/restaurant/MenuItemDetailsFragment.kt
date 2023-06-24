@@ -10,11 +10,13 @@ import android.widget.RadioGroup
 import android.widget.Toast
 import androidx.fragment.app.FragmentActivity
 import androidx.navigation.fragment.NavHostFragment
+import com.bumptech.glide.Glide
 import com.example.feastfast.R
 import com.example.feastfast.databinding.FragmentMenuItemDetailsBinding
 import com.example.feastfast.models.CartItem
 import com.example.feastfast.models.MenuItem
 import com.example.feastfast.models.room.AppDatabase
+import com.example.feastfast.util.url
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
@@ -47,8 +49,7 @@ class MenuItemDetailsFragment() : BottomSheetDialogFragment() {
 
 
         //updating ui based on menu item
-        //todo : glide image for menu item
-        //binding.imageView.setImageResource(menuItem.image)
+        Glide.with(myContext).load(url +menuItem.image) . into(binding.imageView)
         binding.textDescription.text = menuItem.description
         binding.textMenuItem.text = menuItem.name
 
