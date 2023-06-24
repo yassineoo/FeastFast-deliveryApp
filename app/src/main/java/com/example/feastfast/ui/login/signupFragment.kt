@@ -214,7 +214,7 @@ class signupFragment : Fragment() {
                             val data = response.body()!! as User
                             Toast.makeText(
                                 requireActivity(),
-                                " hi done " + data.name,
+                                " hi  " + data.name,
                                 Toast.LENGTH_SHORT
                             ).show()
                             // save the token

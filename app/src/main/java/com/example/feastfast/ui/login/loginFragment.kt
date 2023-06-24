@@ -93,7 +93,7 @@ class loginFragment : Fragment() {
                     withContext(Dispatchers.Main) {
                         if (response.isSuccessful && response.body() != null) {
                             val data = response.body()!! as User
-                            Toast.makeText(requireActivity(), " hi done " + data.name, Toast.LENGTH_SHORT).show()
+                            Toast.makeText(requireActivity(), " hi  " + data.name, Toast.LENGTH_SHORT).show()
                           //  val sharedPreferences = context.getSharedPreferences("MyPrefs", requireActivity().PR)
 
                             // save the token
