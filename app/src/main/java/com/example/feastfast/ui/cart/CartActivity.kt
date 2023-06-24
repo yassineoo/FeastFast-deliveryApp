@@ -93,7 +93,7 @@ class CartActivity : AppCompatActivity() {
         //checking out
         binding.buttonCheckout.setOnClickListener {
             val pref = this.getSharedPreferences("myPreferences", Context.MODE_PRIVATE)
-            val isLoggedIn= pref.getBoolean("connected",true)
+            val isLoggedIn= pref.getBoolean("connected",false)
             if (!isLoggedIn){
                 val popUp = NotLoggedInPopUp()
                 popUp.show(this.supportFragmentManager,"NotLoggedInPopUp")
@@ -124,6 +124,8 @@ class CartActivity : AppCompatActivity() {
                             if (response.isSuccessful && response.body()!=null){
                                 val orderThatWasSent = response.body() as Order
                                 Toast.makeText(myContext, " Your order from ${orderThatWasSent.restaurantName} that costs ${orderThatWasSent.totalPrice} has been validated successfully ", Toast.LENGTH_SHORT).show()
+                                AppDatabase.getInstance(myContext)!!.getMenuItemDao()!!.emptyCart()
+                                myContext.finish()
                             }else{
                                 Toast.makeText(myContext, " The request was launched but unsuccessful ", Toast.LENGTH_SHORT).show()
                             }

@@ -49,7 +49,6 @@
         android:id="@+id/buttonSubmit"
         android:layout_width="150dp"
         android:layout_height="40dp"
-        android:layout_marginTop="20dp"
         android:layout_marginBottom="10dp"
         android:background="@drawable/bg_yellow_rounded_btn"
         android:backgroundTint="@color/primary_color"
@@ -57,6 +56,20 @@
         android:textAllCaps="false"
         android:textColor="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editText" />
+
+    <EditText
+        android:id="@+id/editText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+        android:gravity="center"
+        android:hint="Your opinion on the food and service"
+        android:inputType="textPersonName"
+        android:textSize="12sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ratingBar" />

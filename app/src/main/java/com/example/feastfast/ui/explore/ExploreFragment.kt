@@ -63,7 +63,7 @@ class ExploreFragment : Fragment() {
         }
 
         CoroutineScope(Dispatchers.IO+exceptionHandler).launch {
-            val pref = requireActivity().getSharedPreferences("fileName", Context.MODE_PRIVATE)
+            val pref = requireActivity().getSharedPreferences("myPreferences", Context.MODE_PRIVATE)
             val idUser = pref.getInt("idUser",0)
             val response = Endpoint.createEndpoint().getAllRestaurants(idUser)
             withContext(Dispatchers.Main) {
@@ -79,9 +79,6 @@ class ExploreFragment : Fragment() {
         }
     }
 
-    fun getRestaurantById(id: Int) : Restaurant?{
-        return Restaurant(0,"","","","",0.0F,0.0F,"","","",0.0F,0,"","","","",false)
-    }
 
     fun search(queryText:String?){
         if (queryText != null && queryText.isNotEmpty()){

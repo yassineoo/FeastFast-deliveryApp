@@ -2,6 +2,7 @@ package com.example.feastfast.ui.orders
 
 import android.content.Context
 import android.content.res.ColorStateList
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.Toast
@@ -45,6 +46,10 @@ class OrdersAdapter(var data : List<Order>, val context : Context, val activity:
                 if(rateable){
                     Toast.makeText(context,"You will rate" , Toast.LENGTH_SHORT).show()
                     val ratingPopUp = RatingPopUp()
+                    val bundle = Bundle()
+                    bundle.putInt("userId",data[position].user_id)
+                    bundle.putInt("restaurantId",data[position].restaurant_id)
+                    ratingPopUp.arguments = bundle
                     ratingPopUp.show(activity.supportFragmentManager,"ratingPopUp")
                 }
             }

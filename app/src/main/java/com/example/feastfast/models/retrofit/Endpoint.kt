@@ -28,6 +28,16 @@ interface Endpoint {
         @Body order: Order
     ): Response<Order>
 
+    @POST("res/rating")
+    suspend fun sendRating(
+        @Body rating: Rating
+    ): Response<Rating>
+
+
+    @GET("orders/getorders/{userId}")
+    suspend fun getUserOrders(
+        @Path("userId") userId : Int
+    ): Response<List<Order>>
     @GET("users/{idUser}")
     suspend fun getUserProfile(@Path("idUser") idUser: Int) : Response<User>
 
