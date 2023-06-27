@@ -47,7 +47,7 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         myContext = requireActivity()
-        var images = listOf(R.drawable.image_hotspot,R.drawable.ad3,R.drawable.image_hotspot,R.drawable.ad2,R.drawable.image_hotspot)
+        var images = listOf(R.drawable.image_hotspot,R.drawable.ad3,R.drawable.ad4,R.drawable.ad2,R.drawable.ad5)
         val adapter =  AdsViewPagerAdapter(images)
         binding.viewPager2.adapter = adapter
         binding.viewPager2.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback(){

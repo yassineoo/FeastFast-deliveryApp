@@ -58,7 +58,8 @@ class ExploreFragment : Fragment() {
     fun loadData(){
         val exceptionHandler = CoroutineExceptionHandler{ coroutineContext, throwable ->
             requireActivity().runOnUiThread {
-                Toast.makeText(myContext, "request successful with Some unspecified error", Toast.LENGTH_SHORT).show()
+                val errorMessage = "Error occurred: ${throwable.localizedMessage}"
+                Toast.makeText(requireActivity(), errorMessage, Toast.LENGTH_LONG).show()
             }
         }
 
