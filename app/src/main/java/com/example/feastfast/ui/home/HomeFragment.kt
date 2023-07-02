@@ -1,25 +1,25 @@
 package com.example.feastfast.ui.home
 
-import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.content.edit
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.viewpager2.widget.ViewPager2
-import com.example.feastfast.MainActivity
 import com.example.feastfast.R
 import com.example.feastfast.databinding.FragmentHomeBinding
 import com.example.feastfast.models.Category
-import com.example.feastfast.models.Restaurant
+import com.example.feastfast.models.retrofit.Endpoint
 import com.example.feastfast.models.room.AppDatabase
 import com.example.feastfast.ui.address.AddressActivity
 import com.example.feastfast.ui.cart.CartActivity
+import com.example.feastfast.ui.explore.RestaurantAdapter
+import kotlinx.coroutines.*
 
 
 class HomeFragment : Fragment() {
@@ -47,7 +47,7 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         myContext = requireActivity()
-        var images = listOf(R.drawable.image_hotspot,R.drawable.image_hotspot_logo,R.drawable.image_hotspot,R.drawable.image_hotspot_logo,R.drawable.image_hotspot)
+        var images = listOf(R.drawable.image_hotspot,R.drawable.ad3,R.drawable.ad4,R.drawable.ad2,R.drawable.ad5)
         val adapter =  AdsViewPagerAdapter(images)
         binding.viewPager2.adapter = adapter
         binding.viewPager2.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback(){
@@ -71,21 +71,24 @@ class HomeFragment : Fragment() {
             val intent = Intent(myContext, AddressActivity::class.java)
             myContext.startActivity(intent)
         }
-
+        loadTopRated()
+        loadTopRaters()
         setAddress()
+        binding.recyclerViewTopRated.layoutManager = LinearLayoutManager(myContext,LinearLayoutManager.HORIZONTAL,false)
+
+
 
 
         binding.recyclerViewCategories.layoutManager = LinearLayoutManager(myContext,LinearLayoutManager.HORIZONTAL,false)
-        binding.recyclerViewFreeDelivery.layoutManager = LinearLayoutManager(myContext,LinearLayoutManager.HORIZONTAL,false)
-        binding.recyclerViewNearYou.layoutManager = LinearLayoutManager(myContext,LinearLayoutManager.HORIZONTAL,false)
-        binding.recyclerViewTopPastry.layoutManager = LinearLayoutManager(myContext,LinearLayoutManager.HORIZONTAL,false)
-        binding.recyclerViewTopRated.layoutManager = LinearLayoutManager(myContext,LinearLayoutManager.HORIZONTAL,false)
-
         binding.recyclerViewCategories.adapter=HomeCategoryAdapter(categories,myContext)
-        binding.recyclerViewFreeDelivery.adapter=HomeRestaurantAdapter(loadData(),myContext)
-        binding.recyclerViewNearYou.adapter=HomeRestaurantAdapter(loadData(),myContext)
-        binding.recyclerViewTopPastry.adapter=HomeRestaurantAdapter(loadData(),myContext)
-        binding.recyclerViewTopRated.adapter=HomeRestaurantAdapter(loadData(),myContext)
+        binding.recyclerViewNearYou.layoutManager = LinearLayoutManager(myContext,LinearLayoutManager.HORIZONTAL,false)
+       binding.recyclerViewFreeDelivery.layoutManager = LinearLayoutManager(myContext,LinearLayoutManager.HORIZONTAL,false)
+
+        binding.recyclerViewTopPastry.layoutManager = LinearLayoutManager(myContext,LinearLayoutManager.HORIZONTAL,false)
+
+
+
+
     }
 
     override fun onResume() {
@@ -110,16 +113,64 @@ class HomeFragment : Fragment() {
         }
     }
 
-    fun loadData() : List<Restaurant> {
-        return listOf(
-            Restaurant(1,"HotSpot DZ",R.drawable.image_hotspot_logo2,R.drawable.image_hotspot,"7th street, view kouba", 0F,0F,"Mexican, portuguese",4.1F,"0550710721","hotspot@hotspot.dz","https://www.instagram.com/hotspot_dz/","https://web.facebook.com/HotSpotdz"),
-            Restaurant(2,"HotSpot DZ",R.drawable.image_hotspot_logo2,R.drawable.image_hotspot,"7th street, view kouba", 0F,0F,"Mexican, portuguese",4.1F,"0550710721","hotspot@hotspot.dz","https://www.instagram.com/hotspot_dz/","https://web.facebook.com/HotSpotdz"),
-            Restaurant(4,"HotSpot DZ",R.drawable.image_hotspot_logo2,R.drawable.image_hotspot,"7th street, view kouba", 0F,0F,"Mexican, portuguese",4.1F,"0550710721","hotspot@hotspot.dz","https://www.instagram.com/hotspot_dz/","https://web.facebook.com/HotSpotdz"),
-            Restaurant(5,"HotSpot DZ",R.drawable.image_hotspot_logo2,R.drawable.image_hotspot,"7th street, view kouba", 0F,0F,"Mexican, portuguese",4.1F,"0550710721","hotspot@hotspot.dz","https://www.instagram.com/hotspot_dz/","https://web.facebook.com/HotSpotdz"),
-            Restaurant(6,"HotSpot DZ",R.drawable.image_hotspot_logo2,R.drawable.image_hotspot,"7th street, view kouba", 0F,0F,"Mexican, portuguese",4.1F,"0550710721","hotspot@hotspot.dz","https://www.instagram.com/hotspot_dz/","https://web.facebook.com/HotSpotdz"),
-            Restaurant(7,"HotSpot DZ",R.drawable.image_hotspot_logo2,R.drawable.image_hotspot,"7th street, view kouba", 0F,0F,"Mexican, portuguese",4.1F,"0550710721","hotspot@hotspot.dz","https://www.instagram.com/hotspot_dz/","https://web.facebook.com/HotSpotdz")
-        )
+
+    //todo : load data from server in home page
+    fun loadTopRated()  {
+
+        val exceptionHandler = CoroutineExceptionHandler{ coroutineContext, throwable ->
+            requireActivity().runOnUiThread {
+                Toast.makeText(myContext, "request successful with Some unspecified error", Toast.LENGTH_SHORT).show()
+            }
+        }
+
+        CoroutineScope(Dispatchers.IO+exceptionHandler).launch {
+            val pref = requireActivity().getSharedPreferences("myPreferences", Context.MODE_PRIVATE)
+            val idUser = pref.getInt("idUser",0)
+            val response = Endpoint.createEndpoint().getAllRestaurants(idUser)
+            withContext(Dispatchers.Main) {
+                if (response.isSuccessful && response.body() != null) {
+                    val data = response.body()!!.toList()
+                    binding.recyclerViewNearYou.adapter=HomeRestaurantAdapter(data,myContext)
+
+                    binding.recyclerViewTopRated.adapter=HomeRestaurantAdapter(data,myContext)
+
+                } else {
+                    Toast.makeText(myContext, "Request unsuccessful!", Toast.LENGTH_SHORT).show()
+                }
+            }
+        }
+
     }
+    fun loadTopRaters()  {
+
+        val exceptionHandler = CoroutineExceptionHandler{ coroutineContext, throwable ->
+            requireActivity().runOnUiThread {
+                Toast.makeText(myContext, "request successful with Some unspecified error", Toast.LENGTH_SHORT).show()
+            }
+        }
+
+        CoroutineScope(Dispatchers.IO+exceptionHandler).launch {
+            val pref = requireActivity().getSharedPreferences("myPreferences", Context.MODE_PRIVATE)
+            val idUser = pref.getInt("idUser",0)
+            val response = Endpoint.createEndpoint().getAllRestaurantsTopRaters(idUser)
+            withContext(Dispatchers.Main) {
+                if (response.isSuccessful && response.body() != null) {
+                    val data = response.body()!!.toList()
+
+
+                    binding.recyclerViewFreeDelivery.adapter=HomeRestaurantAdapter(data,myContext)
+
+                    binding.recyclerViewTopPastry.adapter=HomeRestaurantAdapter(data,myContext)
+
+                } else {
+                    Toast.makeText(myContext, "Request unsuccessful!", Toast.LENGTH_SHORT).show()
+                }
+            }
+        }
+
+    }
+
+
     fun changeColor(){
 
         when (binding.viewPager2.currentItem){
@@ -172,4 +223,3 @@ class HomeFragment : Fragment() {
     }
 
 }
-

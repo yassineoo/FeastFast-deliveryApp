@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.personalinfoFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <Button
+            android:id="@+id/saveChanges"
+            android:layout_width="308dp"
+            android:layout_height="52dp"
+
+            android:layout_marginTop="24dp"
+            android:background="@drawable/bg_selected_rounded_button"
+            android:text="@string/saveChanges"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:backgroundTint="@null"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.495"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/passwordEdit" />
+
+        <EditText
+            android:id="@+id/emailAdress"
+            android:layout_width="365dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="20dp"
+            android:backgroundTint="@color/input_base_line"
+            android:hint="@string/emailPlaceHolder"
+            android:inputType="textEmailAddress"
+            android:paddingLeft="40sp"
+            android:textColor="#000000"
+            android:textColorHint="@color/place_holder"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/userPhone" />
+
+        <ImageView
+            android:id="@+id/emailIcon4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            app:layout_constraintStart_toStartOf="@+id/emailAdress"
+            app:layout_constraintTop_toTopOf="@+id/emailAdress"
+            app:srcCompat="@drawable/icon_mail" />
+
+        <EditText
+            android:id="@+id/passwordEdit"
+            android:layout_width="365dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="20dp"
+            android:backgroundTint="@color/input_base_line"
+            android:ems="10"
+            android:hint="@string/passwordPlaceHolder"
+            android:inputType="textPassword"
+            android:paddingLeft="40sp"
+            android:textColorHint="@color/place_holder"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/emailAdress" />
+
+        <ImageButton
+            android:id="@+id/showHidePasswordEdit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="5dp"
+            android:background="@color/white"
+            android:src="@drawable/icon_open_eye_password"
+            app:layout_constraintEnd_toEndOf="@+id/passwordEdit"
+            app:layout_constraintTop_toTopOf="@+id/passwordLockIcon2"
+            app:tint="@color/greyish" />
+
+        <EditText
+            android:id="@+id/userPhone"
+            android:layout_width="365dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="20dp"
+            android:backgroundTint="@color/input_base_line"
+            android:ems="10"
+            android:hint="@string/phoneNumberPlaceHolder"
+            android:inputType="phone"
+            android:paddingLeft="40sp"
+            android:textColorHint="@color/place_holder"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/userName2" />
+
+        <ImageView
+            android:id="@+id/phoneIcon2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:src="@drawable/icon_phone"
+            app:layout_constraintStart_toStartOf="@+id/userPhone"
+            app:layout_constraintTop_toTopOf="@+id/userPhone" />
+
+        <EditText
+            android:id="@+id/userName2"
+            android:layout_width="365dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="76dp"
+            android:backgroundTint="@color/input_base_line"
+            android:ems="10"
+            android:hint="@string/fullNamePlaceHolder"
+            android:inputType="textPersonName"
+            android:paddingLeft="40sp"
+            android:textColor="#000000"
+            android:textColorHint="@color/place_holder"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/horizontal_line10" />
+
+        <ImageView
+            android:id="@+id/iconFullName2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:src="@drawable/icon_person"
+            app:layout_constraintStart_toStartOf="@+id/userName2"
+            app:layout_constraintTop_toTopOf="@+id/userName2" />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/pictureProfile"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="28dp"
+            android:src="@drawable/yassine"
+            app:civ_border_color="#dddddd"
+            app:civ_border_width="7dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            android:id="@+id/horizontal_line10"
+            android:layout_width="0dp"
+            android:layout_height="2dp"
+
+            android:layout_marginTop="60dp"
+            android:background="@color/greyish"
+            android:elevation="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/changeprofile" />
+
+        <Button
+            android:id="@+id/changeprofile"
+            android:layout_width="200dp"
+            android:layout_height="48dp"
+
+            android:layout_marginTop="48dp"
+            android:background="@drawable/bg_pinkish_rounded_btn"
+            android:text="@string/changeProfile"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            app:backgroundTint="@null"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/pictureProfile"
+            />
+
+        <ImageView
+            android:id="@+id/passwordLockIcon2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:src="@drawable/icon_lock"
+            app:layout_constraintStart_toStartOf="@+id/passwordEdit"
+            app:layout_constraintTop_toTopOf="@+id/passwordEdit" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>

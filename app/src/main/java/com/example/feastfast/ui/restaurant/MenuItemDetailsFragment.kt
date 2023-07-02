@@ -10,11 +10,13 @@ import android.widget.RadioGroup
 import android.widget.Toast
 import androidx.fragment.app.FragmentActivity
 import androidx.navigation.fragment.NavHostFragment
+import com.bumptech.glide.Glide
 import com.example.feastfast.R
 import com.example.feastfast.databinding.FragmentMenuItemDetailsBinding
-import com.example.feastfast.models.room.AppDatabase
 import com.example.feastfast.models.CartItem
 import com.example.feastfast.models.MenuItem
+import com.example.feastfast.models.room.AppDatabase
+import com.example.feastfast.util.url
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
@@ -41,13 +43,13 @@ class MenuItemDetailsFragment() : BottomSheetDialogFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val menuItem = arguments?.getSerializable("item") as MenuItem
+        val menuItem = arguments?.getSerializable("menuItemss") as MenuItem
         cartItem = menuItem.menuItemToCartItem(menuItem)
         myContext = requireActivity()
 
 
         //updating ui based on menu item
-        binding.imageView.setImageResource(menuItem.image)
+        Glide.with(myContext).load(url +menuItem.image) . into(binding.imageView)
         binding.textDescription.text = menuItem.description
         binding.textMenuItem.text = menuItem.name
 
@@ -91,8 +93,10 @@ class MenuItemDetailsFragment() : BottomSheetDialogFragment() {
         binding.buttonAddToCart.setOnClickListener {
             //checking that the cart doesn't contain items from another restaurant
             val currentRestaurantId = cartItem.restaurantId
+            val currentRestaurantName = cartItem.restaurantName
             val restaurantsInCart = AppDatabase.getInstance(myContext)!!.getMenuItemDao().getCurrentRestaurantId()
-            if((currentRestaurantId in restaurantsInCart) || restaurantsInCart.isEmpty() ){
+            val restaurantNamesInCart = AppDatabase.getInstance(myContext)!!.getMenuItemDao().getCurrentRestaurantName()
+            if((currentRestaurantId in restaurantsInCart && currentRestaurantName in restaurantNamesInCart) || restaurantsInCart.isEmpty() ){
                 AppDatabase.getInstance(myContext)!!.getMenuItemDao().addToCart((cartItem))
                 Toast.makeText(myContext,"Items added to cart!" , Toast.LENGTH_SHORT).show()
                 NavHostFragment.findNavController(this).navigate(R.id.action_menuItemDetailsFragment_to_restaurantFragment)

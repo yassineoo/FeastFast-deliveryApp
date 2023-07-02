@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="5dp"
+    android:id="@+id/root">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/CardViewOrder"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="5dp"
+        app:cardCornerRadius="20dp"
+        app:cardElevation="5dp"
+        app:cardMaxElevation="12dp"
+        app:cardPreventCornerOverlap="false"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/viewCardContent"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/bg_order_card"
+            android:paddingStart="0dp"
+            android:paddingTop="0dp"
+            android:paddingEnd="0dp">
+
+
+            <TextView
+                android:id="@+id/textRestaurantName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:fontFamily="@font/poppins"
+                android:text="HotSpot DZ"
+                android:textColor="#000000"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toStartOf="@+id/textOrderStatus"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textOrderStatus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:fontFamily="@font/poppins"
+                android:text="Ongoing"
+                android:textColor="#000000"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/textRestaurantName"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/calendar_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="28dp"
+                android:layout_marginTop="8dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textRestaurantName"
+                app:srcCompat="@drawable/icon_calendar" />
+
+            <TextView
+                android:id="@+id/textDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="6dp"
+                android:text="Portuguese, Mexican"
+                android:textColor="@color/greyish"
+                android:textSize="10sp"
+                app:layout_constraintBottom_toBottomOf="@+id/calendar_icon"
+                app:layout_constraintStart_toEndOf="@+id/calendar_icon"
+                app:layout_constraintTop_toTopOf="@+id/calendar_icon" />
+
+            <ImageView
+                android:id="@+id/money_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                app:layout_constraintStart_toStartOf="@+id/calendar_icon"
+                app:layout_constraintTop_toBottomOf="@+id/calendar_icon"
+                app:srcCompat="@drawable/icon_money" />
+
+            <TextView
+                android:id="@+id/textMoney"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="6dp"
+                android:text="7th st, view kouba, algiers"
+                android:textColor="@color/greyish"
+                android:textSize="10sp"
+                app:layout_constraintBottom_toBottomOf="@+id/money_icon"
+                app:layout_constraintStart_toEndOf="@+id/money_icon"
+                app:layout_constraintTop_toTopOf="@+id/money_icon" />
+
+            <ImageView
+                android:id="@+id/time_icon"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginStart="200dp"
+                android:layout_marginTop="8dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textRestaurantName"
+                app:srcCompat="@drawable/icon_res_clock" />
+
+            <TextView
+                android:id="@+id/textTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="6dp"
+                android:text="05:30 PM"
+                android:textColor="@color/greyish"
+                android:textSize="10sp"
+                app:layout_constraintBottom_toBottomOf="@+id/time_icon"
+                app:layout_constraintStart_toEndOf="@+id/time_icon"
+                app:layout_constraintTop_toTopOf="@+id/time_icon" />
+
+            <ImageView
+                android:id="@+id/location_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                app:layout_constraintStart_toStartOf="@+id/time_icon"
+                app:layout_constraintTop_toBottomOf="@+id/time_icon"
+                app:srcCompat="@drawable/icon_location" />
+
+            <TextView
+                android:id="@+id/textLocation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="6dp"
+                android:text="view kouba, algiers"
+                android:textColor="@color/greyish"
+                android:textSize="10sp"
+                app:layout_constraintBottom_toBottomOf="@+id/location_icon"
+                app:layout_constraintStart_toEndOf="@+id/location_icon"
+                app:layout_constraintTop_toTopOf="@+id/location_icon" />
+
+            <Button
+                android:id="@+id/buttonRate"
+                android:layout_width="90dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/bg_rate_btn_grey"
+                android:backgroundTint="#FF0000"
+                android:text="Rate"
+                android:textAllCaps="false"
+                android:textColor="#FFFFFF"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textMoney" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

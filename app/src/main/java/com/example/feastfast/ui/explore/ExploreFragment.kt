@@ -9,16 +9,19 @@ import android.widget.Toast
 import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.feastfast.R
 import com.example.feastfast.databinding.FragmentExploreBinding
 import com.example.feastfast.models.Restaurant
+import com.example.feastfast.models.retrofit.Endpoint
+import kotlinx.coroutines.*
 
 class ExploreFragment : Fragment() {
 
     lateinit var binding : FragmentExploreBinding
+
     lateinit var myContext : Context
     lateinit var adapter: RestaurantAdapter
-    lateinit var data : List<Restaurant>
+    lateinit var myData : List<Restaurant>
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -32,11 +35,12 @@ class ExploreFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         myContext= requireActivity()
         binding.recycleView.layoutManager = LinearLayoutManager(myContext)
-        data = loadData()
-        binding.recycleView.adapter= RestaurantAdapter(data,myContext)
-        adapter = binding.recycleView.adapter as RestaurantAdapter
+        loadData()
 
 
+
+
+        //seach logic
         val searchView = binding.searchView
         searchView.clearFocus()
         searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
@@ -48,27 +52,39 @@ class ExploreFragment : Fragment() {
                 return false
             }
         })
+}
+
+
+    fun loadData(){
+        val exceptionHandler = CoroutineExceptionHandler{ coroutineContext, throwable ->
+            requireActivity().runOnUiThread {
+                val errorMessage = "Error occurred: ${throwable.localizedMessage}"
+                Toast.makeText(requireActivity(), errorMessage, Toast.LENGTH_LONG).show()
+            }
+        }
+
+        CoroutineScope(Dispatchers.IO+exceptionHandler).launch {
+            val pref = requireActivity().getSharedPreferences("myPreferences", Context.MODE_PRIVATE)
+            val idUser = pref.getInt("idUser",0)
+            val response = Endpoint.createEndpoint().getAllRestaurants(idUser)
+            withContext(Dispatchers.Main) {
+                if (response.isSuccessful && response.body() != null) {
+                    val data = response.body()!!.toList()
+                    myData=data
+                    binding.recycleView.adapter= RestaurantAdapter(data,myContext)
+                    adapter = binding.recycleView.adapter as RestaurantAdapter
+                } else {
+                    Toast.makeText(myContext, "Request unsuccessful!", Toast.LENGTH_SHORT).show()
+                }
+            }
+        }
     }
 
-    fun loadData() : List<Restaurant> {
-        return listOf(
-            Restaurant(1,"HotSpot DZ 1",R.drawable.image_hotspot_logo2,R.drawable.image_hotspot,"7th street, view kouba", 0F,0F,"Mexican, portuguese",4.1F,"0550710721","hotspot@hotspot.dz","https://www.instagram.com/hotspot_dz/","https://web.facebook.com/HotSpotdz"),
-            Restaurant(2,"Pizzeria",R.drawable.image_hotspot_logo2,R.drawable.image_hotspot,"7th street, view kouba", 0F,0F,"Mexican, portuguese",4.1F,"0550710721","hotspot@hotspot.dz","https://www.instagram.com/hotspot_dz/","https://web.facebook.com/HotSpotdz"),
-            Restaurant(3,"sparTacos",R.drawable.image_hotspot_logo2,R.drawable.image_hotspot,"7th street, view kouba", 0F,0F,"Mexican, portuguese",4.1F,"0550710721","hotspot@hotspot.dz","https://www.instagram.com/hotspot_dz/","https://web.facebook.com/HotSpotdz"),
-            Restaurant(4,"bella",R.drawable.image_hotspot_logo2,R.drawable.image_hotspot,"7th street, view kouba", 0F,0F,"Mexican, portuguese",4.1F,"0550710721","hotspot@hotspot.dz","https://www.instagram.com/hotspot_dz/","https://web.facebook.com/HotSpotdz"),
-            Restaurant(5,"pizzalio",R.drawable.image_hotspot_logo2,R.drawable.image_hotspot,"7th street, view kouba", 0F,0F,"Mexican, portuguese",4.1F,"0550710721","hotspot@hotspot.dz","https://www.instagram.com/hotspot_dz/","https://web.facebook.com/HotSpotdz"),
-            Restaurant(6,"tacosland",R.drawable.image_hotspot_logo2,R.drawable.image_hotspot,"7th street, view kouba", 0F,0F,"Mexican, portuguese",4.1F,"0550710721","hotspot@hotspot.dz","https://www.instagram.com/hotspot_dz/","https://web.facebook.com/HotSpotdz")
-        )
-    }
-
-    fun getRestaurantById(id: Int) : Restaurant?{
-        return data.find { it.id==id }
-    }
 
     fun search(queryText:String?){
         if (queryText != null && queryText.isNotEmpty()){
             val filteredList = mutableListOf<Restaurant>()
-            for(restaurant in data){
+            for(restaurant in myData){
                 if (restaurant.name.lowercase().contains(queryText.lowercase())){
                     filteredList.add(restaurant)
                 }
@@ -78,10 +94,9 @@ class ExploreFragment : Fragment() {
                 adapter.setFilteredList(filteredList)
             }else{
                 Toast.makeText(context,"No matches found" , Toast.LENGTH_SHORT).show()
-                adapter.setFilteredList(data)
+                adapter.setFilteredList(myData)
             }
         }
     }
-
 
 }

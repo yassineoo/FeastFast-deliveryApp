@@ -1,28 +1,38 @@
 package com.example.feastfast
 
-import android.app.Activity
-import android.content.Intent
 import android.os.Bundle
-import android.widget.Toast
-import com.google.android.material.bottomnavigation.BottomNavigationView
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.feastfast.databinding.ActivityMainBinding
+import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.firebase.messaging.FirebaseMessaging
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
-    var address : String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        installSplashScreen()
+
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
+        // Get the FCM token
+        FirebaseMessaging.getInstance().token
+            .addOnCompleteListener { task ->
+                if (task.isSuccessful) {
+                    val token = task.result
+                    Log.d("FCM Token HERE HEEERE", token)
+                    // Here, you can save or use the token as needed
+                } else {
+                    Log.e("FCM Token", "Failed to retrieve token: ${task.exception?.message}")
+                }
+            }
         val navView: BottomNavigationView = binding.navView
 
         val navController = findNavController(R.id.nav_host_fragment_activity_main)
@@ -34,7 +44,8 @@ class MainActivity : AppCompatActivity() {
             )
         )
 
-      //  setupActionBarWithNavController(navController, appBarConfiguration)
+
+        //  setupActionBarWithNavController(navController, appBarConfiguration)
 
         navView.setupWithNavController(navController)
     }

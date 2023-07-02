@@ -1,9 +1,8 @@
 <resources>
-    <string name="app_name">FeastFast</string>
+    <string name="app_name">Feast Fast</string>
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_login">LoginActivity</string>
     <string name="prompt_email">Email</string>
@@ -29,6 +28,8 @@
     <string name="forgotPassword">Forgot Password ?</string>
     <string name="rememberMe">Remember Me</string>
     <string name="terms">By using Feast Fast you agree on our terms and privacy policy</string>
+    <string name="addPicture">Add profile picture !</string>
+
     <string name="deliver">Deliver to</string>
     <string name="explore">Explore</string>
     <string name="allRestaurants">All restaurants</string>
@@ -53,9 +54,23 @@
     <string name="alternatively">Or Alternatively</string>
     <string name="useLocation">Use your current location</string>
     <string name="searchHint">Search for a store</string>
+    <string name="your">Your</string>
+    <string name="orders">Orders</string>
 
     <string name="BillText">Bill</string>
     <string name="foodTotal">Food Total</string>
     <string name="deliveryFeeText">Delivery Fee</string>
     <string name="total">Total</string>
+
+
+    <string name="personalInfo">Personnal Information</string>
+    <string name="favoriteResttaurants">Favorite Restaurants</string>
+    <string name="language">Languages</string>
+    <string name="customerSupport">Costumer Support</string>
+    <string name="aboutApp">About App</string>
+    <string name="logout">LogOut</string>
+    <string name="saveChanges">Save Changes</string>
+    <string name="changeProfile">Change Profile</string>
+
+
 </resources>

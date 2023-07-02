@@ -5,9 +5,11 @@ import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.feastfast.databinding.ListItemRestaurantBinding
 import com.example.feastfast.models.Restaurant
 import com.example.feastfast.ui.restaurant.RestaurantActivity
+import com.example.feastfast.util.url
 
 class RestaurantAdapter(var data : List<Restaurant> , val context : Context) : RecyclerView.Adapter<RestaurantAdapter.RestaurantListItemViewHolder>() {
 
@@ -24,16 +26,24 @@ class RestaurantAdapter(var data : List<Restaurant> , val context : Context) : R
     override fun getItemCount() = data.size
 
     override fun onBindViewHolder(holder: RestaurantListItemViewHolder, position: Int) {
+
+
+
+
         holder.binding.apply {
-            textRestaurantName.text = data[position].name
-            imageRestaurant.setImageResource(data[position].picture)
+             Glide.with(context).load(url+data[position].logo) . into(imageLogo)
+             Glide.with(context).load(url+data[position].picture).into(imageRestaurant)
             textRating.text = data[position].averageRating.toString()
             textCuisine.text =  data[position].cuisineType
+            val pref = context.getSharedPreferences("myPreferences", Context.MODE_PRIVATE)
+            val con = pref.getBoolean("connected", false)
             textAddress.text = data[position].locationAddress
+            textRestaurantName.text = data[position].name
             viewCardContent.setOnClickListener {
                     val intent = Intent(context , RestaurantActivity::class.java)
                     intent.putExtra("Restaurant",data[position])
                     context.startActivity(intent)
+
             }
         }
     }

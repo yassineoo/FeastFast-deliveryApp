@@ -13,6 +13,9 @@
         <action
             android:id="@+id/action_restaurantFragment_to_menuItemDetailsFragment"
             app:destination="@id/menuItemDetailsFragment" />
+        <action
+            android:id="@+id/action_restaurantFragment_to_ratingFragment"
+            app:destination="@id/ratingFragment" />
     </fragment>
     <dialog
         android:id="@+id/menuItemDetailsFragment"
@@ -20,6 +23,14 @@
         android:label="MenuItemDetailsFragment" >
         <action
             android:id="@+id/action_menuItemDetailsFragment_to_restaurantFragment"
+            app:destination="@id/restaurantFragment" />
+    </dialog>
+    <dialog
+        android:id="@+id/ratingFragment"
+        android:name="com.example.feastfast.ui.restaurant.RatingFragment"
+        android:label="RatingFragment" >
+        <action
+            android:id="@+id/action_ratingFragment_to_restaurantFragment"
             app:destination="@id/restaurantFragment" />
     </dialog>
 </navigation>
